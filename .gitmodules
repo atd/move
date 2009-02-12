@@ -1,0 +1,9 @@
+[submodule "vendor/plugins/engines"]
+	path = vendor/plugins/engines
+	url = git://github.com/atd/engines.git
+[submodule "vendor/plugins/attachment_fu"]
+	path = vendor/plugins/attachment_fu
+	url = git://github.com/atd/attachment_fu.git
+[submodule "vendor/plugins/cmsplugin"]
+	path = vendor/plugins/cmsplugin
+	url = git://github.com/atd/cmsplugin.git
