@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+move:
+  title: Move
+  description: Move Rubyforge page 
+  created_at: <%= 2.hours.ago.to_s :db %>
+  updated_at: <%= 1.hours.ago.to_s :db %>
+  owner: dta (User)
+  ar_uri: move
+  author: dta (User)
+  public_read: true
+ror:
+  title: Ruby on Rails
+  description: Nice web development framework
+  created_at: <%= 5.minutes.ago.to_s :db %>
+  updated_at: <%= 5.minutes.ago.to_s :db %>
+  owner: dta (User)
+  ar_uri: ror
+  author: dta (User)
+  public_read: true

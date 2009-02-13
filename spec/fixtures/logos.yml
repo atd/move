@@ -1,0 +1,431 @@
+--- 
+logo_00012: 
+  created_at: 2007-03-22 20:46:58 +01:00
+  content_type: image/jpeg
+  updated_at: 2007-03-22 20:46:58 +01:00
+  thumbnail: logo
+  size: 2288
+  agent_type: 
+  id: 12
+  height: 64
+  filename: userlogo_logo.jpg
+  parent_id: 10
+  width: 65
+  agent_id: 
+logo_00001: 
+  created_at: 2007-03-22 20:46:58 +01:00
+  content_type: image/jpeg
+  updated_at: 2007-03-22 20:46:58 +01:00
+  thumbnail: 
+  size: 2288
+  agent_type: User
+  id: 1
+  height: 64
+  filename: userlogo.jpg
+  parent_id: 
+  width: 65
+  agent_id: <%= Fixtures.identify(:dta) %>
+logo_00023: 
+  created_at: 2007-03-22 20:47:14 +01:00
+  content_type: image/jpeg
+  updated_at: 2007-03-22 20:47:14 +01:00
+  thumbnail: icon
+  size: 442
+  agent_type: 
+  id: 23
+  height: 16
+  filename: grouplogo_icon.jpg
+  parent_id: 22
+  width: 16
+  agent_id: 
+logo_00024: 
+  created_at: 2007-03-22 20:47:14 +01:00
+  content_type: image/jpeg
+  updated_at: 2007-03-22 20:47:14 +01:00
+  thumbnail: logo
+  size: 2236
+  agent_type: 
+  id: 24
+  height: 64
+  filename: grouplogo_logo.jpg
+  parent_id: 22
+  width: 65
+  agent_id: 
+logo_00002: 
+  created_at: 2007-03-22 20:46:58 +01:00
+  content_type: image/jpeg
+  updated_at: 2007-03-22 20:46:58 +01:00
+  thumbnail: icon
+  size: 471
+  agent_type: 
+  id: 2
+  height: 16
+  filename: userlogo_icon.jpg
+  parent_id: 1
+  width: 16
+  agent_id: 
+logo_00013: 
+  created_at: 2007-03-22 20:47:13 +01:00
+  content_type: image/jpeg
+  updated_at: 2007-03-22 20:47:13 +01:00
+  thumbnail: 
+  size: 2227
+  agent_type: Group
+  id: 13
+  height: 64
+  filename: grouplogo.jpg
+  parent_id: 
+  width: 65
+  agent_id: <%= Fixtures.identify(:testers) %>
+logo_00014: 
+  created_at: 2007-03-22 20:47:13 +01:00
+  content_type: image/jpeg
+  updated_at: 2007-03-22 20:47:13 +01:00
+  thumbnail: icon
+  size: 442
+  agent_type: 
+  id: 14
+  height: 16
+  filename: grouplogo_icon.jpg
+  parent_id: 13
+  width: 16
+  agent_id: 
+logo_00003: 
+  created_at: 2007-03-22 20:46:58 +01:00
+  content_type: image/jpeg
+  updated_at: 2007-03-22 20:46:58 +01:00
+  thumbnail: logo
+  size: 2288
+  agent_type: 
+  id: 3
+  height: 64
+  filename: userlogo_logo.jpg
+  parent_id: 1
+  width: 65
+  agent_id: 
+logo_00004: 
+  created_at: 2007-03-22 20:46:58 +01:00
+  content_type: image/jpeg
+  updated_at: 2007-03-22 20:46:58 +01:00
+  thumbnail: 
+  size: 2288
+  agent_type: User
+  id: 4
+  height: 64
+  filename: userlogo.jpg
+  parent_id: 
+  width: 65
+  agent_id: <%= Fixtures.identify(:nokates) %>
+logo_00015: 
+  created_at: 2007-03-22 20:47:13 +01:00
+  content_type: image/jpeg
+  updated_at: 2007-03-22 20:47:13 +01:00
+  thumbnail: logo
+  size: 2236
+  agent_type: 
+  id: 15
+  height: 64
+  filename: grouplogo_logo.jpg
+  parent_id: 13
+  width: 65
+  agent_id: 
+logo_00016: 
+  created_at: 2007-03-22 20:47:14 +01:00
+  content_type: image/jpeg
+  updated_at: 2007-03-22 20:47:14 +01:00
+  thumbnail: 
+  size: 2227
+  agent_type: Group
+  id: 16
+  height: 64
+  filename: grouplogo.jpg
+  parent_id: 
+  width: 65
+  agent_id: <%= Fixtures.identify(:dta_friends) %>
+logo_00005: 
+  created_at: 2007-03-22 20:46:58 +01:00
+  content_type: image/jpeg
+  updated_at: 2007-03-22 20:46:58 +01:00
+  thumbnail: icon
+  size: 471
+  agent_type: 
+  id: 5
+  height: 16
+  filename: userlogo_icon.jpg
+  parent_id: 4
+  width: 16
+  agent_id: 
+logo_00006: 
+  created_at: 2007-03-22 20:46:58 +01:00
+  content_type: image/jpeg
+  updated_at: 2007-03-22 20:46:58 +01:00
+  thumbnail: logo
+  size: 2288
+  agent_type: 
+  id: 6
+  height: 64
+  filename: userlogo_logo.jpg
+  parent_id: 4
+  width: 65
+  agent_id: 
+logo_00017: 
+  created_at: 2007-03-22 20:47:14 +01:00
+  content_type: image/jpeg
+  updated_at: 2007-03-22 20:47:14 +01:00
+  thumbnail: icon
+  size: 442
+  agent_type: 
+  id: 17
+  height: 16
+  filename: grouplogo_icon.jpg
+  parent_id: 16
+  width: 16
+  agent_id: 
+logo_00018: 
+  created_at: 2007-03-22 20:47:14 +01:00
+  content_type: image/jpeg
+  updated_at: 2007-03-22 20:47:14 +01:00
+  thumbnail: logo
+  size: 2236
+  agent_type: 
+  id: 18
+  height: 64
+  filename: grouplogo_logo.jpg
+  parent_id: 16
+  width: 65
+  agent_id: 
+logo_00007: 
+  created_at: 2007-03-22 20:46:58 +01:00
+  content_type: image/jpeg
+  updated_at: 2007-03-22 20:46:58 +01:00
+  thumbnail: 
+  size: 2288
+  agent_type: User
+  id: 7
+  height: 64
+  filename: userlogo.jpg
+  parent_id: 
+  width: 65
+  agent_id: <%= Fixtures.identify(:pikozorro) %>
+logo_00020: 
+  created_at: 2007-03-22 20:47:14 +01:00
+  content_type: image/jpeg
+  updated_at: 2007-03-22 20:47:14 +01:00
+  thumbnail: icon
+  size: 442
+  agent_type: 
+  id: 20
+  height: 16
+  filename: grouplogo_icon.jpg
+  parent_id: 19
+  width: 16
+  agent_id: 
+logo_00008: 
+  created_at: 2007-03-22 20:46:58 +01:00
+  content_type: image/jpeg
+  updated_at: 2007-03-22 20:46:58 +01:00
+  thumbnail: icon
+  size: 471
+  agent_type: 
+  id: 8
+  height: 16
+  filename: userlogo_icon.jpg
+  parent_id: 7
+  width: 16
+  agent_id: 
+logo_00019: 
+  created_at: 2007-03-22 20:47:14 +01:00
+  content_type: image/jpeg
+  updated_at: 2007-03-22 20:47:14 +01:00
+  thumbnail: 
+  size: 2227
+  agent_type: Group
+  id: 19
+  height: 64
+  filename: grouplogo.jpg
+  parent_id: 
+  width: 65
+  agent_id: <%= Fixtures.identify(:pikozorro_friends) %>
+logo_00010: 
+  created_at: 2007-03-22 20:46:58 +01:00
+  content_type: image/jpeg
+  updated_at: 2007-03-22 20:46:58 +01:00
+  thumbnail: 
+  size: 2288
+  agent_type: User
+  id: 10
+  height: 64
+  filename: userlogo.jpg
+  parent_id: 
+  width: 65
+  agent_id: <%= Fixtures.identify(:test) %>
+logo_00009: 
+  created_at: 2007-03-22 20:46:58 +01:00
+  content_type: image/jpeg
+  updated_at: 2007-03-22 20:46:58 +01:00
+  thumbnail: logo
+  size: 2288
+  agent_type: 
+  id: 9
+  height: 64
+  filename: userlogo_logo.jpg
+  parent_id: 7
+  width: 65
+  agent_id: 
+logo_00021: 
+  created_at: 2007-03-22 20:47:14 +01:00
+  content_type: image/jpeg
+  updated_at: 2007-03-22 20:47:14 +01:00
+  thumbnail: logo
+  size: 2236
+  agent_type: 
+  id: 21
+  height: 64
+  filename: grouplogo_logo.jpg
+  parent_id: 19
+  width: 65
+  agent_id: 
+logo_00022: 
+  created_at: 2007-03-22 20:47:14 +01:00
+  content_type: image/jpeg
+  updated_at: 2007-03-22 20:47:14 +01:00
+  thumbnail: 
+  size: 2227
+  agent_type: Group
+  id: 22
+  height: 64
+  filename: grouplogo.jpg
+  parent_id: 
+  width: 65
+  agent_id: <%= Fixtures.identify(:piglove) %>
+logo_00011: 
+  created_at: 2007-03-22 20:46:58 +01:00
+  content_type: image/jpeg
+  updated_at: 2007-03-22 20:46:58 +01:00
+  thumbnail: icon
+  size: 471
+  agent_type: 
+  id: 11
+  height: 16
+  filename: userlogo_icon.jpg
+  parent_id: 10
+  width: 16
+  agent_id: 
+logo_00025: 
+  created_at: 2007-03-22 20:46:58 +01:00
+  content_type: image/jpeg
+  updated_at: 2007-03-22 20:46:58 +01:00
+  thumbnail: 
+  size: 2288
+  agent_type: User
+  id: 25
+  height: 64
+  filename: userlogo.jpg
+  parent_id: 
+  width: 65
+  agent_id: <%= Fixtures.identify(:sabino) %>
+logo_00026: 
+  created_at: 2007-03-22 20:46:58 +01:00
+  content_type: image/jpeg
+  updated_at: 2007-03-22 20:46:58 +01:00
+  thumbnail: icon
+  size: 471
+  agent_type: 
+  id: 26
+  height: 16
+  filename: userlogo_icon.jpg
+  parent_id: 25
+  width: 16
+  agent_id: 
+logo_00027: 
+  created_at: 2007-03-22 20:46:58 +01:00
+  content_type: image/jpeg
+  updated_at: 2007-03-22 20:46:58 +01:00
+  thumbnail: logo
+  size: 2288
+  agent_type: 
+  id: 27
+  height: 64
+  filename: userlogo_logo.jpg
+  parent_id: 25
+  width: 65
+  agent_id: 
+logo_00028: 
+  created_at: 2007-03-22 20:47:13 +01:00
+  content_type: image/jpeg
+  updated_at: 2007-03-22 20:47:13 +01:00
+  thumbnail: 
+  size: 2227
+  agent_type: Group
+  id: 28
+  height: 64
+  filename: grouplogo.jpg
+  parent_id: 
+  width: 65
+  agent_id: <%= Fixtures.identify(:elab) %>
+logo_00029: 
+  created_at: 2007-03-22 20:47:13 +01:00
+  content_type: image/jpeg
+  updated_at: 2007-03-22 20:47:13 +01:00
+  thumbnail: icon
+  size: 442
+  agent_type: 
+  id: 29
+  height: 16
+  filename: grouplogo_icon.jpg
+  parent_id: 28
+  width: 16
+  agent_id: 
+logo_00030: 
+  created_at: 2007-03-22 20:47:13 +01:00
+  content_type: image/jpeg
+  updated_at: 2007-03-22 20:47:13 +01:00
+  thumbnail: logo
+  size: 2236
+  agent_type: 
+  id: 30
+  height: 64
+  filename: grouplogo_logo.jpg
+  parent_id: 28
+  width: 65
+  agent_id: 
+logo_00031: 
+  created_at: 2007-03-22 20:47:13 +01:00
+  content_type: image/jpeg
+  updated_at: 2007-03-22 20:47:13 +01:00
+  thumbnail: 
+  size: 2227
+  agent_type: Group
+  id: 31
+  height: 64
+  filename: grouplogo.jpg
+  parent_id: 
+  width: 65
+  agent_id: <%= Fixtures.identify(:xpressions) %>
+logo_00032: 
+  created_at: 2007-03-22 20:47:13 +01:00
+  content_type: image/jpeg
+  updated_at: 2007-03-22 20:47:13 +01:00
+  thumbnail: icon
+  size: 442
+  agent_type: 
+  id: 32
+  height: 16
+  filename: grouplogo_icon.jpg
+  parent_id: 31
+  width: 16
+  agent_id: 
+logo_00033: 
+  created_at: 2007-03-22 20:47:13 +01:00
+  content_type: image/jpeg
+  updated_at: 2007-03-22 20:47:13 +01:00
+  thumbnail: logo
+  size: 2236
+  agent_type: 
+  id: 33
+  height: 64
+  filename: grouplogo_logo.jpg
+  parent_id: 31
+  width: 65
+  agent_id: 
+

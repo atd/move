@@ -1,0 +1,25 @@
+--- 
+test: 
+  name: test
+foo: 
+  name: foo
+bar:
+  name: bar
+move:
+  name: move
+private:
+  name: private
+demo:
+  name: demo
+friends:
+  name: friends
+minutes:
+  name: minutes
+hack:
+  name: hack
+manifesto:
+  name: manifesto
+fast:
+  name: fast
+logo:
+  name: logo

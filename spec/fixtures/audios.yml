@@ -1,0 +1,25 @@
+--- 
+move_demo: 
+  created_at: <%= 1.hour.ago.to_s :db %>
+  content_type: application/ogg
+  updated_at: <%= 1.minute.ago.to_s :db %>
+  size: 18455
+  public_read: true
+  title: MOVE demo
+  description: This is a MOVE demo
+  filename: this_is_a_MOVE_demo.ogg
+  db_file_id: 4
+  author: dta (User)
+  owner: dta (User)
+move_fast_demo: 
+  created_at: <%= 58.minutes.ago.to_s :db %>
+  content_type: application/ogg
+  updated_at: <%= 58.minutes.ago.to_s :db %>
+  size: 15740
+  public_read: true
+  title: MOVE fast demo
+  description: This is a MOVE demo
+  filename: this_is_a_MOVE_demo-2.ogg
+  db_file_id: 5
+  author: dta (User)
+  owner: dta (User)

@@ -1,0 +1,98 @@
+--- 
+test_test: 
+  tag: test
+  taggable_type: "Article"
+  taggable: test
+testers_test: 
+  tag: test
+  taggable_type: "Article"
+  taggable: testers
+test_foo: 
+  tag: foo
+  taggable_type: "Article"
+  taggable: test
+testers_bar:
+  tag: bar
+  taggable_type: "Article"
+  taggable: testers
+dta_private_private: 
+  tag: private
+  taggable_type: "Article"
+  taggable: dta_private
+dta_friends_friends:
+  tag: friends
+  taggable_type: "Article"
+  taggable: dta_friends
+picozorro_friends_friends:
+  tag: friends
+  taggable_type: "Article"
+  taggable: pikozorro_friends
+elab_minutes_minutes:
+  tag: minutes
+  taggable_type: "Article"
+  taggable: elab_minutes
+elab_hack_hack:
+  tag: hack
+  taggable_type: "Article"
+  taggable: elab_hack
+elab_hack_foo:
+  tag: foo
+  taggable_type: "Article"
+  taggable: elab_hack
+xpressions_minutes_minutes:
+  tag: minutes
+  taggable_type: "Article"
+  taggable: xpressions_minutes
+xpressions_manifesto_manifesto:
+  tag: manifesto
+  taggable_type: "Article"
+  taggable: xpressions_manifesto
+move_demo_test:
+  tag: test
+  taggable_type: "Audio"
+  taggable: move_demo
+move_fast_demo_test:
+  tag: test
+  taggable_type: "Audio"
+  taggable: move_fast_demo
+move_demo_demo:
+  tag: demo
+  taggable_type: "Audio"
+  taggable: move_demo
+move_fast_demo_demo:
+  tag: demo
+  taggable_type: "Audio"
+  taggable: move_fast_demo
+move_demo_move:
+  tag: move
+  taggable_type: "Audio"
+  taggable: move_demo
+move_fast_demo_move:
+  tag: move
+  taggable_type: "Audio"
+  taggable: move_fast_demo
+move_fast_demo_fast:
+  tag: fast
+  taggable_type: "Audio"
+  taggable: move_fast_demo
+move_logo_move:
+  tag: move
+  taggable_type: "Photo"
+  taggable: move_logo
+move_logo_logo:
+  tag: logo
+  taggable_type: "Photo"
+  taggable: move_logo
+move_logo_test:
+  tag: test
+  taggable_type: "Photo"
+  taggable: move_logo
+move_move:
+  tag: move
+  taggable_type: "Bookmark"
+  taggable: move
+move_test:
+  tag: test
+  taggable_type: "Bookmark"
+  taggable: move
+

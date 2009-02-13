@@ -1,0 +1,101 @@
+--- 
+test: 
+  title: Test article
+  description: Summary for a test article
+  body: Body for a test article
+  created_at: <%= 2.day.ago.to_s :db %>
+  updated_at: <%= 2.day.ago.to_s :db %>
+  version: 1
+  parent_id: 
+  author: test (User)
+  owner: test (User)
+  public_read: true
+testers: 
+  title: Testers article
+  description: 
+  body: This article is for the testers group
+  created_at: <%= 1.day.ago.to_s :db %>
+  updated_at: <%= 1.day.ago.to_s :db %>
+  version: 1
+  parent_id: 
+  author: test (User)
+  owner: testers (Group)
+  public_read: true
+dta_private: 
+  title: DTA private article
+  description: This article is only for me
+  body: My on-going thoughts
+  created_at: <%= 1.hour.ago.to_s :db %>
+  updated_at: <%= 1.hour.ago.to_s :db %>
+  version: 1
+  parent_id: 
+  author: dta (User)
+  owner: dta (User)
+  public_read: false
+dta_friends: 
+  title: DTA friends article
+  description: This article is only for my friends
+  body: Something about me
+  created_at: <%= 2.hour.ago.to_s :db %>
+  updated_at: <%= 2.hour.ago.to_s :db %>
+  version: 1
+  parent_id: 
+  author: dta (User)
+  owner: dta (User)
+  public_read: false
+pikozorro_friends: 
+  title: Picozorro friends article
+  description: This article is only for my friends
+  body: Something about me
+  created_at: <%= 1.minute.ago.to_s :db %>
+  updated_at: <%= 1.minute.ago.to_s :db %>
+  version: 1
+  parent_id: 
+  author: pikozorro (User)
+  owner: pikozorro (User)
+  public_read: false
+elab_minutes: 
+  title: Elab minutes
+  description: 
+  body: What we did today in the Elab
+  created_at: <%= 2.minutes.ago.to_s :db %>
+  updated_at: <%= 2.minutes.ago.to_s :db %>
+  version: 1
+  parent_id: 
+  author: dta (User)
+  owner: elab (Group)
+  public_read: false
+elab_hack: 
+  title: Elab nth hack
+  description: 
+  body: Just another nice hack
+  created_at: <%= 3.minutes.ago.to_s :db %>
+  updated_at: <%= 3.minutes.ago.to_s :db %>
+  version: 1
+  parent_id: 
+  author: pikozorro (User)
+  owner: elab (Group)
+  public_read: true
+xpressions_minutes: 
+  title: Xpressions minutes
+  description: 
+  body: What we decided today
+  created_at: <%= 4.minutes.ago.to_s :db %>
+  updated_at: <%= 4.minutes.ago.to_s :db %>
+  version: 1
+  parent_id: 
+  author: sabino (User)
+  owner: xpressions (Group)
+  public_read: false
+xpressions_manifesto: 
+  title: Xpressions manifesto
+  description: 
+  body: Some important ideas
+  created_at: <%= 5.minutes.ago.to_s :db %>
+  updated_at: <%= 6.minutes.ago.to_s :db %>
+  version: 1
+  parent_id: 
+  author: sabino (User)
+  owner: xpressions (Group)
+  public_read: true
+

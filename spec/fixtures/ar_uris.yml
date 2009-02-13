@@ -1,0 +1,20 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+openid:
+  uri: http://openid.net
+rubyforge:
+  uri: http://rubyforge.org
+move:
+  uri: http://rubyforge.org/projects/move
+ror:
+  uri: http://www.rubyonrails.org/
+dta_uri:
+  uri: http://<%= Site.current.domain %>/users/dta
+nokates_uri:
+  uri: http://<%= Site.current.domain %>/users/nokates
+pikozorro_uri:
+  uri: http://<%= Site.current.domain %>/users/pikozorro
+test_uri:
+  uri: http://<%= Site.current.domain %>/users/test
+sabino_uri:
+  uri: http://<%= Site.current.domain %>/users/sabino
+

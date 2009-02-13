@@ -1,0 +1,41 @@
+dta:
+  login: dta
+  email: dta@example.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  #crypted_password: "ce2/iFrNtQ8=\n" # quentin, use only if you're using 2-way encryption
+  created_at: <%= 5.days.ago.to_s :db %>
+  activated_at: <%= 5.days.ago.to_s :db %> # only if you're activating new signups
+  last_online: <%= (5.days * rand).round.ago.to_s :db %>
+nokates:
+  login: nokates
+  email: nokates@example.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  activation_code: nopuertascode # only if you're activating new signups
+  created_at: <%= 4.days.ago.to_s :db %>
+pikozorro:
+  login: pikozorro
+  email: pikozorro@example.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  created_at: <%= 3.days.ago.to_s :db %>
+  activated_at: <%= 3.days.ago.to_s :db %>
+  last_online: nil
+test:
+  login: test
+  email: test@example.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  created_at: <%= Time.now.to_s :db %>
+  activated_at: <%= Time.now.to_s :db %>
+  last_online: <%= Time.now.to_s :db %>
+sabino:
+  login: sabino
+  email: sabino@example.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  created_at: <%= 2.days.ago.to_s :db %>
+  activated_at: <%= 2.days.ago.to_s :db %>
+  last_online: <%= Time.now.to_s :db %>
+

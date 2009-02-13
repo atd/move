@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+dta_private_dta_thoughs:
+  content_id: <%= Fixtures.identify(:dta_private) %>
+  content_type: Article
+  category: dta_thoughs
+dta_friends_dta_thoughs:
+  content_id: <%= Fixtures.identify(:dta_friends) %>
+  content_type: Article
+  category: dta_thoughs
+elab_hack_elab_hacks:
+  content_id: <%= Fixtures.identify(:elab_hack) %>
+  content_type: Article
+  category: elab_hacks
+xpressions_minutes_xpressions_minutes:
+  content_id: <%= Fixtures.identify(:xpressions_minutes) %>
+  content_type: Article
+  category: xpressions_minutes

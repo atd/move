@@ -1,0 +1,47 @@
+--- 
+move_logo: 
+  created_at: <%= 1.hour.ago.to_s :db %>
+  content_type: image/png
+  updated_at: <%= 1.hour.ago.to_s :db %>
+  thumbnail: 
+  size: 31154
+  title: Logo 1
+  description: MOVE logo, first version
+  height: 90
+  filename: logo-1.png
+  db_file_id: 3
+  parent_id: 
+  width: 319
+  owner: dta (User)
+  author: dta (User)
+  public_read: true
+move_logo_thumb: 
+  created_at: <%= 1.hour.ago.to_s :db %>
+  content_type: image/png
+  updated_at: <%= 1.hour.ago.to_s :db %>
+  thumbnail: thumb
+  size: 31154
+  title: 
+  owner_type: 
+  description: 
+  height: 28
+  filename: logo-1_thumb.png
+  db_file_id: 1
+  parent: move_logo
+  width: 100
+  owner_id: 
+move_logo_normal: 
+  created_at: <%= 1.hour.ago.to_s :db %>
+  content_type: image/png
+  updated_at: <%= 1.hour.ago.to_s :db %>
+  thumbnail: normal
+  size: 31154
+  title: 
+  owner_type: 
+  description: 
+  height: 90
+  filename: logo-1_normal.png
+  db_file_id: 2
+  parent: move_logo
+  width: 319
+  owner_id: 
