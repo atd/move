@@ -1,0 +1,14 @@
+<div id="photo-<%= photo.id %>" class="stream" onmouseover="showContentInfo(event,'photo-<%= photo.id %>');" onmouseout="hideContentInfo('photo-<%= photo.id %>');">
+  <%= link_to "<img src=\"#{ photo_path(photo) }.#{ photo.format }?thumbnail=thumb\" alt=\"#{ photo.title }\" title=\"#{ photo.title }\" width=\"100\" height=\"100\" border=\"0\" ><br />#{ photo.title }", photo_path(photo) %>
+  <br />
+
+<div id="photo-<%= photo.id %>-info" class="photo-info">
+  <div class="article-info-int">
+    <%= link_to photo.title, photo_path(photo) %><br>
+    <strong><%= t('photo.published_by_author_since_time', :author => link_icon_and_name_with_author(photo), :time => time_ago_in_words(photo.updated_at)) %><br>
+    <%= tag_list photo %>
+  </div>
+</div>
+
+</div>
+

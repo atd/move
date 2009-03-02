@@ -1,0 +1,20 @@
+<div id="leftside">
+</div>
+
+<div id="contentalt">
+  <h1><%= title %></h1>
+
+  <p class="soft">
+    <%= t('bookmark.published_by_author_since_time',
+          :author => link_icon_and_name_with_author(@bookmark),
+          :time => time_ago_in_words(@bookmark.updated_at)) %>
+  </p>
+
+  <div class="description">
+    <%= sanitize @bookmark.description %>
+  </div>
+  URL: <%= link_to h(@bookmark.uri), h(@bookmark.uri) %>
+
+  <br /><br />
+  <%= tag_list(@bookmark) %>
+</div>

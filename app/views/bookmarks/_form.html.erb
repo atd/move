@@ -1,0 +1,10 @@
+<h2><%= t('bookmark.uri') %></h2>
+<%= form.text_field :uri, :size => 50 %>
+
+<h2><%= t('bookmark.title') %></h2>
+<%= form.text_field :title, :size => 50 %>
+
+<h2><%= t('bookmark.description') %></h2>
+<%= form.text_area :description, :rows => 5 %>
+
+<%= form.tags %>

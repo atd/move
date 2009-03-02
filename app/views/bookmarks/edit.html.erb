@@ -1,0 +1,13 @@
+<div id="contentalt">
+  <h1><%= title %></h1>
+
+  <%= error_messages_for :bookmark %>
+
+  <% form_for(@bookmark) do |f| -%>
+
+    <%= render :partial => "form", :object => f %>
+
+    <%= f.submit t(:update) %>
+
+  <% end -%>
+</div>

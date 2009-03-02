@@ -1,0 +1,25 @@
+<div id="leftside">
+</div>
+
+<div id="contentalt">
+  <h1><%= title %></h1>
+
+  <p class="soft">
+    <%= t('document.published_by_author_since_time',
+          :author => link_icon_and_name_with_author(@document),
+          :time => time_ago_in_words(@document.updated_at)) %>
+
+  <% if @document.authorizes? current_agent, :update -%>
+    <br />
+    <%= link_to t('edit'), edit_document_path(@document) %>
+    <%= render(:partial => 'contents/versions', :object => @content_versions) if @content_versions -%>
+  <% end -%>
+  </p>
+  <%= link_to image_tag(icon_image(@document), :title => sanitize(@document.title), :alt => sanitize(@document.title) ) , "#{ document_path(@document) }.#{ @content.format }" %>
+
+  <br />
+  <%= sanitize @document.description %>
+
+  <br /><br />
+  <%= tag_list @document %>
+</div>

@@ -1,5 +1,5 @@
 # This file is auto-generated from the current state of the database. Instead of editing this file, 
-# please use the migrations feature of ActiveRecord to incrementally modify your database, and
+# please use the migrations feature of Active Record to incrementally modify your database, and
 # then regenerate this schema definition.
 #
 # Note that this schema.rb definition is the authoritative source for your database schema. If you need
@@ -9,13 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 43) do
-
-  create_table "ar_uris", :force => true do |t|
-    t.string "uri"
-  end
-
-  add_index "ar_uris", ["uri"], :name => "index_ar_uris_on_uri"
+ActiveRecord::Schema.define(:version => 20090302142111) do
 
   create_table "article_versions", :force => true do |t|
     t.integer  "article_id"
@@ -76,7 +70,7 @@ ActiveRecord::Schema.define(:version => 43) do
     t.integer  "author_id"
     t.boolean  "public_read"
     t.string   "author_type"
-    t.integer  "ar_uri_id"
+    t.integer  "uri_id"
   end
 
   create_table "categories", :force => true do |t|
@@ -198,8 +192,8 @@ ActiveRecord::Schema.define(:version => 43) do
     t.string  "namespace"
   end
 
-  add_index "globalize_translations", ["tr_key", "language_id"], :name => "index_globalize_translations_on_tr_key_and_language_id"
   add_index "globalize_translations", ["table_name", "item_id", "language_id"], :name => "globalize_translations_table_name_and_item_and_language"
+  add_index "globalize_translations", ["tr_key", "language_id"], :name => "index_globalize_translations_on_tr_key_and_language_id"
 
   create_table "groups", :force => true do |t|
     t.string   "name"
@@ -233,6 +227,20 @@ ActiveRecord::Schema.define(:version => 43) do
     t.datetime "updated_at"
   end
 
+  create_table "invitations", :force => true do |t|
+    t.string   "code"
+    t.string   "email"
+    t.integer  "agent_id"
+    t.string   "agent_type"
+    t.integer  "stage_id"
+    t.string   "stage_type"
+    t.integer  "role_id"
+    t.string   "acceptation_code"
+    t.datetime "accepted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "logos", :force => true do |t|
     t.integer  "agent_id"
     t.datetime "created_at"
@@ -244,6 +252,21 @@ ActiveRecord::Schema.define(:version => 43) do
     t.integer  "width"
     t.integer  "height"
     t.string   "agent_type"
+    t.datetime "updated_at"
+  end
+
+  create_table "logotypes", :force => true do |t|
+    t.integer  "logotypable_id"
+    t.string   "logotypable_type"
+    t.integer  "size"
+    t.string   "content_type"
+    t.string   "filename"
+    t.integer  "height"
+    t.integer  "width"
+    t.integer  "parent_id"
+    t.string   "thumbnail"
+    t.integer  "db_file_id"
+    t.datetime "created_at"
     t.datetime "updated_at"
   end
 
@@ -279,6 +302,24 @@ ActiveRecord::Schema.define(:version => 43) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "performances", :force => true do |t|
+    t.integer "agent_id"
+    t.string  "agent_type"
+    t.integer "role_id"
+    t.integer "stage_id"
+    t.string  "stage_type"
+  end
+
+  create_table "permissions", :force => true do |t|
+    t.string "action"
+    t.string "objective"
+  end
+
+  create_table "permissions_roles", :id => false, :force => true do |t|
+    t.integer "permission_id"
+    t.integer "role_id"
   end
 
   create_table "photos", :force => true do |t|
@@ -327,6 +368,26 @@ ActiveRecord::Schema.define(:version => 43) do
     t.string  "read_agent_type"
   end
 
+  create_table "roles", :force => true do |t|
+    t.string "name"
+    t.string "stage_type"
+  end
+
+  create_table "singular_agents", :force => true do |t|
+    t.string "type"
+  end
+
+  create_table "sites", :force => true do |t|
+    t.string   "name",        :default => "CMSplugin powered Rails site"
+    t.text     "description"
+    t.string   "domain",      :default => "cms.example.org"
+    t.string   "email",       :default => "admin@example.org"
+    t.string   "locale"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "ssl",         :default => false
+  end
+
   create_table "taggings", :force => true do |t|
     t.integer "tag_id"
     t.integer "taggable_id"
@@ -340,6 +401,12 @@ ActiveRecord::Schema.define(:version => 43) do
   end
 
   add_index "tags", ["name"], :name => "index_tags_on_name"
+
+  create_table "uris", :force => true do |t|
+    t.string "uri"
+  end
+
+  add_index "uris", ["uri"], :name => "index_uris_on_uri"
 
   create_table "users", :force => true do |t|
     t.string   "login"

@@ -1,0 +1,70 @@
+THE BLOG ICONS
+
+This is a collection of high quality vectorial icons to represent common ideas and actions of the blogosphere.
+
+They were based on the SVG work from FeedIcons.com. The base button is the same, but mathematically simplified on the XML level. New buttons were added based on other popular icons found on the web or created by myself.
+
+By the way, I am not a designer nor an artist. I just know how to use SVG-creation tools as Inkscape or make good XML. Or I just have a blog demanding for these icons. So I’m sure people can contribute better color mixings an outlines. Let me know and lets integrate your ideas into this project in a very precise way.
+
+Please share alike this icons. They have a Creative Commons license. I appreciate if you can link to my blog when using them.
+
+Home of Blog Icons: http://avi.alkalay.net/2007/05/blog-icons.html
+
+---------
+Icons for Feed and OPML
+
+These icons where the base for this work, specially the feed icon as found in its website. They were probably created with proprietary tools such as Adobe Illustrator and then exported to open formats such as SVG or PNG. The original OPML icon can be found at opmlicons.com
+
+The versions here are visually identical to the original ones, but mathematically simplified. They are now being maintained in an open format — SVG — here, and are a better option because of its open source code and formats, and distribution.
+
+
+---------
+Icons for Trackback and Share
+
+These icons can be found sometimes in the blogosphere. I don’t know who designed them but they are a good representation of the Trackback and Pingback ideas.
+
+The Share icon is not my preferred but for now it is just a copy of what can be found around.
+
+Colors and shapes are identical and based on the feed icon button. I never saw these icons in a size bigger than 16×16 pixels. Now, in a scalable format, they can be rendered at any size you want.
+
+
+
+---------
+Icons for Permalink
+
+These are original creations and come in several options. I am still not sure which one is the best. You can also suggest other shapes.
+
+
+---------
+Other Icons
+
+Comment Icon Edit Icon Cancel Icon Tag Icon Download Icon Clock Icon
+
+Other original icons: Comments, Edit, Cancel, Tag, Download, Upload and Clock (to represent date and time). I’m open to suggestions for better shapes.
+
+
+---------
+Challenges for Icon Sizes
+
+The original design of these icons (from feedicons.com) looks wonderful on sizes bigger than 22 pixels, but most people will use them on small sizes as 16×16. I’m making some experiments with new button designs that can be found in the smallSizes folder, into the ZIP file. Have a look and contribute ideas if you can.
+
+
+---------
+Converting the SVG Files into Images
+
+In the Blog Icons ZIP file you will find the XML:SVG source code for all icons. Additionally you will get all icons in PNG (preferred), GIF and JPG formats, in common sizes from 10×10 to 128×128 pixels. If you want a specific size, you can import the source SVG file in some graphical tool as Inkscape (on Linux), or CorelDraw, Adobe Illustrator, etc and export them into any format and size you want.
+
+Or use the Makefile like this (on Linux you will need Inkscape and ImageMagick installed):
+
+Make all default sizes of all icons, in PNG, GIF and JPG:
+
+	bash$ make all
+
+Make Feed icon in GIF format, at 40×40 pixel size:
+
+	bash$ make SIZE=40 feed.gif
+
+Make all icons, all formats at 40×40 pixel sizes:
+
+	bash$ make SIZE=40
+

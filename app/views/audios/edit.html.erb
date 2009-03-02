@@ -1,0 +1,13 @@
+<div id="contentalt">
+  <h1><%= title %></h1>
+
+  <%= error_messages_for :audio %>
+
+  <% form_for(@audio, :html => { :multipart => true }) do |f| -%>
+
+    <%= render :partial => "form", :object => f %>
+
+    <%= submit_tag t(:update) %>
+
+  <% end -%>
+</div>

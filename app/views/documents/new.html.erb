@@ -1,0 +1,13 @@
+<div id="contentalt">
+  <h1><%= title %></h1>
+
+  <%= error_messages_for :document %>
+
+  <% form_for(@document, :html => { :multipart => true }) do |f| -%>
+
+    <%= render :partial => "form", :object => f %>
+
+    <%= f.submit t(:create) %>
+
+  <% end -%>
+</div>

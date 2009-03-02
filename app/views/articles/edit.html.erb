@@ -1,0 +1,17 @@
+<h1><%= title %></h1>
+
+<% unless error_messages_for(:article).blank? -%>
+<div class="errors">
+  <%= error_messages_for :article %>
+</div>
+<% end -%>
+
+<% form_for(:article,
+            :url => article_path(@article),
+            :html => { :method => :put } ) do |f| -%>
+
+  <%= render :partial => "form", :object => f %>
+
+  <%= submit_tag t(:update) %>
+
+<% end -%>

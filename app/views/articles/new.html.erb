@@ -1,0 +1,13 @@
+<div id="contentalt">
+  <h1><%= title %></h1>
+
+  <%= error_messages_for :article %>
+
+  <% form_for(@article) do |f| -%>
+
+    <%= render :partial => "form", :object => f %>
+
+    <%= f.submit t(:create) %>
+
+  <% end -%>
+</div>

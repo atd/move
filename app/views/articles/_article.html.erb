@@ -1,0 +1,19 @@
+<% div_for article do -%>
+  <h2><%= link_to sanitize(article.title), article %></h2>
+  <p class="article-data"><%= t('article.published_by_author_at_date', :author => link_icon_and_name_with_author(article), :date => localize(article.updated_at)) %>
+  <% if article.authorizes?(current_agent, :update) -%>
+  | <%= link_to(t(:edit), edit_article_url(article)) %>
+  <% end -%>
+  </p>
+
+  <div class="body">
+  <% if article.description.blank? -%>
+  <%= sanitize Hpricot(truncate(article.body, :length => 1024, :omission => "... #{ link_to(t('read_more'), article) }"), :xml_strict => true).to_s %>
+  <% else -%>
+    <%= sanitize article.description %>
+  <% end -%>
+  </div>
+  <p>
+    <%= tag_list(article) %>
+  </p>
+<% end -%>

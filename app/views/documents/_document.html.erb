@@ -1,0 +1,7 @@
+<div id="<%= dom_id(document) %>" class="stream">
+  <%= link_to "#{ image_tag( icon_image(document), :title => sanitize(document.title), :alt => 'Document', :border => 0 )}<br />#{ sanitize document.title }", document %>
+  <br />
+  <%= tag_list(document) %>
+
+</div>
+

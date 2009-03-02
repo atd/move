@@ -1,0 +1,18 @@
+<div id="leftside">
+</div>
+
+<div id="contentalt">
+  <h1><%= title %></h1>
+
+  <p class="soft">
+  <%= t('audio.published_by_author_since_time', :author => link_icon_and_name_with_author(@audio),
+                                                :time => time_ago_in_words(@audio.updated_at)) %>
+  </p>
+  <%= link_to image_tag(icon_image(@audio), :title => sanitize(@audio.title), :alt => sanitize(@audio.title) ) , "#{ audio_path(@audio) }.#{ @audio.format }" %>
+
+  <br />
+  <%= sanitize @audio.description %>
+
+  <br /><br />
+  <%= tag_list(@audio) %>
+</div>

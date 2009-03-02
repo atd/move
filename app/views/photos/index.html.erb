@@ -1,0 +1,10 @@
+<div id="leftside">
+</div>
+
+<div id="contentalt">
+  <h1><%= title %></h1>
+  <div class="stream-container">
+    <%= render :partial => 'photo', :collection => @photos %>
+  </div>
+  <%= will_paginate(@contents) %></div>
+</div>

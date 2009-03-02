@@ -1,0 +1,11 @@
+<h2><%= t('document.file') %></h2>
+<%= form.file_field :media %>
+
+<h2><%= t('document.title') %></h2>
+<%= form.text_field :title %>
+
+<h2><%= t('document.description') %></h2>
+<%= form.text_area :description, :rows => 5 %>
+
+<%= form.tags %>
+

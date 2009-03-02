@@ -1,0 +1,7 @@
+<div id="<%= dom_id(audio) %>" class="stream">
+  <%= link_to "#{ image_tag( icon_image(audio), :title => audio.title, :alt => 'Audio', :class => 'logo' )}<br />#{ sanitize audio.title }", audio %>
+  <br />
+  <%= tag_list(audio) %>
+
+</div>
+

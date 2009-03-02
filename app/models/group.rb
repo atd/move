@@ -1,5 +1,6 @@
 class Group < ActiveRecord::Base
   belongs_to :user
+  acts_as_container
 
 #  acts_as_agent :has_logo => true
 #  has_space

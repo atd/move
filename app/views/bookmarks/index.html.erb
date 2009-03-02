@@ -1,0 +1,11 @@
+<div id="leftside">
+</div>
+
+<div id="contentalt">
+  <h1><%= title %></h1>
+  <% unless @description.blank? -%>
+    <p class="soft"><%= sanitize @description %></p>
+  <% end -%>
+  <%= render :partial => "bookmark", :collection => @bookmarks %>
+  <%= will_paginate(@bookmarks) %>
+</div>

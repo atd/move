@@ -6,14 +6,12 @@ class Photo < ActiveRecord::Base
 
   belongs_to :author, :polymorphic => true
   belongs_to :owner, :polymorphic => true
-#  acts_as_content :mime_types => attachment_options[:content_type].join(", "),
-#                  :disposition => :inline
+
+  acts_as_resource :mime_types => [ :jpeg, :gif, :png ],
+                   :disposition => :inline,
+                   :has_media => :attachment_fu
+  acts_as_content :reflection => :owner
+  acts_as_taggable
 
   validates_as_attachment
-#  validates_as_content
-
-  #Fixes AttachmentFu bug
-  def full_filename
-    ""
-  end
 end
