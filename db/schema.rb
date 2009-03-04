@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090302142111) do
+ActiveRecord::Schema.define(:version => 20090303154248) do
 
   create_table "article_versions", :force => true do |t|
     t.integer  "article_id"
@@ -74,12 +74,12 @@ ActiveRecord::Schema.define(:version => 20090302142111) do
   end
 
   create_table "categories", :force => true do |t|
-    t.string   "title"
-    t.integer  "owner_id"
-    t.string   "owner_type"
+    t.string   "name"
+    t.integer  "domain_id"
+    t.string   "domain_type"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "parent"
+    t.integer  "parent_id"
     t.text     "description"
     t.boolean  "public_read"
   end
@@ -90,8 +90,8 @@ ActiveRecord::Schema.define(:version => 20090302142111) do
   end
 
   create_table "categorizations", :force => true do |t|
-    t.integer "content_id"
-    t.string  "content_type"
+    t.integer "categorizable_id"
+    t.string  "categorizable_type"
     t.integer "category_id"
   end
 

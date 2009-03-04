@@ -2,33 +2,33 @@
 dta_thoughs:
   created_at: <%= 5.days.ago.to_s :db %>
   updated_at: <%= 4.days.ago.to_s :db %>
-  title: DTAs thoughts
-  owner_id: <%= Fixtures.identify(:dta) %>
-  owner_type: User
+  name: DTAs thoughts
+  domain_id: <%= Fixtures.identify(:dta) %>
+  domain_type: User
   description: All about me
   public_read: true
 dta_images: 
   created_at: <%= 5.days.ago.to_s :db %>
   updated_at: <%= 4.days.ago.to_s :db %>
-  title: DTAs images
-  owner_id: <%= Fixtures.identify(:dta) %>
-  owner_type: User
+  name: DTAs images
+  domain_id: <%= Fixtures.identify(:dta) %>
+  domain_type: User
   description: Here they are my views
   public_read: true
 elab_hacks:
   created_at: <%= 5.days.ago.to_s :db %>
   updated_at: <%= 4.days.ago.to_s :db %>
-  title: Elab hacks
-  owner_id: <%= Fixtures.identify(:elab) %>
-  owner_type: Group
+  name: Elab hacks
+  domain_id: <%= Fixtures.identify(:elab) %>
+  domain_type: Group
   description: Some hacks from the hacklab
   public_read: true
 xpressions_minutes:
   created_at: <%= 5.days.ago.to_s :db %>
   updated_at: <%= 4.days.ago.to_s :db %>
-  title: Xpressions Minutes
-  owner_id: <%= Fixtures.identify(:xpressions) %>
-  owner_type: Group
+  name: Xpressions Minutes
+  domain_id: <%= Fixtures.identify(:xpressions) %>
+  domain_type: Group
   description: Minutes
   public_read: false
 
