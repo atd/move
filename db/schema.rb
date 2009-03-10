@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090303154248) do
+ActiveRecord::Schema.define(:version => 20090309160246) do
 
   create_table "article_versions", :force => true do |t|
     t.integer  "article_id"
@@ -211,22 +211,6 @@ ActiveRecord::Schema.define(:version => 20090303154248) do
     t.integer  "user_id"
   end
 
-  create_table "identity_ownings", :force => true do |t|
-    t.integer  "owning_agent_id"
-    t.integer  "ar_uri_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "owning_agent_type"
-  end
-
-  create_table "identity_trusts", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "ar_uri_id"
-    t.datetime "expires_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "invitations", :force => true do |t|
     t.string   "code"
     t.string   "email"
@@ -296,12 +280,22 @@ ActiveRecord::Schema.define(:version => 20090303154248) do
     t.string  "salt",       :default => "", :null => false
   end
 
-  create_table "openid_users", :force => true do |t|
-    t.integer  "identity_uri_id"
-    t.string   "nickname"
-    t.string   "email"
+  create_table "open_id_ownings", :force => true do |t|
+    t.integer  "agent_id"
+    t.integer  "uri_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "agent_type"
+  end
+
+  create_table "open_id_trusts", :force => true do |t|
+    t.integer  "agent_id"
+    t.integer  "uri_id"
+    t.datetime "expires_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "agent_type"
+    t.boolean  "local",      :default => false
   end
 
   create_table "performances", :force => true do |t|
