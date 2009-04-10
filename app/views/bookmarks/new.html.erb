@@ -1,13 +1,13 @@
-<div id="contentalt">
-  <h1><%= title %></h1>
+<%= content_for :sidebar, container_menu %>
 
-  <%= error_messages_for :bookmark %>
+<h1><%= title %></h1>
 
-  <% form_for(@bookmark) do |f| -%>
+<%= error_messages_for :bookmark %>
 
-    <%= render :partial => "form", :object => f %>
+<% form_for([ container, @bookmark]) do |f| -%>
 
-    <%= f.submit t(:create) %>
+  <%= render :partial => "form", :object => f %>
 
-  <% end -%>
-</div>
+  <%= f.submit t(:create) %>
+
+<% end -%>

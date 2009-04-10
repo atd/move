@@ -1,10 +1,7 @@
-<div id="leftside">
-</div>
+<% atom_link_header(container, Photo.new) %>
 
-<div id="contentalt">
-  <h1><%= title %></h1>
-  <div class="stream-container">
-    <%= render :partial => 'photo', :collection => @photos %>
-  </div>
-  <%= will_paginate(@contents) %></div>
-</div>
+<% content_for :sidebar, container_menu %>
+<% content_for :pagination, will_paginate(@photos) %>
+
+<h1><%= title %></h1>
+<%= render :partial => 'photo', :collection => @photos %>

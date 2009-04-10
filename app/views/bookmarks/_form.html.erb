@@ -1,10 +1,24 @@
-<h2><%= t('bookmark.uri') %></h2>
-<%= form.text_field :uri, :size => 50 %>
+<fieldset>
+<p>
+  <%= form.label :title, t('bookmark.title') %><br />
+  <%= form.text_field :title, :class => "title"%>
+</p>
 
-<h2><%= t('bookmark.title') %></h2>
-<%= form.text_field :title, :size => 50 %>
+<p>
+  <%= form.label :body, t('bookmark.uri') %><br />
+  <%= form.text_field :uri, :class => "text"%>
+</p>
 
-<h2><%= t('bookmark.description') %></h2>
-<%= form.text_area :description, :rows => 5 %>
+</fieldset>
+
+
+<fieldset>
+
+<p>
+  <%= form.label :description, t('bookmark.description'), :onclick => "new Element.toggle('toggle');" %><br />
+  <%= form.text_area :description %>
+</p>
 
 <%= form.tags %>
+
+</fieldset>

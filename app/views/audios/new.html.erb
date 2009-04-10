@@ -1,13 +1,13 @@
-<div id="contentalt">
-  <h1><%= title %></h1>
+<% content_for :sidebar, container_menu %>
 
-  <%= error_messages_for :audio %>
+<h1><%= title %></h1>
 
-  <% form_for(@audio, :html => { :multipart => true }) do |f| -%>
+<%= error_messages_for :audio %>
 
-    <%= render :partial => "form", :object => f %>
+<% form_for([ container, @audio ], :html => { :multipart => true }) do |f| -%>
 
-    <%= f.submit t(:create) %>
+  <%= render :partial => "form", :object => f %>
 
-  <% end -%>
-</div>
+  <%= f.submit t(:create) %>
+
+<% end -%>

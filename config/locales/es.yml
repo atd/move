@@ -2,53 +2,127 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 es:
+# Plugin
+  login_to: "Entrar al {{site}}"
+  agent:
+    authentication:
+      login: "Nombre"
+    no_contents: "{{agent}} no tiene contenidos"
+
+# Application
   article:
     one: "Artículo"
     other: "Artículos"
+    other_in_container: "Artículos de {{container}}"
+    the_one: "el artículo"
     published_by_author_at_date: "Publicado por {{author}} el {{date}}"
     published_by_author_since_time: "Publicado por {{author}} hace {{time}}"
     title: "Título"
     description: "Entradilla"
-    body: "Cuerpo"
-    new: "Nuevo Artículo"
+    body: "Contenido"
+    new: "Escribir Artículo"
+    created: "Artículo creado"
+    updated: "Artículo actualizado"
     editing: "Editando Artículo"
   photo:
     one: "Imagen"
     other: "Imágenes"
+    other_in_container: "Imágenes de {{container}}"
+    the_one: "la imagen"
     published_by_author_at_date: "Publicada por {{author}} el {{date}}"
     published_by_author_since_time: "Publicada por {{author}} hace {{time}}"
     title: "Título"
     description: "Descripción"
     file: "Fichero"
-    new: "Nueva Imagen"
-    editing: "Editando Imagen"
+    new: "Subir Imagen"
+    created: "Imagen subida con éxito"
+    updated: "Imagen actualizada"
+    editing: "Modificar Imagen"
   audio:
     one: "Audio"
     other: "Audios"
+    other_in_container: "Audios de {{container}}"
+    the_one: "el audio"
     published_by_author_at_date: "Publicado por {{author}} el {{date}}"
     published_by_author_since_time: "Publicado por {{author}} hace {{time}}"
     title: "Título"
     description: "Descripción"
     file: "Fichero"
-    new: "Nuevo Audio"
-    editing: "Editando Audio"
+    new: "Subir Audio"
+    created: "Audio subido con éxito"
+    updated: "Audio actualizado"
+    editing: "Modificar Audio"
   bookmark:
     one: "Enlace"
     other: "Enlaces"
+    other_in_container: "Enlaces de {{container}}"
+    the_one: "el enlace"
     published_by_author_at_date: "Publicado por {{author}} el {{date}}"
     published_by_author_since_time: "Publicado por {{author}} hace {{time}}"
     title: "Título"
     description: "Descripción"
-    uri: "Dirección (URL)"
-    new: "Nuevo Enlace"
+    uri: "Enlace"
+    new: "Crear Enlace"
+    created: "Enlace creado"
+    updated: "Enlace actualizado"
     editing: "Editando Enlace"
   document:
     one: "Fichero"
     other: "Ficheros"
+    other_in_container: "Ficheros de {{container}}"
+    the_one: "el fichero"
     published_by_author_at_date: "Publicado por {{author}} el {{date}}"
     published_by_author_since_time: "Publicado por {{author}} hace {{time}}"
     title: "Título"
     description: "Descripción"
     file: "Fichero"
-    new: "Nuevo Fichero"
-    editing: "Editando Fichero"
+    new: "Subir Fichero"
+    created: "Fichero subido con éxito"
+    updated: "Fichero actualizado"
+    editing: "Modificar Fichero"
+  user:
+    one: "Persona"
+    other: "Personas"
+    index:
+      other: "Personas Registradas"
+    preferences: "Preferencias"
+    last activity: "Última actividad de {{user}}"
+  group:
+    one: "Grupo"
+    other: "Grupos"
+    index:
+      other: "Grupos"
+    editing: "Editar Grupo"
+    updated: "Grupo actualizado"
+    last activity: "Última actividad de {{group}}"
+    name: "Nombre"
+    description: "Descripción"
+    others_read_content: "Todos los contenidos públicos"
+    others_read_members: "Lista de integrantes pública"
+    others_write_members: "Cualquiera se puede apuntar al grupo"
+    performance:
+      other: "Integrantes"
+  content:
+    stream: "{{author}} publicó {{content}} hace {{time}}"
+  community: "Comunidad"
+  last activity: "Última actividad"
+  pagination:
+    prev_label: "&laquo; Anterior"
+    next_label: "Siguiente &raquo;"
+  privacy: "Privacidad"
+
+  activerecord:
+    errors:
+        models:
+          photo:
+            attributes:
+    models:
+      article: "este artículo"
+      photo: "esta imagen"
+      audio: "este audio"
+      bookmark: "este enlace"
+      document: "este fichero"
+    attributes:
+      photo:
+        title: "El título"
+

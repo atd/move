@@ -1,0 +1,16 @@
+<% content_for :title_header, title(sanitize(@user.name), :append_site_name => true) %>
+<%= content_for :pagination, will_paginate(@contents) %>
+
+<% content_for :sidebar do %>
+ <%= agent_menu(@user) %>
+<% end %>
+
+<h1><%= t 'user.last activity', :user => @user.name %></h1>
+<div id="activity_stream">
+  <%= render :partial => 'public/content', :collection => @contents, :spacer_template => 'public/content_spacer' %>
+  <% if @contents.blank? %>
+  <div class="error">
+    <%= t('agent.no_contents', :agent => link_logotype(@user)) %>
+  </div>
+  <% end %>
+</div>

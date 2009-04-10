@@ -1,0 +1,261 @@
+
+body {
+	background-color: #554D44;
+}
+
+hr.site {
+	width: 880px;
+	margin-left: 40px;
+	background-color: #C9740A;
+}
+
+h1 {
+	color: #C9740A;
+	border-bottom: 1px solid #C9740A;
+	margin-right: 40px;
+}
+
+a {
+	color: #C9740A;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #C9740A;
+	text-decoration: underline;
+}
+
+.boxes {
+	text-align: center;
+	min-height: 120px;
+	height: 120px;
+}
+
+img.logo {
+	border: 1px #C9740A solid;
+	margin: 1px;
+}
+
+div.logo-16, div.logo-22, div.logo-32, div.logo-48, div.logo-64, div.logo-72, div.logo-96, div.logo-128, div.logo-256 {
+	padding: 0px;
+	display: inline-table;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.logo-16 {max-height: 16px;height: 16px;min-height: 16px;max-width: 16px;width: 16px;min-width: 16px;}
+.logo-22 {max-height: 22px;height: 22px;min-height: 22px;max-width: 22px;width: 22px;min-width: 22px;}
+.logo-32 {max-height: 32px;height: 32px;min-height: 32px;max-width: 32px;width: 32px;min-width: 32px;}
+.logo-48 {max-height: 48px;height: 48px;min-height: 48px;max-width: 48px;width: 48px;min-width: 48px;}
+.logo-64 {max-height: 64px;height: 64px;min-height: 64px;max-width: 64px;width: 64px;min-width: 64px;}
+.logo-72 {max-height: 72px;height: 72px;min-height: 72px;max-width: 72px;width: 72px;min-width: 72px;}
+.logo-96 {max-height: 96px;height: 96px;min-height: 96px;max-width: 96px;width: 96px;min-width: 96px;}
+.logo-128 {max-height: 128px;height: 128px;min-height: 128px;max-width: 128px;width: 128px;min-width: 128px;}
+.logo-256 {max-height: 256px;height: 256px;min-height: 256px;max-width: 256px;width: 256px;min-width: 256px;}
+
+.actions {
+	background-color: #8BF7FC;
+	border: 1px solid #359296;
+}
+
+.actions img.logo {
+	border-color: #359296;
+}
+
+.actions a {
+	color: #359296;
+}
+
+.actions a:hover {
+	color: #363636;
+}
+
+.actions ul {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+
+.errorExplanation {
+	padding: .8em;
+	margin-bottom: 1em;
+	background: #FBE3E4;
+	color: #8a1f11;
+	border: 2px solid #FBC2C4;
+}
+
+.fieldWithErrors input {
+	border: 2px solid #FBC2C4;
+}
+
+#site {
+	background-color: #FAFCFF;
+	border-left: 1px solid #909090;
+	border-right: 1px solid #909090;
+	border-bottom: 1px solid #909090;
+}
+#header { 
+	/* background: #fff; */
+}
+
+#header_logo {
+	margin-top: 5px;
+
+}
+
+#header_logo img {
+	border-width: 0px;
+}
+
+#header_title, #header_title a {
+	color: #C9740A;
+	font-size: 60px;
+	text-decoration: none;
+}
+
+#header_login {
+	width: 100px;
+	height: 50px;
+	background-color: black;
+}
+
+#header_login:hover {
+        background-color: #1fd4db;
+}
+
+#header_session {
+	margin-top: 25px;
+	min-height: 50px;
+}
+
+#session {
+	min-height: 50px;
+	background-color: #8BF7FC;
+	border: 1px solid #359296;
+}
+
+#session a {
+	color: #363636;
+}
+
+#session img.logo {
+	border: 1px solid #359296;
+}
+
+#session_agent {
+	padding-top: 15px;
+}
+
+#session_agent img.logo {
+	float: left;
+	margin-top: -7px;
+	margin-left: 4px;
+	margin-right: 4px;
+}
+
+
+#session_actions {
+	padding-top: 15px;
+	float: right;
+}
+
+#header_subtitle {
+	color: #C9740A;
+	font-size: 1.5em;
+	padding-top: 10px;
+}
+
+#navigation { background: #67FBE4; }
+#main { }
+#sidebar {
+/*	width: 189px;
+/*	border-left: 1px #C9740A solid;
+	margin-top: -10px; */
+}
+
+#sidebar img.logo {
+	float: left;
+	margin-right: 3px;
+/*	margin-bottom: 4px; */
+}
+#sidebar li {
+	font-size: 1.5em;
+	list-style-type: none;
+}
+
+#sidebar li img.logo {
+	margin-top: 4px;
+	margin-right: 6px;
+
+}
+
+#sidebar hr {
+	background-color: #C9740A;
+}
+
+#sidebar p {
+	margin-bottom: 4px;
+}
+
+#contents {
+	color: #359296;
+	margin-top: 3px;
+}
+
+#activity_stream img.logo {
+	margin-bottom: -4px;
+}
+
+#activity_stream div.odd {
+	background-color: #e6feff;
+}
+
+/*
+.activity {
+	border: 1px solid #C9740A;
+	-moz-border-radius-bottomleft: 4px;
+	-moz-border-radius-bottomright: 4px;
+	-moz-border-radius-topleft: 4px;
+	-moz-border-radius-topright: 4px;
+	margin: 4px;
+	background-color: #f4f4f4;
+}
+*/
+
+#main h2 {
+	margin-bottom: 1px;
+}
+
+#main .published-data {
+	color: #359296;
+/*	background-color: #e6feff; */
+	padding: 3px;
+	font-weight: italic;
+}
+
+#main .published-data img.logo {
+	margin-bottom: -4px;
+	margin-right: 3px;
+}
+
+#main a.bookmark {
+	font-size: 1.75em;
+}
+
+#main hr {
+	background-color: #C9740A;
+	margin: 0.50em;
+	height: 1px;
+}
+
+#footer { }
+
+/*
+ * Style in Performance options *
+#new_performance option {
+	background-position: center left;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	padding: 1px 1px 1px 18px;
+}
+*/

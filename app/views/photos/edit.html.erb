@@ -1,13 +1,13 @@
-<div id="contentalt">
-  <h1><%= title %></h1>
+<% content_for :sidebar, container_menu %>
 
-  <%= error_messages_for :photo %>
+<h1><%= title %></h1>
 
-  <% form_for(@photo, :html => { :multipart => true }) do |f| -%>
+<%= error_messages_for :photo %>
 
-    <%= render :partial => "form", :object => f %>
+<% form_for([ container, @photo ], :html => { :multipart => true }) do |f| -%>
 
-    <%= submit_tag t(:update) %>
+  <%= render :partial => "form", :object => f %>
 
-  <% end -%>
-</div>
+  <%= submit_tag t(:update) %>
+
+<% end -%>

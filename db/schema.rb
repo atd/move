@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090310140848) do
+ActiveRecord::Schema.define(:version => 20090410104744) do
 
   create_table "article_versions", :force => true do |t|
     t.integer  "article_id"
@@ -174,7 +174,7 @@ ActiveRecord::Schema.define(:version => 20090310140848) do
   end
 
   create_table "logos", :force => true do |t|
-    t.integer  "agent_id"
+    t.integer  "logoable_id"
     t.datetime "created_at"
     t.string   "content_type"
     t.string   "filename"
@@ -183,34 +183,9 @@ ActiveRecord::Schema.define(:version => 20090310140848) do
     t.string   "thumbnail"
     t.integer  "width"
     t.integer  "height"
-    t.string   "agent_type"
+    t.string   "logoable_type"
     t.datetime "updated_at"
-  end
-
-  create_table "logotypes", :force => true do |t|
-    t.integer  "logotypable_id"
-    t.string   "logotypable_type"
-    t.integer  "size"
-    t.string   "content_type"
-    t.string   "filename"
-    t.integer  "height"
-    t.integer  "width"
-    t.integer  "parent_id"
-    t.string   "thumbnail"
     t.integer  "db_file_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "memberships", :force => true do |t|
-    t.integer  "member_id"
-    t.integer  "set_id"
-    t.datetime "created_at"
-    t.boolean  "deleted",     :default => false
-    t.datetime "updated_at"
-    t.integer  "profile_id"
-    t.string   "member_type"
-    t.string   "set_type"
   end
 
   create_table "open_id_associations", :force => true do |t|
@@ -247,11 +222,15 @@ ActiveRecord::Schema.define(:version => 20090310140848) do
   end
 
   create_table "performances", :force => true do |t|
-    t.integer "agent_id"
-    t.string  "agent_type"
-    t.integer "role_id"
-    t.integer "stage_id"
-    t.string  "stage_type"
+    t.integer  "agent_id"
+    t.integer  "stage_id"
+    t.datetime "created_at"
+    t.boolean  "deleted",    :default => false
+    t.datetime "updated_at"
+    t.integer  "profile_id"
+    t.string   "agent_type"
+    t.string   "stage_type"
+    t.integer  "role_id"
   end
 
   create_table "permissions", :force => true do |t|

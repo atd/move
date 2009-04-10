@@ -56,7 +56,7 @@ Rails::Initializer.run do |config|
   # Make sure the secret is at least 30 characters and all random, 
   # no regular words or you'll be exposed to dictionary attacks.
   config.action_controller.session = {
-    :session_key => '_piglove_session',
+    :session_key => '_move_session',
     :secret      => '3a946c4b319f6ef9c0f031aed97a7adabd8fcce1ce83cb6db406ce02a28d25d04ff15c1efbbf39e98a11c519e0342c6677ba940dfbfd20f9aefb9e3dc1b77071'
   }
 

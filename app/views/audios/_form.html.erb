@@ -1,11 +1,21 @@
-<h2><%= t('audio.file') %></h2>
-<%= form.file_field :media %>
+<fieldset>
+<p>
+  <%= form.label :title, t('audio.title') %><br />
+  <%= form.text_field :title, :class => "title"%>
+</p>
 
-<h2><%= t('audio.title') %></h2>
-<%= form.text_field :title %>
+<p>
+  <%= form.label :title, t('audio.file')%><br />
+  <%= form.file_field :media %>
+</p>
+</fieldset>
 
-<h2><%= t('audio.description') %></h2>
-<%= form.text_area :description, :rows => 5 %>
+<fieldset>
+<p>
+  <%= form.label :title, t('audio.description')%><br />
+  <%= form.text_area :description %>
+</p>
 
 <%= form.tags %>
+</fieldset>
 

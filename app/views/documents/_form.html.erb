@@ -1,11 +1,21 @@
-<h2><%= t('document.file') %></h2>
-<%= form.file_field :media %>
+<fieldset>
+<p>
+  <%= form.label :title, t('document.title') %><br />
+  <%= form.text_field :title, :class => "title"%>
+</p>
 
-<h2><%= t('document.title') %></h2>
-<%= form.text_field :title %>
+<p>
+  <%= form.label :title, t('document.file')%><br />
+  <%= form.file_field :media %>
+</p>
+</fieldset>
 
-<h2><%= t('document.description') %></h2>
-<%= form.text_area :description, :rows => 5 %>
+<fieldset>
+<p>
+  <%= form.label :title, t('document.description')%><br />
+  <%= form.text_area :description %>
+</p>
 
 <%= form.tags %>
+</fieldset>
 

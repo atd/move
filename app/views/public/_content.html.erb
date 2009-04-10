@@ -1,0 +1,3 @@
+<div id="activity_<%= dom_id(content) %>" class="activity">
+  <%= t 'content.stream', :author => link_logotype(content.owner), :content => link_logotype(content, :url => [ content.owner, content ]), :time => time_ago_in_words(content.updated_at) %>
+</div>

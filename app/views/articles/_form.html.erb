@@ -1,15 +1,28 @@
 <% content_for :headers, javascript_include_tag('fckeditor/fckeditor') -%>
 
-<h2><%= t('article.title') %></h2>
-<%= form.text_field :title, :size => 50 %>
+<fieldset>
+<p>
+  <%= form.label :title, t('article.title') %><br />
+  <%= form.text_field :title, :class => "title"%>
+</p>
 
-<h2 onclick="new Element.toggle('toggle');"><%= t('article.description') %></h2>
+<p>
+  <%= form.label :body, t('article.body') %><br />
+  <%= fckeditor_textarea :article, :body, :toolbarSet => 'Simple', :width => '100%', :height => '400px' %>
+</p>
+
+</fieldset>
+
+
+<fieldset>
+
+<p>
+  <%= form.label :description, t('article.description'), :onclick => "new Element.toggle('toggle');" %><br />
 <div id="toggle" <% if @article.description.blank? %>style="display: none;"<% end %>>
   <%= fckeditor_textarea :article, :description, :width => '100%', :height => '300px' %>
 </div>
-
-<h2><%= t('article.body') %></h2>
-<%= fckeditor_textarea :article, :body, :toolbarSet => 'Simple', :width => '100%', :height => '400px' %>
+</p>
 
 <%= form.tags %>
 
+</fieldset>

@@ -1,18 +1,16 @@
-<div id="leftside">
-</div>
+<% content_for :sidebar do -%>
+  <%= container_menu %>
+<% end -%>
 
-<div id="contentalt">
-  <h1><%= h @photo.title %></h1>
+<h1><%= sanitize @photo.title %></h1>
 
-  <p class="soft">
-  <%= t('photo.published_by_author_since_time', :author => link_icon_and_name_with_author(@photo),
-                                                :time => time_ago_in_words(@photo.updated_at)) %>
-  </p>
-  <a href="<%= photo_path(@photo) %>.<%= @photo.mime_type.to_sym.to_s %>"><img src="<%= photo_path(@photo) %>.<%= @photo.format %>?thumbnail=normal", alt="<%= @photo.title %>"></a>
+<%= published_data(@photo) %>
 
-  <br />
-  <%= sanitize @photo.description if @photo.description %>
+<a href="<%= photo_path(@photo) %>.<%= @photo.mime_type.to_sym.to_s %>"><img src="<%= photo_path(@photo) %>.<%= @photo.format %>?thumbnail=normal", alt="<%= @photo.title %>"></a>
 
-  <br /><br />
+<br />
+<%= sanitize @photo.description if @photo.description %>
+
+<p>
   <%= tag_list(@photo) %>
-</div>
+</p>

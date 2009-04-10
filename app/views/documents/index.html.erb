@@ -1,11 +1,7 @@
-<div id="leftside">
-</div>
+<% atom_link_header(container, Article.new) %>
 
-<div id="contentalt">
-  <h1><%= title %></h1>
-  <% unless @description.blank? -%>
-    <p class="soft"><%= sanitize @description %></p>
-  <% end -%>
-  <%= render :partial => "document", :collection => @documents %>
-  <%= will_paginate(@documents) %>
-</div>
+<% content_for :sidebar, container_menu %>
+<% content_for :pagination, will_paginate(@articles) %>
+
+<h1><%= title %></h1>
+<%= render :partial => "document", :collection => @documents %>

@@ -1,0 +1,22 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+dta:
+  agent_id: dta
+  agent_type: User
+  uri: dta_uri
+nokates:
+  agent_id: nokates
+  agent_type: User
+  uri: nokates_uri
+pikozorro:
+  agent_id: pikozorro
+  agent_type: User
+  uri: pizorro_uri
+test:
+  agent_id: test
+  agent_type: User
+  uri: test_uri
+sabino:
+  agent_id: sabino
+  agent_type: User
+  uri: sabino_uri
+

@@ -1,0 +1,35 @@
+<% content_for :headers, javascript_include_tag('fckeditor/fckeditor') -%>
+
+<fieldset>
+  <p>
+  <%= form.label :name, t('group.name') %><br />
+  <%= form.text_field :name, :class => "title" %>
+  </p>
+
+  <%= form.logo %>
+
+  <p>
+  <%= form.label :description, t('group.description') %><br />
+  <%= fckeditor_textarea :group, :description, :toolbarSet => 'Simple', :width => '100%', :height => '400px' %>
+  </p>
+</fieldset>
+
+<fieldset>
+  <legend><%= t(:privacy) %></legend>
+
+  <p>
+  <%= form.label :others_read_content, t('group.others_read_content') %>
+  <%= form.check_box :others_read_content %>
+  </p>
+
+  <p>
+  <%= form.label :others_read_members, t('group.others_read_members') %>
+  <%= form.check_box :others_read_members %>
+  </p>
+
+  <p>
+  <%= form.label :others_write_members, t('group.others_write_members') %>
+  <%= form.check_box :others_write_members %>
+  </p>
+</fieldset>
+

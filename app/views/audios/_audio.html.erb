@@ -1,7 +1,6 @@
-<div id="<%= dom_id(audio) %>" class="stream">
-  <%= link_to "#{ image_tag( icon_image(audio), :title => audio.title, :alt => 'Audio', :class => 'logo' )}<br />#{ sanitize audio.title }", audio %>
-  <br />
+<% div_for audio, :class => "span-3 boxes" do -%>
+<%= link_logotype(audio, :size => 64, :url => [ audio.owner, audio ], :spacer => '<br />') %>
+<p>
   <%= tag_list(audio) %>
-
-</div>
-
+</p>
+<% end -%>

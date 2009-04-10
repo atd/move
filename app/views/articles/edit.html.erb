@@ -1,14 +1,8 @@
 <h1><%= title %></h1>
 
-<% unless error_messages_for(:article).blank? -%>
-<div class="errors">
-  <%= error_messages_for :article %>
-</div>
-<% end -%>
+<%= error_messages_for(:article) %>
 
-<% form_for(:article,
-            :url => article_path(@article),
-            :html => { :method => :put } ) do |f| -%>
+<% form_for([container, @article]) do |f| -%>
 
   <%= render :partial => "form", :object => f %>
 

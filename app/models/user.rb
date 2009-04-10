@@ -1,20 +1,23 @@
 class User < ActiveRecord::Base
-  acts_as_agent
+  acts_as_agent :activation => true
+  acts_as_resource :per_page => 15
   acts_as_container
+  acts_as_logoable
 
-  has_many :groups
+  has_many :articles,  :as => :owner
+  has_many :photos,    :as => :owner
+  has_many :audios,    :as => :owner
+  has_many :bookmarks, :as => :owner
+  has_many :documents, :as => :owner
+
+  has_many :memberships
+  has_many :groups, :through => :memberships, :source => :group
   
   # Space aliases
   alias_attribute :name, :login
 
   # Collection aliases
   alias_attribute :title, :login
-
-  # OpenID trusts
-#  has_many :identity_trusts, :dependent => :destroy
-#  has_many :trusted_uris, :through => :identity_trusts,
-#                          :source => :ar_uri,
-#                          :uniq => true
 
   # Create local ar_uris_of_owning_agents for this user
   # http:// URI is created by default
@@ -29,4 +32,12 @@ class User < ActiveRecord::Base
 #  end
 
   validates_length_of       :login,    :within => 1..40
+
+  def affordances_hash
+    {
+      self => [ :read, :update,
+                [ :create, :content ], [ :read, :content ], [ :update, :content], [ :delete, :content ]
+              ]
+    }
+  end
 end

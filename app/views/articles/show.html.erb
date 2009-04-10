@@ -1,25 +1,18 @@
-<div id="contentalt">
-  <h1><%= h @article.title %></h1>
+<% content_for :sidebar do -%>
+  <%= container_menu %>
+<% end -%>
+<h1><%= sanitize @article.title %></h1>
 
-  <p class="soft">
-  <%= t('article.published_by_author_since_time', :author => link_icon_and_name_with_author(@article), 
-                                                  :time => time_ago_in_words(@article.updated_at)) %>
+<%= published_data(@article) %>
 
-  <% if @article.authorizes? current_agent, :update -%>
-    <br />
-    <%= link_to "Edit".t, edit_article_path(@article) %>
-    <%= render(:partial => 'contents/versions', :object => @content_versions) if @content_versions -%>
-  <% end -%>
-  </p>
-  <% unless @article.description.blank? -%>
-  <div class="description">
+<% if @article.description.present? -%>
+<div class="description">
   <%= sanitize @article.description %>
-  </div>
-  <% end -%>
-
-  <div class="article-body">
-  <%= sanitize @article.body %>
-  </div>
-
-  <%= tag_list @article %>
 </div>
+<% end -%>
+
+<div class="article-body">
+<%= sanitize @article.body %>
+</div>
+
+<%= tag_list @article %>

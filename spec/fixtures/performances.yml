@@ -1,0 +1,74 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+test_in_testers:
+  agent: test (User)
+  stage: testers (Group)
+  created_at: <%= Time.now.to_s :db %>
+  updated_at: <%= Time.now.to_s :db %>
+
+nokates_in_dta_friends:
+  agent: nokates (User)
+  stage: dta_friends (Group)
+  created_at: <%= Time.now.to_s :db %>
+  updated_at: <%= Time.now.to_s :db %>
+
+pikozorro_in_dta_friends:
+  agent: pikozorro (User)
+  stage: dta_friends (Group)
+  created_at: <%= Time.now.to_s :db %>
+  updated_at: <%= Time.now.to_s :db %>
+
+nokates_in_pikozorro_friends:
+  agent: nokates (User)
+  stage: pikozorro (Group)
+  created_at: <%= Time.now.to_s :db %>
+  updated_at: <%= Time.now.to_s :db %>
+
+sabino_in_pikozorro_friends:
+  agent: sabino (User)
+  stage: pikozorro_friends (Group)
+  created_at: <%= Time.now.to_s :db %>
+  updated_at: <%= Time.now.to_s :db %>
+
+elab_in_piglove:
+  agent: elab (
+  agent_type: Group
+  stage: piglove
+  stage_type: Group
+  created_at: <%= Time.now.to_s :db %>
+  updated_at: <%= Time.now.to_s :db %>
+xpressions_in_piglove:
+  agent: xpressions
+  agent_type: Group
+  stage: piglove
+  stage_type: Group
+  created_at: <%= Time.now.to_s :db %>
+  updated_at: <%= Time.now.to_s :db %>
+tda_in_elab:
+  agent: dta
+  agent_type: User
+  stage: elab
+  stage_type: Group
+  created_at: <%= Time.now.to_s :db %>
+  updated_at: <%= Time.now.to_s :db %>
+pikozorro_in_elab:
+  agent: pikozorro
+  agent_type: User
+  stage: elab
+  stage_type: Group
+  created_at: <%= Time.now.to_s :db %>
+  updated_at: <%= Time.now.to_s :db %>
+pikozorro_in_xpressions:
+  agent: pikozorro
+  agent_type: User
+  stage: xpressions
+  stage_type: Group
+  created_at: <%= Time.now.to_s :db %>
+  updated_at: <%= Time.now.to_s :db %>
+sabino_in_xpressions:
+  agent: sabino
+  agent_type: User
+  stage: xpressions
+  stage_type: Group
+  created_at: <%= Time.now.to_s :db %>
+  updated_at: <%= Time.now.to_s :db %>
+

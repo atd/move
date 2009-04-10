@@ -1,6 +1,5 @@
 class Document < ActiveRecord::Base
-  belongs_to :author, :polymorphic => true
-  belongs_to :owner, :polymorphic => true
+  include CommonContent
 
   has_attachment :content_type => [ 'application/pdf', 
                                     'application/postscript', 
@@ -19,9 +18,9 @@ class Document < ActiveRecord::Base
 
   acts_as_resource :mime_types => [ :pdf, :ps, :odt, :odp, :rtf, :doc, :ppt, :xls ],
                    :disposition => :inline,
-                   :has_media => :attachment_fu
-  acts_as_content :reflection => :owner
-  acts_as_taggable
+                   :has_media => :attachment_fu,
+                   :per_page => 15,
+                   :delegate_content_types => true
 #  acts_as_versioned
 
   validates_as_attachment

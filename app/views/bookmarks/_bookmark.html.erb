@@ -1,20 +1,12 @@
 <% div_for bookmark do -%>
   <h2><%= link_to sanitize(bookmark.title), bookmark.uri.to_s %></h2>
-  <p class="bookmark-data"><%= t('bookmark.published_by_author_since_time', 
-                                 :author => link_icon_and_name_with_author(bookmark), 
-                                 :time => time_ago_in_words(bookmark.updated_at)) %>
-  <% if bookmark.authorizes?(current_agent, :update) -%>
-  | <%= link_to(t('edit'), edit_bookmark_url(bookmark)) %>
-  <% end -%>
-  </p>
+  <%= published_data(bookmark) %>
   
   <% unless bookmark.description.blank? -%>
   <p class="soft"><%= sanitize bookmark.description %></p>
   <% end -%>
 
-  Url: <%= link_to h(bookmark.uri.to_s), sanitize(bookmark.uri.to_s) %>
-  <br/>
-  <br/>
+  <%= link_to h(bookmark.uri.to_s), sanitize(bookmark.uri.to_s), :class => "bookmark" %>
   <p>
   <%= tag_list(bookmark) %>
   </p>
