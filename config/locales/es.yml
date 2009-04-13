@@ -111,6 +111,7 @@ es:
       other: "Integrantes"
   content:
     stream: "{{author}} publicó {{content}} hace {{time}}"
+    stream_in: "{{author}} publicó {{content}} en {{container}} hace {{time}}"
   community: "Comunidad"
   last activity: "Última actividad"
   pagination:

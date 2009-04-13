@@ -5,7 +5,7 @@
 <h1><%= t 'user.home' %></h1>
 <h2><%= t 'user.network_activity' %></h2>
 <div id="activity_stream">
-<%= render :partial => 'public/content',
+<%= render :partial => 'content',
            :collection => @contents,
            :spacer_template => 'public/content_spacer' %>
 </div>
