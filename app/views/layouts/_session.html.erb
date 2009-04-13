@@ -1,8 +1,9 @@
-<div id="session" class="pull-2 span-7 last">
+<div id="session" class="pull-3 span-8 last">
   <div id="session_agent" class="span-4">
     <%= link_logotype(current_agent, :size => 32) %>
   </div>
-  <div id="session_actions" class="span-3 last">
+  <div id="session_actions" class="span-4 last">
+    <%= link_to t('user.home'), home_path %> |
     <%= link_to t('user.preferences'), edit_user_path(current_agent) %> |
     <%= link_to t(:logout), logout_path %>
   </div>

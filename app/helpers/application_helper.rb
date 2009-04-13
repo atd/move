@@ -18,8 +18,7 @@ module ApplicationHelper
 
   def agent_menu(agent)
     returning "" do |html|
-      html << link_logotype(agent, :size => 48)
-      html << "<p><em>#{ sanitize agent.description }</em></p>" if agent.description.present?
+      html << agent_header(agent)
       html << "<hr>"
       if agent.authorizes?([ :create, :performance ], :to => current_agent)
         html << performances(agent)
@@ -29,6 +28,13 @@ module ApplicationHelper
         html << new_contents(agent)
       end
       html << contents(agent)
+    end
+  end
+
+  def agent_header(agent)
+    returning "" do |html|
+      html << link_logotype(agent, :size => 48)
+      html << "<p><em>#{ sanitize agent.description }</em></p>" if agent.description.present?
     end
   end
 

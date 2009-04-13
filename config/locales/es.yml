@@ -90,8 +90,10 @@ es:
     other: "Personas"
     index:
       other: "Personas Registradas"
+    home: "Inicio"
     preferences: "Preferencias"
     last activity: "Última actividad de {{user}}"
+    network_activity: "Actividad en mi red"
   group:
     one: "Grupo"
     other: "Grupos"

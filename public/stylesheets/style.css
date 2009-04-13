@@ -197,6 +197,20 @@ div.logo-16, div.logo-22, div.logo-32, div.logo-48, div.logo-64, div.logo-72, di
 	margin-bottom: 4px;
 }
 
+#network_groups {
+	font-size: 0.75em;
+	text-align: center;
+}
+
+#network_groups div.group {
+	float: left;
+}
+
+#network_groups img.logo {
+	float: none;
+}
+
+
 #contents {
 	color: #359296;
 	margin-top: 3px;

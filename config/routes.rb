@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+  map.home 'home', :controller => 'home'
   map.root :controller => 'public'
   map.from_plugin 'cmsplugin'
 
