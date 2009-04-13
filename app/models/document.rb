@@ -21,7 +21,7 @@ class Document < ActiveRecord::Base
                    :has_media => :attachment_fu,
                    :per_page => 15,
                    :delegate_content_types => true
-#  acts_as_versioned
+  acts_as_versioned
 
   validates_as_attachment
 end
