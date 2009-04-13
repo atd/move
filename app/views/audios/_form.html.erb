@@ -8,6 +8,11 @@
   <%= form.label :title, t('audio.file')%><br />
   <%= form.file_field :media %>
 </p>
+
+<p>
+  <%= form.label :public_read, t('audio.public_read') %><br />
+  <%= form.check_box :public_read %>
+</p>
 </fieldset>
 
 <fieldset>

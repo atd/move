@@ -11,6 +11,10 @@
   <%= fckeditor_textarea :article, :body, :toolbarSet => 'Simple', :width => '100%', :height => '400px' %>
 </p>
 
+<p>
+  <%= form.label :public_read, t('article.public_read') %><br />
+  <%= form.check_box :public_read %>
+</p>
 </fieldset>
 
 

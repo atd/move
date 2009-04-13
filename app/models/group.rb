@@ -22,10 +22,6 @@ class Group < ActiveRecord::Base
 
   def local_affordances(options = {})
     affs = []
-    if others_read_content?
-      affs << ActiveRecord::Authorization::Affordance.new(Anyone.current, [:read, :content])
-    end
-
     if others_read_members?
       affs << ActiveRecord::Authorization::Affordance.new(Anyone.current, [:read, :member])
     end
