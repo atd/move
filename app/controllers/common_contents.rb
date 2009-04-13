@@ -2,7 +2,7 @@ module CommonContents
   class << self
     def included(base)
       base.class_eval do
-        before_filter :container!
+        before_filter :container!, :except => [ :index, :show ]
         authorization_filter :read, :resource, :only => [ :show ]
         authorization_filter [ :create, :content ], :container, :only => [ :new, :create ]
         authorization_filter :update, :resource, :only => [ :edit, :update ]
