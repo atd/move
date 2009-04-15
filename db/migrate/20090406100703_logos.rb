@@ -13,7 +13,9 @@ class Logos < ActiveRecord::Migration
     Logo.all.each do |logo|
       next if logo.parent_id
 
-      unless logo.filename =~ /^(user.*|group.*)$/
+      if logo.filename =~ /^(user.*|group.*)$/
+        logo.destroy
+      else
         file = File.join("#{ RAILS_ROOT }/public/files/logos/#{ logo.id }", logo.filename)
         next unless File.exists?(file)
         mime = `file -b --mime-type '#{ file }'`.chomp
