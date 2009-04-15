@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
   include ActionController::MoveResources
 
-  authorization_filter :edit, :group, :only => [ :edit, :update ]
+  authorization_filter :update, :group, :only => [ :edit, :update ]
   authorization_filter :delete, :group, :only => [ :destroy ]
 
   def show_with_contents
