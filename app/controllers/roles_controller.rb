@@ -1,3 +1,3 @@
 class RolesController < ApplicationController
-  authorization_filter :mat, :site
+  authorization_filter :update, :site
 end
