@@ -9,7 +9,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090410104744) do
+ActiveRecord::Schema.define(:version => 43) do
+
+  create_table "ar_uris", :force => true do |t|
+    t.string "uri"
+  end
+
+  add_index "ar_uris", ["uri"], :name => "index_ar_uris_on_uri"
 
   create_table "article_versions", :force => true do |t|
     t.integer  "article_id"
@@ -70,16 +76,16 @@ ActiveRecord::Schema.define(:version => 20090410104744) do
     t.integer  "author_id"
     t.boolean  "public_read"
     t.string   "author_type"
-    t.integer  "uri_id"
+    t.integer  "ar_uri_id"
   end
 
   create_table "categories", :force => true do |t|
-    t.string   "name"
-    t.integer  "domain_id"
-    t.string   "domain_type"
+    t.string   "title"
+    t.integer  "owner_id"
+    t.string   "owner_type"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "parent_id"
+    t.integer  "parent"
     t.text     "description"
     t.boolean  "public_read"
   end
@@ -90,8 +96,8 @@ ActiveRecord::Schema.define(:version => 20090410104744) do
   end
 
   create_table "categorizations", :force => true do |t|
-    t.integer "categorizable_id"
-    t.string  "categorizable_type"
+    t.integer "content_id"
+    t.string  "content_type"
     t.integer "category_id"
   end
 
@@ -143,6 +149,15 @@ ActiveRecord::Schema.define(:version => 20090410104744) do
     t.integer  "version"
   end
 
+  create_table "globalize_countries", :force => true do |t|
+  end
+
+  create_table "globalize_languages", :force => true do |t|
+  end
+
+  create_table "globalize_translations", :force => true do |t|
+  end
+
   create_table "groups", :force => true do |t|
     t.string   "name"
     t.text     "description"
@@ -159,22 +174,24 @@ ActiveRecord::Schema.define(:version => 20090410104744) do
     t.integer  "user_id"
   end
 
-  create_table "invitations", :force => true do |t|
-    t.string   "code"
-    t.string   "email"
-    t.integer  "agent_id"
-    t.string   "agent_type"
-    t.integer  "stage_id"
-    t.string   "stage_type"
-    t.integer  "role_id"
-    t.string   "acceptation_code"
-    t.datetime "accepted_at"
+  create_table "identity_ownings", :force => true do |t|
+    t.integer  "owning_agent_id"
+    t.integer  "ar_uri_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "owning_agent_type"
+  end
+
+  create_table "identity_trusts", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "ar_uri_id"
+    t.datetime "expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "logos", :force => true do |t|
-    t.integer  "logoable_id"
+    t.integer  "agent_id"
     t.datetime "created_at"
     t.string   "content_type"
     t.string   "filename"
@@ -183,9 +200,19 @@ ActiveRecord::Schema.define(:version => 20090410104744) do
     t.string   "thumbnail"
     t.integer  "width"
     t.integer  "height"
-    t.string   "logoable_type"
+    t.string   "agent_type"
     t.datetime "updated_at"
-    t.integer  "db_file_id"
+  end
+
+  create_table "memberships", :force => true do |t|
+    t.integer  "member_id"
+    t.integer  "set_id"
+    t.datetime "created_at"
+    t.boolean  "deleted",     :default => false
+    t.datetime "updated_at"
+    t.integer  "profile_id"
+    t.string   "member_type"
+    t.string   "set_type"
   end
 
   create_table "open_id_associations", :force => true do |t|
@@ -203,44 +230,12 @@ ActiveRecord::Schema.define(:version => 20090410104744) do
     t.string  "salt",       :default => "", :null => false
   end
 
-  create_table "open_id_ownings", :force => true do |t|
-    t.integer  "agent_id"
-    t.integer  "uri_id"
+  create_table "openid_users", :force => true do |t|
+    t.integer  "identity_uri_id"
+    t.string   "nickname"
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "agent_type"
-  end
-
-  create_table "open_id_trusts", :force => true do |t|
-    t.integer  "agent_id"
-    t.integer  "uri_id"
-    t.datetime "expires_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "agent_type"
-    t.boolean  "local",      :default => false
-  end
-
-  create_table "performances", :force => true do |t|
-    t.integer  "agent_id"
-    t.integer  "stage_id"
-    t.datetime "created_at"
-    t.boolean  "deleted",    :default => false
-    t.datetime "updated_at"
-    t.integer  "profile_id"
-    t.string   "agent_type"
-    t.string   "stage_type"
-    t.integer  "role_id"
-  end
-
-  create_table "permissions", :force => true do |t|
-    t.string "action"
-    t.string "objective"
-  end
-
-  create_table "permissions_roles", :id => false, :force => true do |t|
-    t.integer "permission_id"
-    t.integer "role_id"
   end
 
   create_table "photos", :force => true do |t|
@@ -289,26 +284,6 @@ ActiveRecord::Schema.define(:version => 20090410104744) do
     t.string  "read_agent_type"
   end
 
-  create_table "roles", :force => true do |t|
-    t.string "name"
-    t.string "stage_type"
-  end
-
-  create_table "singular_agents", :force => true do |t|
-    t.string "type"
-  end
-
-  create_table "sites", :force => true do |t|
-    t.string   "name",        :default => "CMSplugin powered Rails site"
-    t.text     "description"
-    t.string   "domain",      :default => "cms.example.org"
-    t.string   "email",       :default => "admin@example.org"
-    t.string   "locale"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "ssl",         :default => false
-  end
-
   create_table "taggings", :force => true do |t|
     t.integer "tag_id"
     t.integer "taggable_id"
@@ -322,12 +297,6 @@ ActiveRecord::Schema.define(:version => 20090410104744) do
   end
 
   add_index "tags", ["name"], :name => "index_tags_on_name"
-
-  create_table "uris", :force => true do |t|
-    t.string "uri"
-  end
-
-  add_index "uris", ["uri"], :name => "index_uris_on_uri"
 
   create_table "users", :force => true do |t|
     t.string   "login"

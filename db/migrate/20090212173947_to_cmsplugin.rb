@@ -42,6 +42,8 @@ class ToCmsplugin < ActiveRecord::Migration
       t.datetime :created_at
       t.datetime :updated_at
       t.boolean  :ssl,         :default => false
+      t.boolean  :exception_notifications, :default => false
+      t.string   :exception_notifications_email
     end
 
   end
