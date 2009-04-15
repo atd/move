@@ -5,3 +5,4 @@ doc/app
 config/database.yml
 db/*sqlite3
 public/plugin_assets
+config/deploy.rb
