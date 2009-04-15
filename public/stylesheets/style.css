@@ -200,6 +200,9 @@ div.logo-16, div.logo-22, div.logo-32, div.logo-48, div.logo-64, div.logo-72, di
 #network_groups {
 	font-size: 0.75em;
 	text-align: center;
+	max-height: 80px;
+	height: 80px;
+	min-height: 80px;
 }
 
 #network_groups div.group {
