@@ -32,9 +32,9 @@ class MembershipsToPerformances < ActiveRecord::Migration
     part_perm << Permission.find_or_create_by_action_and_objective('read', 'performance')
     part_perm << Permission.find_or_create_by_action('read')
 
-    admin_perm = part_perm
-    admin_perm << Permission.find_or_create_by_action('update')
-    admin_perm << Permission.find_or_create_by_action('delete')
+    admin_perm = part_perm.dup
+    admin_perm << Permission.find_or_create_by_action_and_objective('update', nil)
+    admin_perm << Permission.find_or_create_by_action_and_objective('delete', nil)
     admin_perm << Permission.find_or_create_by_action_and_objective('update', 'performance')
     admin_perm << Permission.find_or_create_by_action_and_objective('delete', 'performance')
     p = Role.find_or_create_by_name_and_stage_type("Participant", "Group")
