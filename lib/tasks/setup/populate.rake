@@ -46,12 +46,33 @@ namespace :setup do
       tmp_file
     end
 
+    def comments(resources)
+      return if rand > 0.2
+
+      users = User.all
+
+      resources.each do |r|
+        Comment.populate 1..10 do |comment|
+          comment.commentable_id = r.id
+          comment.commentable_type = r.class.base_class.to_s
+          author = users.rand
+          comment.author_id = author.id
+          comment.author_type = author.class.base_class.to_s
+          comment.content = Populator.sentences(1..4)
+          comment.created_at = r.created_at..Time.now
+          comment.updated_at = comment.created_at..Time.now
+        end
+      end
+    end
+
     def articles(owner, authors)
       Article.populate 10..100 do |article|
         content_fields(article, owner, authors)
 
         article.body = Populator.sentences(3..15)
       end
+
+      comments(owner.articles)
     end
 
     def photos(owner, authors)
@@ -65,6 +86,8 @@ namespace :setup do
         photo.media = random_file(:photos)
         photo.save!
       end
+
+      comments(owner.photos)
     end
 
     def audios(owner, authors)
@@ -78,6 +101,8 @@ namespace :setup do
         audio.media = random_file(:audios)
         audio.save!
       end
+
+      comments(owner.audios)
     end
 
     def documents(owner, authors)
@@ -91,6 +116,8 @@ namespace :setup do
         document.media = random_file(:documents)
         document.save!
       end
+
+      comments(owner.documents)
     end
 
     def bookmarks(owner, authors)
@@ -99,6 +126,8 @@ namespace :setup do
 
         bookmark.uri_id = Uri.find_or_create_by_uri("http://#{ Faker::Internet.domain_name }").id
       end
+
+      comments(owner.bookmarks)
     end
 
     def contents(owner, authors)

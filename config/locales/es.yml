@@ -110,14 +110,24 @@ es:
     performance:
       other: "Integrantes"
   content:
-    stream: "{{author}} publicó {{content}} hace {{time}}"
-    stream_in: "{{author}} publicó {{content}} en {{container}} hace {{time}}"
+    stream: "{{author}} publicó {{content}} hace {{time}}."
+    stream_in: "{{author}} publicó {{content}} en {{container}} hace {{time}}."
   community: "Comunidad"
   last activity: "Última actividad"
   pagination:
     prev_label: "&laquo; Anterior"
     next_label: "Siguiente &raquo;"
   privacy: "Privacidad"
+  comment:
+    one: "Comentario"
+    other: "Comentarios"
+    submit: "Comentar"
+    published_by_author_at_date: "{{author}} hace {{date}}"
+    new: "Nuevo Comentario"
+    created: "Comentario creado"
+    editing: "Editando Comentario"
+    updated: "Comentario actualizado"
+    confirm_delete: "¿Borrar Comentario?"
 
   activerecord:
     errors:

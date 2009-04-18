@@ -9,6 +9,10 @@ module CommonContent
 
         acts_as_content :reflection => :owner
         acts_as_taggable
+
+        has_many :comments,
+                 :as => :commentable,
+                 :dependent => :destroy
       end
     end
   end
@@ -19,6 +23,7 @@ module CommonContent
       affs << ActiveRecord::Authorization::Affordance.new(Anyone.current, :read)
     end
 
+    affs << ActiveRecord::Authorization::Affordance.new(Authenticated.current, [ :create, :comment])
     affs
   end
 end

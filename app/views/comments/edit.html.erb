@@ -1,0 +1,12 @@
+<h1><%= t 'comment.editing' %></h1>
+
+<% form_for([ @comment.commentable, @comment ]) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.text_area :content, :class => 'text' %>
+  </p>
+  <p>
+    <%= f.submit t(:update) %>
+  </p>
+<% end %>

@@ -1,0 +1,9 @@
+<% form_for([ @content, Comment.new ]) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+  <%= f.text_area :content, :class => 'text' %>
+  </p>
+
+  <%= f.submit t('comment.submit') %>
+<% end %>

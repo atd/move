@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090410104744) do
+ActiveRecord::Schema.define(:version => 20090418172728) do
 
   create_table "article_versions", :force => true do |t|
     t.integer  "article_id"
@@ -93,6 +93,17 @@ ActiveRecord::Schema.define(:version => 20090410104744) do
     t.integer "categorizable_id"
     t.string  "categorizable_type"
     t.integer "category_id"
+  end
+
+  create_table "comments", :force => true do |t|
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.text     "content"
+    t.integer  "author_id"
+    t.string   "author_type"
+    t.integer  "parent_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "contacts", :force => true do |t|
