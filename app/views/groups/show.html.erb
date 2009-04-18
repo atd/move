@@ -5,7 +5,7 @@
 
 <div id="activity_stream">
   <h1><%= t 'group.last activity', :group => sanitize(@group.name) %></h1>
-  <%= render :partial => 'public/content', :collection => @contents, :spacer_template => 'public/content_spacer' %>
+  <%= render :partial => 'content', :collection => @contents, :spacer_template => 'public/content_spacer' %>
   <% if @contents.blank? %>
   <div class="error">
     <%= t('agent.no_contents', :agent => link_logotype(@group)) %>

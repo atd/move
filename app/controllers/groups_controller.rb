@@ -12,7 +12,7 @@ class GroupsController < ApplicationController
     @contents = ActiveRecord::Content.all(:container => resource,
                                           :page => params[:page], 
                                           :per_page => 10, 
-                                          :select => "id, title, created_at, updated_at, owner_id, owner_type",
+                                          :select => "id, title, created_at, updated_at, owner_id, owner_type, author_id, author_type",
                                           :conditions => conditions)
     show_without_contents
   end
