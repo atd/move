@@ -19,6 +19,9 @@ module ApplicationHelper
   def agent_menu(agent)
     returning "" do |html|
       html << agent_header(agent)
+      if authorized?(:update, agent)
+        html << " " + link_to(t(:edit), polymorphic_path(agent, :action => :edit), :class => 'actions')
+      end
       html << "<hr>"
       if agent.authorizes?([ :create, :performance ], :to => current_agent)
         html << performances(agent)
@@ -106,7 +109,7 @@ module ApplicationHelper
                 :author => link_author(resource),
                 :time => time_ago_in_words(resource.updated_at))
       if resource.authorizes?(:update, :to => current_agent)
-        html << ' | '
+        html << ' '
         html << link_to(t('edit'), send("edit_#{ resource.container.class.to_s.underscore }_#{ resource.class.to_s.underscore }_path", resource.container, resource), :class => 'actions')
         #TODO: versions
       end

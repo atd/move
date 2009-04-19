@@ -12,6 +12,7 @@ h1 {
 	color: #C9740A;
 	border-bottom: 1px solid #C9740A;
 	margin-right: 40px;
+	padding-top: 15px;
 }
 
 a {
@@ -53,8 +54,14 @@ div.logo-16, div.logo-22, div.logo-32, div.logo-48, div.logo-64, div.logo-72, di
 .logo-256 {max-height: 256px;height: 256px;min-height: 256px;max-width: 256px;width: 256px;min-width: 256px;}
 
 .actions {
-	background-color: #8BF7FC;
+	background-color: #C3F9FC;
 	border: 1px solid #359296;
+	-moz-border-radius: 5px;
+	padding: 2px;
+}
+
+#sidebar div.actions {
+	-moz-border-radius: 0;
 }
 
 .actions img.logo {
@@ -130,8 +137,9 @@ a.actions:hover, .actions a:hover {
 
 #session {
 	min-height: 50px;
-	background-color: #8BF7FC;
+	background-color: #C3F9FC;
 	border: 1px solid #359296;
+	-moz-border-radius: 5px;
 }
 
 #session a {
@@ -217,6 +225,14 @@ a.actions:hover, .actions a:hover {
 #contents {
 	color: #359296;
 	margin-top: 3px;
+}
+
+#new_contents {
+	margin-bottom: 10px;
+}
+
+div#performances {
+	margin-bottom: 1px;
 }
 
 #activity_stream img.logo {
