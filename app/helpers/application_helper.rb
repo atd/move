@@ -19,9 +19,6 @@ module ApplicationHelper
   def agent_menu(agent)
     returning "" do |html|
       html << agent_header(agent)
-      if authorized?(:update, agent)
-        html << " " + link_to(t(:edit), polymorphic_path(agent, :action => :edit), :class => 'actions')
-      end
       html << "<hr>"
       if agent.authorizes?([ :create, :performance ], :to => current_agent)
         html << performances(agent)
@@ -37,6 +34,9 @@ module ApplicationHelper
   def agent_header(agent)
     returning "" do |html|
       html << link_logotype(agent, :size => 48)
+      if authorized?(:update, agent)
+        html << " " + link_to(t(:edit), polymorphic_path(agent, :action => :edit), :class => 'actions')
+      end
       html << "<p><em>#{ sanitize agent.description }</em></p>" if agent.description.present?
     end
   end
