@@ -94,6 +94,8 @@ es:
     preferences: "Preferencias"
     last activity: "Última actividad de {{user}}"
     network_activity: "Actividad en mi red"
+    editing: "Editando Preferencias"
+    updated: "Preferencias actualizadas"
   group:
     one: "Grupo"
     other: "Grupos"

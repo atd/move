@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   acts_as_container
   acts_as_logoable
 
+  # FIXME: Rails 2.3 nested_attributes
+  attr_accessible :_logo
+
   has_many :articles,  :as => :owner
   has_many :photos,    :as => :owner
   has_many :audios,    :as => :owner
@@ -33,11 +36,12 @@ class User < ActiveRecord::Base
 
   validates_length_of       :login,    :within => 1..40
 
-  def affordances_hash
-    {
-      self => [ :read, :update,
-                [ :create, :content ], [ :read, :content ], [ :update, :content], [ :delete, :content ]
-              ]
+  def local_affordances
+    [ :read, :update,
+      [ :create, :content ], [ :read, :content ],
+      [ :update, :content ], [ :delete, :content ]
+    ].map{ |action|
+      ActiveRecord::Authorization::Affordance.new self, action
     }
   end
 end

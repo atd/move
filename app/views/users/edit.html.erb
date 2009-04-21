@@ -1,0 +1,31 @@
+<%= content_for :sidebar, agent_menu(@user) %>
+
+<h1><%= t 'user.editing' %></h1>
+
+<% form_for @user, :html => { :multipart => true } do |f| %>
+  <fieldset>
+  <p>
+  <%= f.label :login, t('agent.authentication.login') %><br />
+  <%= f.text_field :login, :class => 'text' %>
+  </p>
+
+  <%= f.logo %>
+
+  </fieldset>
+
+  <fieldset>
+    <legend><%= t 'agent.authentication.change_password' %></legend>
+  <p>
+  <%= f.label :password, t('agent.authentication.password') %><br />
+  <%= f.password_field :password, :class => 'text' %>
+  </p>
+
+  <p>
+  <%= f.label :password_confirmation, t('agent.authentication.confirm_password') %><br />
+  <%= f.text_field :password_confirmation, :class => 'text' %>
+  </p>
+  </fieldset>
+
+  <%= f.submit t('save') %>
+
+<% end %>
