@@ -1,0 +1,26 @@
+<% form_tag session_path do -%>
+
+<div id="login_by_user">
+  <p>
+  <label for="login"><%= t('agent.authentication.login') %></label><br/>
+    <%= text_field_tag 'login', params[:login] %>
+  </p>
+  <p>
+  <label for="password"><%= t('agent.authentication.password') %></label><br/>
+    <%= password_field_tag 'password' %>
+  </p>
+  
+</div>
+
+<div id="lost_password">
+  <p>
+  <%= link_to t('agent.authentication.lost_password'), lost_password_path %>
+  </p>
+</div>
+
+<div id="go">
+  <p><%= submit_tag '» ' + t(:login), { :class => "button" } %></p>
+</div>
+
+<% end -%>
+
