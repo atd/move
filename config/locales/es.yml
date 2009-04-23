@@ -130,6 +130,7 @@ es:
     editing: "Editando Comentario"
     updated: "Comentario actualizado"
     confirm_delete: "¿Borrar Comentario?"
+    authentication_required: "Para comentar tienes que identificarte"
 
   activerecord:
     errors:
