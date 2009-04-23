@@ -1,6 +1,6 @@
 <% content_for :title_header, title(t('last activity'), :append_site_name => true) %>
 <% content_for :title_description, site.description %>
-<% content_for :sidebar, site_menu %>
+<% content_for :sidebar, public_menu %>
 <% content_for :pagination, will_paginate(@contents) %>
 
 <h1><%= t('last activity') %></h1>

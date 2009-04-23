@@ -205,19 +205,19 @@ a.actions:hover, .actions a:hover {
 	margin-bottom: 4px;
 }
 
-#network_groups {
+#sidebar div.groups {
 	font-size: 0.75em;
 	text-align: center;
 }
 
-#network_groups div.group {
+#sidebar div.group {
 	float: left;
 	max-height: 80px;
 	height: 80px;
 	min-height: 80px;
 }
 
-#network_groups img.logo {
+#sidebar div.groups img.logo {
 	float: none;
 }
 
