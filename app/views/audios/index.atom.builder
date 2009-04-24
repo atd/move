@@ -9,7 +9,7 @@ atom_feed('xmlns:app' => 'http://www.w3.org/2007/app',
     feed.div(sanitize(container.description), :xmlns => "http://www.w3.org/1999/xhtml")
   end if container.respond_to?(:description) && container.description.present?
 
-  feed.updated(@audios.first.updated_at || Time.now)
+  feed.updated(@audios.any? && @audios.first.updated_at || Time.now)
 
   @audios.each do |audio|
     feed.entry(audio, :url => polymorphic_url([ audio.container, audio ])) do |entry|

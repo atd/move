@@ -9,7 +9,7 @@ atom_feed('xmlns:app' => 'http://www.w3.org/2007/app',
     feed.div(sanitize(container.description), :xmlns => "http://www.w3.org/1999/xhtml")
   end if container.respond_to?(:description) && container.description.present?
 
-  feed.updated(@photos.first.updated_at || Time.now)
+  feed.updated(@photos.any? && @photos.first.updated_at || Time.now)
 
   @photos.each do |photo|
     feed.entry(photo, :url => polymorphic_url([ photo.container, photo ])) do |entry|

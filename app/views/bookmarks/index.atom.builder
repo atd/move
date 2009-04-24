@@ -9,7 +9,7 @@ atom_feed('xmlns:app' => 'http://www.w3.org/2007/app',
     feed.div(sanitize(container.description), :xmlns => "http://www.w3.org/1999/xhtml")
   end if container.respond_to?(:description) && container.description.present?
 
-  feed.updated(@bookmarks.first.updated_at || Time.now)
+  feed.updated(@bookmarks.any? && @bookmarks.first.updated_at || Time.now)
 
   @bookmarks.each do |bookmark|
     feed.entry(bookmark, :url => polymorphic_url([ bookmark.container, bookmark ])) do |entry|
