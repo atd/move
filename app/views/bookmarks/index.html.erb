@@ -1,6 +1,5 @@
 <% atom_link_header(container, Bookmark.new) %>
 
-<% content_for :sidebar, container_menu %>
 <% content_for :pagination, will_paginate(@bookmarks) %>
 
 <h1><%= title %></h1>

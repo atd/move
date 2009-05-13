@@ -1,7 +1,7 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
-  def container_menu
-    container ? agent_menu(container) : site_menu
+  def sidebar_menu
+    container ? container_menu : site_menu
   end
 
   def site_menu
@@ -16,18 +16,20 @@ module ApplicationHelper
     end
   end
 
-  def agent_menu(agent)
+  def container_menu(container = self.container)
+    return "" unless container
+
     returning "" do |html|
-      html << agent_header(agent)
+      html << agent_header(container)
       html << "<hr>"
-      if agent.authorizes?([ :create, :performance ], :to => current_agent)
-        html << performances(agent)
+      if container.authorizes?([ :create, :performance ], :to => current_agent)
+        html << performances(container)
       end
 
-      if agent.authorizes?([ :create, :content ], :to => current_agent)
-        html << new_contents(agent)
+      if container.authorizes?([ :create, :content ], :to => current_agent)
+        html << new_contents(container)
       end
-      html << contents(agent)
+      html << contents(container)
     end
   end
 

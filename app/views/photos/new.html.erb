@@ -1,15 +1,11 @@
-<% content_for :sidebar, container_menu %>
+<h1><%= title %></h1>
 
-<div id="contentalt">
-  <h1><%= title %></h1>
+<%= error_messages_for :photo %>
 
-  <%= error_messages_for :photo %>
+<% form_for([ container, @photo ], :html => { :multipart => true }) do |f| -%>
 
-  <% form_for([ container, @photo ], :html => { :multipart => true }) do |f| -%>
+  <%= render :partial => "form", :object => f %>
 
-    <%= render :partial => "form", :object => f %>
+  <%= f.submit t(:create) %>
 
-    <%= f.submit t(:create) %>
-
-  <% end -%>
-</div>
+<% end -%>
