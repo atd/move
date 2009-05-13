@@ -106,7 +106,8 @@ module ApplicationHelper
   def published_data(resource)
     returning "" do |html|
       html << '<div class="published-data">'
-      html << t('published_by_author_since_time',
+      action = ( resource.created_at == resource.updated_at ? 'published' : 'updated' )
+      html << t("#{ action }_by_author_since_time",
                 :scope => resource.class.to_s.underscore,
                 :author => link_author(resource),
                 :time => time_ago_in_words(resource.updated_at))

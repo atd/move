@@ -1,5 +1,11 @@
 <div id="activity_<%= dom_id(content) %>" class="activity">
-  <%= content.owner.is_a?(User) ?
-  t('content.stream', :author => link_logotype(content.owner), :content => link_logotype(content, :url => [ content.owner, content ]), :time => time_ago_in_words(content.updated_at)) :
-  t('content.stream_in', :author => link_logotype(content.author), :content => link_logotype(content, :url => [ content.owner, content ]), :time => time_ago_in_words(content.updated_at), :container => link_logotype(content.owner)) %>
+  <%=
+  owner = ( content.owner.is_a?(User) ? 'user' : 'group' )
+  action = ( content.created_at == content.updated_at ? 'published' : 'updated' )
+  t "content.stream.#{ owner }.#{ action }",
+    :author    => link_logotype(content.author),
+    :content   => link_logotype(content, :url => [ content.owner, content ]),
+    :time      => time_ago_in_words(content.updated_at),
+    :container => link_logotype(content.owner)
+  %>
 </div>

@@ -17,6 +17,7 @@ es:
     the_one: "el artículo"
     published_by_author_at_date: "Publicado por {{author}} el {{date}}"
     published_by_author_since_time: "Publicado por {{author}} hace {{time}}"
+    updated_by_author_since_time: "Modificado por {{author}} hace {{time}}"
     title: "Título"
     description: "Entradilla"
     body: "Contenido"
@@ -32,6 +33,7 @@ es:
     the_one: "la imagen"
     published_by_author_at_date: "Publicada por {{author}} el {{date}}"
     published_by_author_since_time: "Publicada por {{author}} hace {{time}}"
+    updated_by_author_since_time: "Modificada por {{author}} hace {{time}}"
     title: "Título"
     description: "Descripción"
     file: "Fichero"
@@ -47,6 +49,7 @@ es:
     the_one: "el audio"
     published_by_author_at_date: "Publicado por {{author}} el {{date}}"
     published_by_author_since_time: "Publicado por {{author}} hace {{time}}"
+    updated_by_author_since_time: "Modificado por {{author}} hace {{time}}"
     title: "Título"
     description: "Descripción"
     file: "Fichero"
@@ -62,6 +65,7 @@ es:
     the_one: "el enlace"
     published_by_author_at_date: "Publicado por {{author}} el {{date}}"
     published_by_author_since_time: "Publicado por {{author}} hace {{time}}"
+    updated_by_author_since_time: "Modificado por {{author}} hace {{time}}"
     title: "Título"
     description: "Descripción"
     uri: "Enlace"
@@ -77,6 +81,7 @@ es:
     the_one: "el fichero"
     published_by_author_at_date: "Publicado por {{author}} el {{date}}"
     published_by_author_since_time: "Publicado por {{author}} hace {{time}}"
+    updated_by_author_since_time: "Modificado por {{author}} hace {{time}}"
     title: "Título"
     description: "Descripción"
     file: "Fichero"
@@ -112,8 +117,13 @@ es:
     performance:
       other: "Integrantes"
   content:
-    stream: "{{author}} publicó {{content}} hace {{time}}."
-    stream_in: "{{author}} publicó {{content}} en {{container}} hace {{time}}."
+    stream:
+      user: 
+        published: "{{author}} publicó {{content}} hace {{time}}."
+        updated: "{{author}} modificó {{content}} hace {{time}}."
+      group:
+        published: "{{author}} publicó {{content}} en {{container}} hace {{time}}."
+        updated: "{{author}} modificó {{content}} en {{container}} hace {{time}}."
   community: "Comunidad"
   last activity: "Última actividad"
   pagination:
@@ -124,7 +134,7 @@ es:
     one: "Comentario"
     other: "Comentarios"
     submit: "Comentar"
-    published_by_author_at_date: "{{author}} hace {{date}}"
+    published_by_author_since_time: "{{author}} hace {{date}}"
     new: "Nuevo Comentario"
     created: "Comentario creado"
     editing: "Editando Comentario"

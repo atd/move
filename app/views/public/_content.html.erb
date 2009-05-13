@@ -1,4 +1,10 @@
 <div id="activity_<%= dom_id(content) %>" class="activity">
-  <%= t 'content.stream', :author => link_logotype(content.owner), :content => link_logotype(content, :url => [ content.owner, content ]), :time => time_ago_in_words(content.updated_at) %>
+  <%= 
+  action = ( content.created_at == content.updated_at ? 'published' : 'updated' )
+  t "content.stream.user.#{ action }",
+    :author => link_logotype(content.owner),
+    :content => link_logotype(content, :url => [ content.owner, content ]),
+    :time => time_ago_in_words(content.updated_at)
+  %>
   <%= link_to("(#{ content.comments.size } #{ t('comment', :count => content.comments.size) })", polymorphic_path([ content.container, content], :anchor => 'comments')) if content.comments.any? %>
 </div>
