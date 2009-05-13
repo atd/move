@@ -4,4 +4,4 @@
 
 [submodule "vendor/plugins/station"]
 	path = vendor/plugins/station
-	url = git@github.com:atd/station.git
+	url = git://github.com/atd/station.git
