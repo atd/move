@@ -6,7 +6,10 @@
 
 <%= published_data(@photo) %>
 
-<a href="<%= photo_path(@photo) %>.<%= @photo.mime_type.to_sym.to_s %>"><img src="<%= photo_path(@photo) %>.<%= @photo.format %>?thumbnail=normal", alt="<%= @photo.title %>"></a>
+<%= link_to(image_tag(polymorphic_path(@photo, :format => @photo.format,
+                                               :thumbnail => '600'),
+                      :alt => sanitize(@photo.title)),
+                      polymorphic_path(@photo, :format => @photo.format)) %>
 
 <br />
 <%= sanitize @photo.description if @photo.description %>

@@ -4,7 +4,9 @@ class Photo < ActiveRecord::Base
   has_attachment :content_type => :image,
                  :storage => :db_file,
                  :max_size => 1000.megabytes,
-                 :thumbnails => { :normal => '600>', :thumb => '96' }
+                 :thumbnails => { '600' => '600>',
+                                  '96' => '96x96>',
+                                  '64' => '64x64>' }
 
   acts_as_resource :mime_types => [ :jpeg, :gif, :png ],
                    :disposition => :inline,

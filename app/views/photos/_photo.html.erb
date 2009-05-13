@@ -1,4 +1,9 @@
 <% div_for(photo, :class => "span-3 boxes") do -%>
-  <%= link_to image_tag(send("formatted_#{ photo.owner.class.to_s.underscore }_photo_path", photo.owner, photo, photo.format, :thumbnail => "thumb"), :alt => sanitize(photo.title), :title => sanitize(photo.title)), [ photo.owner, photo ] %><br />
+  <%= link_to image_tag(polymorphic_path([ photo.owner, photo ], :format => photo.format,
+                                                                 :thumbnail => "96"),
+                        :alt => sanitize(photo.title),
+                        :title => sanitize(photo.title)),
+              [ photo.owner, photo ] %>
+  <br />
   <%= link_to sanitize(photo.title), [ photo.owner, photo ] %>
 <% end %>

@@ -1,0 +1,9 @@
+<% content_for :title_header, title(t('tag.show_title', :tag => @tag.name), :append_site_name => true) %>
+
+<h1><%= t('tag.show_title', :tag => @tag.name) %></h1>
+
+<% @taggables.each do |t| %>
+  <% div_for(t, :class => 'span-3 boxes') do %>
+  <%= link_logotype t, :size => 64, :spacer => '<br />' %>
+  <% end %>
+<% end -%>
