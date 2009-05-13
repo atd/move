@@ -1,4 +1,4 @@
 class AudiosController < ApplicationController
-  include ActionController::MoveResources
+  include ActionController::StationResources
   include CommonContents
 end

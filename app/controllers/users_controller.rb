@@ -2,16 +2,7 @@ class UsersController < ApplicationController
   # Include some methods and filters. 
   include ActionController::Agents
   
-  # Get the User for member actions
-  before_filter :get_agent, :only => [ :show, :edit, :update, :destroy ]
-  
-  # Filter for activation actions
-  before_filter :activation_required, :only => [ :activate, 
-                                                 :lost_password, 
-                                                 :reset_password ]
-  # Filter for password recovery actions
-  before_filter :login_and_pass_auth_required, :only => [ :lost_password,
-                                                          :reset_password ]
+  alias_method :user, :agent
   
   authorization_filter :update, :user, :only => [ :edit, :update ]
 
@@ -27,7 +18,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       format.html {
-        if @agent.agent_options[:openid_server]
+        if user.agent_options[:openid_server]
           headers['X-XRDS-Location'] = formatted_polymorphic_url([ @agent, :xrds ])
           @openid_server_agent = @agent
         end
@@ -39,7 +30,7 @@ class UsersController < ApplicationController
 
   def update
     respond_to do |format|
-      if @user.update_attributes(params[:user])
+      if user.update_attributes(params[:user])
         flash[:notice] = t('user.updated')
         format.html { redirect_to @user }
         format.xml  { head :ok }

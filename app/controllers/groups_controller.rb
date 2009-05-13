@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  include ActionController::MoveResources
+  include ActionController::StationResources
 
   authorization_filter :update, :group, :only => [ :edit, :update ]
   authorization_filter :delete, :group, :only => [ :destroy ]
