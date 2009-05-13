@@ -2,8 +2,7 @@
 <% content_for :pagination, will_paginate(@contents) %>
 <% content_for :sidebar, home_sidebar %>
 
-<h1><%= t 'user.home' %></h1>
-<h2><%= t 'user.network_activity' %></h2>
+<h1><%= t 'user.network_activity' %></h1>
 <div id="activity_stream">
 <%= render :partial => 'content',
            :collection => @contents,

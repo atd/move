@@ -15,6 +15,13 @@ h1 {
 	padding-top: 15px;
 }
 
+h2 {
+	color: #C9740A;
+	border-bottom: 1px solid #C9740A;
+	margin-right: 40px;
+	margin-bottom: 0.3em;
+}
+
 a {
 	color: #C9740A;
 	text-decoration: none;
@@ -255,9 +262,6 @@ div#performances {
 }
 */
 
-#main h2 {
-	margin-bottom: 1px;
-}
 
 #main .published-data {
 	color: #359296;
@@ -290,8 +294,13 @@ div#performances {
 div.comment {
 	width: 100%;
 	min-height: 40px;
+	margin-bottom: 5px;
 }
 
+#comment_content {
+	width: 550px;
+	height: 100px;
+}
 
 #footer { }
 
