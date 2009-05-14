@@ -61,7 +61,7 @@ div.logo-16, div.logo-22, div.logo-32, div.logo-48, div.logo-64, div.logo-72, di
 .logo-256 {max-height: 256px;height: 256px;min-height: 256px;max-width: 256px;width: 256px;min-width: 256px;}
 
 .actions {
-	background-color: #C3F9FC;
+	background-color: #E4F3F2;
 	border: 1px solid #359296;
 	-moz-border-radius: 5px;
 	padding: 2px;
@@ -144,7 +144,7 @@ a.actions:hover, .actions a:hover {
 
 #session {
 	min-height: 50px;
-	background-color: #C3F9FC;
+	background-color: #E4F3F2;
 	border: 1px solid #359296;
 	-moz-border-radius: 5px;
 }
@@ -246,9 +246,35 @@ div#performances {
 	margin-bottom: -4px;
 }
 
-#activity_stream div.odd {
-	background-color: #e6feff;
+#activity_stream div.activity {
+	padding: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	min-height: 80px;
 }
+
+#activity_stream div.activity:hover {
+	background-color: #E4F3F2;
+}
+
+#activity_stream div.activity-content {
+	margin: 5px 23px;
+}
+
+#activity_stream div.activity-content .logo {
+	float: left;
+	margin-right: 3px;
+}
+
+#activity_stream div.activity-content-title {
+	font-size: 1.5em;
+}
+
+#activity_stream div.activity-content-comments {
+	margin-top: 8px;
+}
+
+
 
 /*
 .activity {

@@ -11,6 +11,7 @@ es:
 
 # Application
   article:
+    a: "un artículo"
     one: "Artículo"
     other: "Artículos"
     other_in_container: "Artículos de {{container}}"
@@ -27,6 +28,7 @@ es:
     updated: "Artículo actualizado"
     editing: "Editando Artículo"
   photo:
+    a: "una imagen"
     one: "Imagen"
     other: "Imágenes"
     other_in_container: "Imágenes de {{container}}"
@@ -43,6 +45,7 @@ es:
     updated: "Imagen actualizada"
     editing: "Modificar Imagen"
   audio:
+    a: "un audio"
     one: "Audio"
     other: "Audios"
     other_in_container: "Audios de {{container}}"
@@ -59,6 +62,7 @@ es:
     updated: "Audio actualizado"
     editing: "Modificar Audio"
   bookmark:
+    a: "un enlace"
     one: "Enlace"
     other: "Enlaces"
     other_in_container: "Enlaces de {{container}}"
@@ -75,6 +79,7 @@ es:
     updated: "Enlace actualizado"
     editing: "Editando Enlace"
   document:
+    a: "un fichero"
     one: "Fichero"
     other: "Ficheros"
     other_in_container: "Ficheros de {{container}}"

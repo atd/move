@@ -1,13 +1,23 @@
-<div id="activity_<%= dom_id(content) %>" class="activity">
-  <%=
+<div id="activity-<%= dom_id(content) %>" class="activity">
+  <div class="activity-details published-data">
+    <%=
     action = ( content.created_at == content.updated_at ? 'published' : 'updated' )
     t "content.stream.user.#{ action }",
       :author => link_logotype(authorized?([ :read, :performance], @group) ? 
                                content.author :
                                content.owner),
-      :content => link_logotype(content,
-      :url => [ content.owner, content ]),
+      :content   => link_to(t('a', :scope => content.class.to_s.underscore), [ content.owner, content ]),
       :time => time_ago_in_words(content.updated_at)
-  %>
-  <%= link_to("(#{ content.comments.size } #{ t('comment', :count => content.comments.size) })", polymorphic_path([ content.container, content], :anchor => 'comments')) if content.comments.any? %>
+    %>
+  </div>
+  <div class="activity-content">
+    <%= link_logo(content, :size => 48, :url => [ content.owner, content ]) %>
+    <div class="activity-content-title">
+      <%= link_to sanitize(content.name), [ content.owner, content ] %>
+    </div>
+
+    <div class="activity-content-comments">
+      <%= link_to("#{ content.comments.size } #{ t('comment', :count => content.comments.size) }", polymorphic_path([ content.container, content], :anchor => 'comments')) if content.comments.any? %>
+    </div>
+  </div>
 </div>

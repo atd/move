@@ -6,6 +6,7 @@ class Photo < ActiveRecord::Base
                  :max_size => 1000.megabytes,
                  :thumbnails => { '600' => '600>',
                                   '96' => '96x96>',
+                                  '48' => '48x48>',
                                   '64' => '64x64>' }
 
   acts_as_resource :mime_types => [ :jpeg, :gif, :png ],
