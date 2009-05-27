@@ -8,7 +8,7 @@ end if bookmark.description.present?
 
 entry.tag!("app:edited", bookmark.updated_at.xmlschema)
 
-entry.link(:rel => 'edit', :href => formatted_polymorphic_url([ bookmark.container, bookmark, :atom ]))
+entry.link(:rel => 'edit', :href => polymorphic_url([ bookmark.container, bookmark ], :format => :atom ))
   
 entry.content(:type => 'xhtml') do |xhtml|
   xhtml << link_to(sanitize(bookmark.title), sanitize(bookmark.uri.to_s))

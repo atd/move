@@ -8,14 +8,13 @@ end if document.description.present?
 
 entry.tag!("app:edited", document.updated_at.xmlschema)
 
-entry.link(:rel => 'edit', :href => formatted_polymorphic_url([ document.container, document, :atom ]))
+entry.link(:rel => 'edit', :href => polymorphic_url([ document.container, document], :format => :atom))
   
-#FIXME: Rails 2.3 use new object try
 url_args = ( document.respond_to?(:container) && document.container ? [ document.container, document ] : document )
 
 options = {}
 options[:src], options[:type] = ( document.format ?
-  [ formatted_polymorphic_url(url_args + Array(document.format)), document.mime_type.to_s ] :
+  [ polymorphic_url(url_args, :format => document.format), document.mime_type.to_s ] :
   [ polymorphic_url(url_args), 'text/html' ] )
 
 entry.content(options)

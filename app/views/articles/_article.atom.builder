@@ -8,7 +8,7 @@ end if article.description.present?
 
 entry.tag!("app:edited", article.updated_at.xmlschema)
 
-entry.link(:rel => 'edit', :href => formatted_polymorphic_url([ article.container, article, :atom ]))
+entry.link(:rel => 'edit', :href => polymorphic_url([ article.container, article ], :format => :atom ))
   
 entry.content :type => 'xhtml' do |xhtml|
   xhtml << sanitize(article.body)

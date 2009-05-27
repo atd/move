@@ -8,14 +8,13 @@ end if audio.description.present?
 
 entry.tag!("app:edited", audio.updated_at.xmlschema)
 
-entry.link(:rel => 'edit', :href => formatted_polymorphic_url([ audio.container, audio, :atom ]))
+entry.link(:rel => 'edit', :href => polymorphic_url([ audio.container, audio ], :format => :atom ))
   
-#FIXME: Rails 2.3 use new object try
 url_args = ( audio.respond_to?(:container) && audio.container ? [ audio.container, audio ] : audio )
 
 options = {}
 options[:src], options[:type] = ( audio.format ?
-  [ formatted_polymorphic_url(url_args + Array(audio.format)), audio.mime_type.to_s ] :
+  [ polymorphic_url(url_args, :format => audio.format), audio.mime_type.to_s ] :
   [ polymorphic_url(url_args), 'text/html' ] )
 
 entry.content(options)
