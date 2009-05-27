@@ -115,12 +115,17 @@ es:
     updated: "Grupo actualizado"
     last activity: "Última actividad de {{group}}"
     name: "Nombre"
+    email: "Correo electrónico o lista de correo"
     description: "Descripción"
     others_read_content: "Todos los contenidos públicos"
     others_read_members: "Lista de integrantes pública"
     others_write_members: "Cualquiera se puede apuntar al grupo"
     performance:
       other: "Integrantes"
+    notification:
+      one: "Avisar al grupo"
+      send: "Enviar correo electrónico avisando al grupo"
+      text: "Comentario"
   content:
     stream:
       user: 
@@ -128,7 +133,9 @@ es:
         updated: "{{author}} modificó {{content}} hace {{time}}."
       group:
         published: "{{author}} publicó {{content}} en {{container}} hace {{time}}."
+        published_at_time: "{{author}} publicó {{content}} en {{container}} el {{time}}."
         updated: "{{author}} modificó {{content}} en {{container}} hace {{time}}."
+        updated_at_time: "{{author}} publicó {{content}} en {{container}} el {{time}}."
   community: "Comunidad"
   last activity: "Última actividad"
   pagination:

@@ -1,0 +1,10 @@
+<% action = ( @content.created_at == @content.updated_at ? 'published' : 'updated' ) -%>
+<%= t("content.stream.group.#{ action }_at_time",
+      :author => @content.author.name,
+      :content => "#{ t('the_one', :scope => @content.class.to_s.underscore) } \"#{ @content.title }\"",
+      :container => @content.container.name,
+      :time => localize(@content.updated_at)) %>
+
+      <%= polymorphic_url [ @content.container, @content ], :host => Site.current.domain %>
+
+"<%= @content.notification_text %>"

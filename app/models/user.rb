@@ -44,4 +44,12 @@ class User < ActiveRecord::Base
       ActiveRecord::Authorization::Affordance.new self, action
     }
   end
+
+  def email_with_name
+    "#{ name } <#{ email }>"
+  end
+
+  def notification_email
+    email_with_name
+  end
 end

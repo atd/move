@@ -33,4 +33,14 @@ class Group < ActiveRecord::Base
     affs
   end
 
+  def users
+    actors.select{ |a| a.is_a?(User) }
+  end
+
+  def notification_email
+    email.present? ?
+      email :
+      users.map(&:email).join(', ')
+  end
+
 end

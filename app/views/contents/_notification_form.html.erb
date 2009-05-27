@@ -1,0 +1,14 @@
+<% if container.is_a?(Group) -%>
+<fieldset>
+  <legend><%= t 'group.notification.one' %></legend>
+  <p>
+    <%= notification_form.label :notification, t('group.notification.send') %><br />
+    <%= notification_form.check_box :notification %>
+  </p>
+  <p>
+    <%= notification_form.label :notification_text, t('group.notification.text') %><br />
+    <%= notification_form.text_area :notification_text %>
+  </p>
+
+</fieldset>
+<% end -%>

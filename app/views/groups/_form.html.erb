@@ -9,6 +9,11 @@
   <%= form.logo %>
 
   <p>
+  <%= form.label :email, t('group.email') %><br />
+  <%= form.text_field :email, :class => 'text' %>
+  </p>
+
+  <p>
   <%= form.label :description, t('group.description') %><br />
   <%= fckeditor_textarea :group, :description, :toolbarSet => 'Simple', :width => '100%', :height => '400px' %>
   </p>

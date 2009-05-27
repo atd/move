@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090418172728) do
+ActiveRecord::Schema.define(:version => 20090520142841) do
 
   create_table "article_versions", :force => true do |t|
     t.integer  "article_id"
@@ -168,6 +168,7 @@ ActiveRecord::Schema.define(:version => 20090418172728) do
     t.boolean  "members_write_content"
     t.boolean  "others_write_content"
     t.integer  "user_id"
+    t.string   "email"
   end
 
   create_table "invitations", :force => true do |t|
@@ -356,6 +357,7 @@ ActiveRecord::Schema.define(:version => 20090418172728) do
     t.datetime "last_online"
     t.integer  "activation_count",                        :default => 0
     t.text     "description"
+    t.string   "reset_password_code",       :limit => 40
   end
 
   create_table "write_accesses", :force => true do |t|
