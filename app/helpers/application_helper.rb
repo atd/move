@@ -1,7 +1,9 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
   def sidebar_menu
-    container ? container_menu : site_menu
+    container && container != current_site ?
+      container_menu :
+      site_menu
   end
 
   def site_menu
@@ -12,6 +14,11 @@ module ApplicationHelper
       html << "<ul>"
       html << "<li>#{ link_logotype User.new, :text => t('user.other') }</li>"
       html << "<li>#{ link_logotype Group.new, :text => t('group.other') }</li>"
+      html << "<li>#{ link_logotype Article.new, :text => t('article.other') }</li>"
+      html << "<li>#{ link_logotype Photo.new, :text => t('photo.other') }</li>"
+      html << "<li>#{ link_logotype Audio.new, :text => t('audio.other') }</li>"
+      html << "<li>#{ link_logotype Document.new, :text => t('document.other') }</li>"
+      html << "<li>#{ link_logotype Bookmark.new, :text => t('bookmark.other') }</li>"
       html << "</ul>"
     end
   end
