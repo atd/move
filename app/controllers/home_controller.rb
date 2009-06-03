@@ -3,7 +3,7 @@ class HomeController < ApplicationController
 
   def index
     @contents = 
-      ActiveRecord::Content.all(:container => Array(current_agent) + current_agent.stages,
+      ActiveRecord::Content.all(:container => ( Array(current_agent) + current_agent.stages + Authenticated.current.stages ).uniq,
                                 :page => params[:page],
                                 :per_page => 10,
                                 :select => "id, title, created_at, updated_at, owner_id, owner_type, author_id, author_type")
