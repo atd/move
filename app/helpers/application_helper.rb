@@ -1,7 +1,7 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
   def sidebar_menu
-    container && container != current_site ?
+    current_container && current_container != current_site ?
       container_menu :
       site_menu
   end
@@ -23,7 +23,7 @@ module ApplicationHelper
     end
   end
 
-  def container_menu(container = self.container)
+  def container_menu(container = self.current_container)
     return "" unless container
 
     returning "" do |html|
