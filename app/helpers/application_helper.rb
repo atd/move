@@ -67,7 +67,7 @@ module ApplicationHelper
     contents = [ :document, :article, :bookmark ]
 
     returning "" do |html|
-      html << '<div id="new_contents" class="actions">'
+      html << '<div id="new_contents" class="actions span-5">'
       html << "<ul>"
       contents.each do |content|
           html << "<li>"
@@ -84,6 +84,8 @@ module ApplicationHelper
   def contents(container)
     returning "" do |html|
       html << '<div id="contents">'
+
+      # Contents
       html << "<ul>"
       container.class.contents.sort do |x, y| 
         t(:other, :scope => x.to_s.singularize) <=> 
@@ -98,6 +100,22 @@ module ApplicationHelper
         end
       end
       html << "</ul>"
+
+      # Categories
+      if authorized?([ :read, :content ], container) && container.domain_categories.any?
+        html << "<ul>"
+        html << "<li>"
+        html << link_logo(Category.new, :url => [ container, Category.new ])
+        html << link_to_unless_current(t('category.other'), [ container, Category.new ])
+        html << "<ul id=\"categories_ul\">"
+        container.domain_categories.each do |c|
+          html << "<li>#{ link_to sanitize(c.name), [ container, c ]}</li>"
+        end
+        html << "</ul>"
+        html << "</li>"
+      html << "</ul>"
+      end
+
       html << "</div>"
     end
   end

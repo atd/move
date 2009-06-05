@@ -204,6 +204,10 @@ a.actions:hover, .actions a:hover {
 
 }
 
+#sidebar ul#categories_ul li {
+	font-size: 0.85em;
+}
+
 #sidebar hr {
 	background-color: #C9740A;
 }
