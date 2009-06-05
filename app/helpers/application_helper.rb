@@ -52,7 +52,7 @@ module ApplicationHelper
 
   def performances(container)
     returning "" do |html|
-      html << '<div id="performances" class="actions">'
+      html << '<div id="performances" class="actions span-5">'
       html << "<ul>"
       html << "<li>"
       html << link_logo(User.new, :url => [ container, Performance.new ])
