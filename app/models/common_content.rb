@@ -28,4 +28,8 @@ module CommonContent
     affs << ActiveRecord::Authorization::Affordance.new(Authenticated.current, [ :create, :comment])
     affs
   end
+
+  def notification?
+    self.notification.present? && self.notification != '0'
+  end
 end

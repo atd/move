@@ -7,4 +7,6 @@
 
       <%= polymorphic_url [ @content.container, @content ], :host => Site.current.domain %>
 
-"<%= @content.notification_text %>"
+<% if @content.notification_text.present? %>
+  "<%= @content.notification_text %>"
+<% end %>
