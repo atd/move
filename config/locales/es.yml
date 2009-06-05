@@ -135,7 +135,7 @@ es:
         published: "{{author}} publicó {{content}} en {{container}} hace {{time}}."
         published_at_time: "{{author}} publicó {{content}} en {{container}} el {{time}}."
         updated: "{{author}} modificó {{content}} en {{container}} hace {{time}}."
-        updated_at_time: "{{author}} publicó {{content}} en {{container}} el {{time}}."
+        updated_at_time: "{{author}} modificó {{content}} en {{container}} el {{time}}."
   community: "Comunidad"
   last activity: "Última actividad"
   pagination:
