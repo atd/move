@@ -8,8 +8,8 @@ module ApplicationHelper
 
   def site_menu
     returning "" do |html|
-      html << link_logo(site, :size => 48, :url => root_path)
-      html << sanitize(site.description) if site.description
+      html << link_logo(current_site, :size => 48, :url => root_path)
+      html << sanitize(current_site.description) if current_site.description
       html << "<hr>"
       html << "<ul>"
       html << "<li>#{ link_logotype User.new, :text => t('user.other') }</li>"
