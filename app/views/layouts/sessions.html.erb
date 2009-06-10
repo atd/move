@@ -2,7 +2,7 @@
 "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-  <title><%= t :login_to, :site => site.name %></title>
+  <title><%= t :login_to, :site => current_site.name %></title>
   <meta name="description" content="<%= yield :description_header %>" />
   <meta name="keywords" content="<%= yield :keywords_header %>" />
   <meta name="author" content="<%= yield :author_header %>" />
@@ -20,10 +20,10 @@
   <div id="site" class="container ">
     <div id="header" class="span-24 last">
       <div id="header_logo" class="prepend-1 span-3">
-        <%= link_logo(site, :size => 96, :url => root_path) %>
+        <%= link_logo(current_site, :size => 96, :url => root_path) %>
       </div>
       <div id="header_title" class="prepend-1 span-8">
-        <%= link_to site.name, root_path %>
+        <%= link_to current_site.name, root_path %>
       </div>
       <div id="header_session" class="prepend-18">
       </div>
