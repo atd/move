@@ -334,6 +334,16 @@ div.comment {
 
 #footer { }
 
+#main .performance:hover, #main .invitation:hover {
+	background-color: #E4F3F2;
+}
+
+#invitation_comment {
+	width: 400px;
+	height: 100px;
+}
+
+
 /*
  * Style in Performance options *
 #new_performance option {

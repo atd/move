@@ -9,7 +9,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090520142841) do
+ActiveRecord::Schema.define(:version => 20090610135547) do
+
+  create_table "admissions", :force => true do |t|
+    t.string   "type"
+    t.integer  "candidate_id"
+    t.string   "candidate_type"
+    t.integer  "group_id"
+    t.string   "group_type"
+    t.integer  "introducer_id"
+    t.string   "introducer_type"
+    t.string   "email"
+    t.integer  "role_id"
+    t.text     "comment"
+    t.string   "code"
+    t.boolean  "accepted"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "processed_at"
+  end
 
   create_table "article_versions", :force => true do |t|
     t.integer  "article_id"

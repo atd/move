@@ -1,0 +1,3 @@
+<%= t("invitation.#{ @invitation.state }_by", :candidate => @invitation.candidate_name) %>
+
+  <%= polymorphic_url @invitation.group %>

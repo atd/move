@@ -1,0 +1,51 @@
+<h1><%= t('performance.other_in', :stage => @stage.name) %></h1>
+
+<div id="performances">
+<% @performances.each do |performance| -%>
+  <% div_for performance, :class => 'span-16' do -%>
+    <div class="prepend-1 span-6">
+    <%= link_logotype performance.agent %>
+    </div>
+
+    <div class="span-6">
+    <% if authorized?([ :update, :performance ], @stage) %>
+      <%= render :partial => 'edit_role_form', :object => performance %>
+    <% else -%>
+      <%= performance.role.name %>
+    <% end -%>
+    </div>
+
+    <div class="span-3 last">
+    <% if authorized?([ :delete, :performance ], @stage) %>
+      <%= link_to(image_tag("icons/delete.png", :alt => t(:delete), :title => t(:delete)), performance, :confirm => t('performance.confirm_delete'), :method => :delete) %>
+    <% end -%>
+    </div>
+  <% end -%>
+<% end -%>
+</div>
+
+<% if @group.invitations.pending.any? -%>
+<div id="pending-invitations">
+  <h2><%= t 'invitation.pending.other' %></h2>
+  <% @group.invitations.pending.each do |i| %>
+    <% div_for i, :class => 'span-16' do -%>
+      <div class="prepend-1 span-6">
+        <%= i.candidate.present? ? link_logotype(i.candidate) : i.email %>
+      </div>
+
+      <div class="span-6">
+        <%= i.role.try(:name) %>
+      </div>
+
+      <div class="span-3 last">
+      <% if authorized?([ :delete, :performance ], @stage) %>
+        <%= link_to(image_tag("icons/delete.png", :alt => t(:delete), :title => t(:delete)), i, :confirm => t('invitation.confirm_delete'), :method => :delete) %>
+      <% end -%>
+      </div>
+    <% end -%>
+  <% end -%>
+</div>
+
+<% end -%>
+
+<%= render :partial => 'new_invitation' %>

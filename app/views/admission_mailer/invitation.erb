@@ -1,0 +1,11 @@
+Hola <%= @invitation.candidate_name %>,
+  <%= @invitation.introducer.name %> te han invitado a participar en <%= @invitation.group.name %>
+
+  <% if @invitation.comment.present? -%>
+    <%= @invitation.comment %>
+  <% end -%>
+
+  Visita el siguiente enlace para aceptar la invitación:
+  <%= invitation_url(@invitation) %>
+
+

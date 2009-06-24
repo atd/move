@@ -23,11 +23,11 @@ class Group < ActiveRecord::Base
   def local_affordances(options = {})
     affs = []
     if others_read_members?
-      affs << ActiveRecord::Authorization::Affordance.new(Anyone.current, [:read, :member])
+      affs << ActiveRecord::Authorization::Affordance.new(Anyone.current, [:read, :performance])
     end
 
     if others_write_members?
-      affs << ActiveRecord::Authorization::Affordance.new(Anyone.current, [:create, :member])
+      affs << ActiveRecord::Authorization::Affordance.new(Authenticated.current, [:create, :performance])
     end
 
     affs

@@ -1,16 +1,10 @@
 class UserMailer < ActionMailer::Base
   def signup_notification(user)
     setup_email(user)
-    @subject    += I18n.t(:please_activate_account)
-    @body[:url]  = "http://#{ Site.current.domain }/activate/#{user.activation_code}"
+    @subject    += I18n.t(:wellcome)
+    @body[:user] = user
   end
   
-  def activation(user)
-    setup_email(user)
-    @subject    += I18n.t(:account_activated)
-    @body[:url]  = "http://#{ Site.current.domain }/"
-  end
-
   def lost_password(user)
     setup_email(user)
     @subject    += I18n.t(:request_change_password)

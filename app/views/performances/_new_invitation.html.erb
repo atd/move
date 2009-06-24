@@ -1,0 +1,26 @@
+<div id="new_invitation">
+  <h2><%= t 'invitation.send.one' %></h2>
+  <% form_for [ @stage, Invitation.new ] do |f|  -%>
+
+    <%= f.error_messages %>
+
+    <div class="span-8">
+      <%= f.label :email, t('invitation.email') %><br />
+      <%= f.text_field :email %>
+    </div>
+
+    <div class="span-8 last">
+      <%= f.label :role, t('invitation.role') %><br />
+      <%= f.select :role_id, @stage.class.roles.map{ |r| [ r.name, r.id ] } %>
+    </div>
+
+    <p>
+      <%= f.label :comment, t('invitation.comment') %><br />
+      <%= f.text_area :comment, :class => 'text' %>
+    </p>
+
+    <p>
+      <%= f.submit t(:send) %>
+    </p>
+  <% end -%>
+</div>

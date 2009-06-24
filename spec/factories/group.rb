@@ -9,10 +9,10 @@ end
 def populated_group
   g = Factory(:group)
   2.times do
-    Factory(:admin, :group => g)
+    Factory(:admin, :stage => g)
   end
   5.times do
-    Factory(:participant, :group => g)
+    Factory(:participant, :stage => g)
   end
   g
 end
