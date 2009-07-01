@@ -274,7 +274,7 @@ div#performances {
 	font-size: 1.5em;
 }
 
-#activity_stream div.activity-content-comments {
+#activity_stream div.activity-content-posts {
 	margin-top: 8px;
 }
 
@@ -315,19 +315,19 @@ div#performances {
 	height: 1px;
 }
 
-#comments img.logo {
+#posts img.logo {
 	margin-right: 5px;
 	margin-bottom: 5px;
 	float: left;
 }
 
-div.comment {
+div.post {
 	width: 100%;
 	min-height: 40px;
 	margin-bottom: 5px;
 }
 
-#comment_content {
+#post_content {
 	width: 550px;
 	height: 100px;
 }
@@ -338,7 +338,7 @@ div.comment {
 	background-color: #E4F3F2;
 }
 
-#invitation_comment {
+#invitation_post {
 	width: 400px;
 	height: 100px;
 }

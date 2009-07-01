@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090610135547) do
+ActiveRecord::Schema.define(:version => 20090626141533) do
 
   create_table "admissions", :force => true do |t|
     t.string   "type"
@@ -111,17 +111,6 @@ ActiveRecord::Schema.define(:version => 20090610135547) do
     t.integer "categorizable_id"
     t.string  "categorizable_type"
     t.integer "category_id"
-  end
-
-  create_table "comments", :force => true do |t|
-    t.integer  "commentable_id"
-    t.string   "commentable_type"
-    t.text     "content"
-    t.integer  "author_id"
-    t.string   "author_type"
-    t.integer  "parent_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "contacts", :force => true do |t|
@@ -291,6 +280,19 @@ ActiveRecord::Schema.define(:version => 20090610135547) do
     t.integer  "author_id"
     t.boolean  "public_read"
     t.string   "author_type"
+  end
+
+  create_table "posts", :force => true do |t|
+    t.integer  "postable_id"
+    t.string   "postable_type"
+    t.text     "text"
+    t.integer  "author_id"
+    t.string   "author_type"
+    t.integer  "parent_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "container_id"
+    t.integer  "container_type"
   end
 
   create_table "profiles", :force => true do |t|

@@ -3,7 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   map.root :controller => 'public'
 
   map.resources(*ActiveRecord::Resource.symbols) do |r|
-    r.resources :comments
+    r.resources :posts
   end
   # The priority is based upon order of creation: first created -> highest priority.
 

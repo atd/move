@@ -142,7 +142,7 @@ es:
     prev_label: "&laquo; Anterior"
     next_label: "Siguiente &raquo;"
   privacy: "Privacidad"
-  comment:
+  post:
     one: "Comentario"
     other: "Comentarios"
     submit: "Comentar"

@@ -46,21 +46,21 @@ namespace :setup do
       tmp_file
     end
 
-    def comments(resources)
+    def posts(resources)
       return if rand > 0.2
 
       users = User.all
 
       resources.each do |r|
-        Comment.populate 1..10 do |comment|
-          comment.commentable_id = r.id
-          comment.commentable_type = r.class.base_class.to_s
+        Post.populate 1..10 do |post|
+          post.postable_id = r.id
+          post.postable_type = r.class.base_class.to_s
           author = users.rand
-          comment.author_id = author.id
-          comment.author_type = author.class.base_class.to_s
-          comment.content = Populator.sentences(1..4)
-          comment.created_at = r.created_at..Time.now
-          comment.updated_at = comment.created_at..Time.now
+          post.author_id = author.id
+          post.author_type = author.class.base_class.to_s
+          post.text = Populator.sentences(1..4)
+          post.created_at = r.created_at..Time.now
+          post.updated_at = post.created_at..Time.now
         end
       end
     end
@@ -72,7 +72,7 @@ namespace :setup do
         article.body = Populator.sentences(3..15)
       end
 
-      comments(owner.articles)
+      posts(owner.articles)
     end
 
     def photos(owner, authors)
@@ -87,7 +87,7 @@ namespace :setup do
         photo.save!
       end
 
-      comments(owner.photos)
+      posts(owner.photos)
     end
 
     def audios(owner, authors)
@@ -102,7 +102,7 @@ namespace :setup do
         audio.save!
       end
 
-      comments(owner.audios)
+      posts(owner.audios)
     end
 
     def documents(owner, authors)
@@ -117,7 +117,7 @@ namespace :setup do
         document.save!
       end
 
-      comments(owner.documents)
+      posts(owner.documents)
     end
 
     def bookmarks(owner, authors)
@@ -127,7 +127,7 @@ namespace :setup do
         bookmark.uri_id = Uri.find_or_create_by_uri("http://#{ Faker::Internet.domain_name }").id
       end
 
-      comments(owner.bookmarks)
+      posts(owner.bookmarks)
     end
 
     def contents(owner, authors)

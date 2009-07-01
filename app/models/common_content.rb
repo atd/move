@@ -10,8 +10,8 @@ module CommonContent
         acts_as_content :reflection => :owner
         acts_as_taggable
 
-        has_many :comments,
-                 :as => :commentable,
+        has_many :posts,
+                 :as => :postable,
                  :dependent => :destroy
 
         attr_accessor :notification, :notification_text
@@ -25,7 +25,7 @@ module CommonContent
       affs << ActiveRecord::Authorization::Affordance.new(Anyone.current, :read)
     end
 
-    affs << ActiveRecord::Authorization::Affordance.new(Authenticated.current, [ :create, :comment])
+    affs << ActiveRecord::Authorization::Affordance.new(Authenticated.current, [ :create, :post])
     affs
   end
 

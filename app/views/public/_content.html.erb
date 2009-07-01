@@ -14,8 +14,8 @@
       <%= link_to sanitize(content.name), [ content.owner, content ] %>
     </div>
 
-    <div class="activity-content-comments">
-      <%= link_to("#{ content.comments.size } #{ t('comment', :count => content.comments.size) }", polymorphic_path([ content.container, content], :anchor => 'comments')) if content.comments.any? %>
+    <div class="activity-content-posts">
+      <%= link_to("#{ content.posts.size } #{ t('post', :count => content.posts.size) }", polymorphic_path([ content.container, content], :anchor => 'posts')) if content.posts.any? %>
     </div>
   </div>
 </div>

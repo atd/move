@@ -1,0 +1,16 @@
+<% div_for post do %>
+<%= link_logo(post.author, :size => 32) %>
+<div class="published-data">
+  <%= t 'post.published_by_author_since_time',
+        :author => link_to(post.author.name, post.author),
+        :date => time_ago_in_words(post.updated_at)
+  %>
+  <% if authorized?(:update, post) %>
+  <%= link_to t(:edit), polymorphic_path([ post.postable, post], :action => :edit), :class => 'actions' %>
+  <% end -%>
+  <% if authorized?(:delete, post) %>
+  <%= link_to t(:delete), [ post.postable, post ], :confirm => t('post.confirm_delete'), :method => :delete, :class => 'actions' %>
+  <% end -%>
+</div>
+<%= sanitize post.text %>
+<% end %>

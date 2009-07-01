@@ -1,0 +1,11 @@
+<% form_for([ @content, Post.new ]) do |f| %>
+  <%= f.error_messages %>
+
+  <%= link_logotype(current_agent, :size => 32) %>
+
+  <p>
+  <%= f.text_area :text, :class => 'text' %>
+  </p>
+
+  <%= f.submit t('post.submit') %>
+<% end %>

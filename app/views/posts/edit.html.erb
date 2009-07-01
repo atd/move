@@ -1,0 +1,12 @@
+<h1><%= t 'post.editing' %></h1>
+
+<% form_for([ @post.postable, @post ]) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.text_area :text, :class => 'text' %>
+  </p>
+  <p>
+    <%= f.submit t(:update) %>
+  </p>
+<% end %>

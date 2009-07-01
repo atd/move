@@ -1,0 +1,33 @@
+<p>
+  <b>Postable:</b>
+  <%=h @post.postable_id %>
+</p>
+
+<p>
+  <b>Postable type:</b>
+  <%=h @post.postable_type %>
+</p>
+
+<p>
+  <b>Text:</b>
+  <%=h @post.text %>
+</p>
+
+<p>
+  <b>Author:</b>
+  <%=h @post.author_id %>
+</p>
+
+<p>
+  <b>Author type:</b>
+  <%=h @post.author_type %>
+</p>
+
+<p>
+  <b>Parent:</b>
+  <%=h @post.parent_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
