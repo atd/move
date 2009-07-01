@@ -12,5 +12,5 @@
   <%= link_to t(:delete), [ post.postable, post ], :confirm => t('post.confirm_delete'), :method => :delete, :class => 'actions' %>
   <% end -%>
 </div>
-<%= sanitize post.text %>
+<%= simple_format(auto_link(sanitize(post.text))) %>
 <% end %>
