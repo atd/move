@@ -17,7 +17,7 @@
     </div>
 
     <div class="activity-content-posts">
-      <%= link_to("#{ content.posts.size } #{ t('posts', :count => content.posts.size) }", polymorphic_path([ content.container, content], :anchor => 'posts')) if content.posts.any? %>
+      <%= link_to("#{ content.posts.size } #{ t('post', :count => content.posts.size) }", polymorphic_path([ content.container, content], :anchor => 'posts')) if content.posts.any? %>
     </div>
   </div>
 </div>
