@@ -52,6 +52,7 @@ module ApplicationHelper
 
   def performances(container)
     returning "" do |html|
+      html << '<div id="performances-wrapper" class="span-6 last">'
       html << '<div id="performances" class="actions span-5">'
       html << "<ul>"
       html << "<li>"
@@ -60,6 +61,7 @@ module ApplicationHelper
                       [ container, Performance.new ])
       html << "</li>"
       html << "</div>"
+      html << "</div>"
     end
   end
 
@@ -67,6 +69,7 @@ module ApplicationHelper
     contents = [ :document, :article, :bookmark ]
 
     returning "" do |html|
+      html << '<div id="new_contents-wrapper" class="span-6 last">'
       html << '<div id="new_contents" class="actions span-5">'
       html << "<ul>"
       contents.each do |content|
@@ -78,12 +81,13 @@ module ApplicationHelper
       end
       html << "</ul>"
       html << "</div>"
+      html << "</div>"
     end
   end
 
   def contents(container)
     returning "" do |html|
-      html << '<div id="contents">'
+      html << '<div id="contents" class= "span-6 last">'
 
       # Contents
       html << "<ul>"
