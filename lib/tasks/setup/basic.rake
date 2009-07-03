@@ -5,6 +5,10 @@ namespace :setup do
 
     desc "Load Roles Data"
     task :roles => :permissions do
+      site_admin_role = Role.find_or_create_by_name_and_stage_type "Admin", "Site"
+      site_admin_role.permissions << Permission.find_by_action_and_objective('read',   nil)
+      site_admin_role.permissions << Permission.find_by_action_and_objective('update', nil)
+
       admin_role = Role.find_or_create_by_name_and_stage_type "Admin", "Group"
       admin_role.permissions << Permission.find_by_action_and_objective('read',   nil)
       admin_role.permissions << Permission.find_by_action_and_objective('update', nil)
