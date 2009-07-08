@@ -116,6 +116,8 @@ es:
     other: "Grupos"
     index:
       other: "Grupos"
+    new: "Crear un grupo nuevo"
+    created: "Grupo creado"
     editing: "Editar Grupo"
     updated: "Grupo actualizado"
     last activity: "Última actividad de {{group}}"

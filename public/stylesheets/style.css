@@ -177,7 +177,7 @@ a.actions:hover, .actions a:hover {
 }
 
 #session_actions img {
-	margin-bottom: -2px;
+	margin-bottom: -3px;
 	margin-right: 2px;
 	margin-left: 5px;
 }
@@ -352,6 +352,10 @@ div.post {
 #invitation_post {
 	width: 400px;
 	height: 100px;
+}
+
+#new-group {
+	margin-top: 10px;
 }
 
 

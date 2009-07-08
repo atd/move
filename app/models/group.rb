@@ -16,9 +16,12 @@ class Group < ActiveRecord::Base
 
   # Collection aliases
   alias_attribute :title, :name
+  alias_attribute :author, :user
 
-  validates_presence_of :name
+  validates_presence_of :name, :user
   validates_uniqueness_of :name
+
+  after_create :create_author_performance
 
   def local_affordances(options = {})
     affs = []
@@ -41,6 +44,15 @@ class Group < ActiveRecord::Base
     email.present? ?
       email :
       users.map(&:email).join(', ')
+  end
+
+  private
+
+  # Create Performance for the author with the highest role
+  def create_author_performance
+    Performance.create! :stage => self,
+                        :agent => author,
+                        :role => self.class.roles.sort.last
   end
 
 end
