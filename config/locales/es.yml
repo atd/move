@@ -27,6 +27,7 @@ es:
     created: "Artículo creado"
     updated: "Artículo actualizado"
     editing: "Editando Artículo"
+    confirm_delete: "¿Borrar Artículo?"
   photo:
     a: "una imagen"
     one: "Imagen"
@@ -44,6 +45,7 @@ es:
     created: "Imagen subida con éxito"
     updated: "Imagen actualizada"
     editing: "Modificar Imagen"
+    confirm_delete: "¿Borrar Imagen?"
   audio:
     a: "un audio"
     one: "Audio"
@@ -61,6 +63,7 @@ es:
     created: "Audio subido con éxito"
     updated: "Audio actualizado"
     editing: "Modificar Audio"
+    confirm_delete: "¿Borrar Audio?"
   bookmark:
     a: "un enlace"
     one: "Enlace"
@@ -78,6 +81,7 @@ es:
     created: "Enlace creado"
     updated: "Enlace actualizado"
     editing: "Editando Enlace"
+    confirm_delete: "¿Borrar Enlace?"
   document:
     a: "un fichero"
     one: "Fichero"
@@ -95,6 +99,7 @@ es:
     created: "Fichero subido con éxito"
     updated: "Fichero actualizado"
     editing: "Modificar Fichero"
+    confirm_delete: "¿Borrar Fichero?"
   user:
     one: "Persona"
     other: "Personas"

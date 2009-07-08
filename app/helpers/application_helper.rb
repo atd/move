@@ -41,10 +41,15 @@ module ApplicationHelper
   end
 
   def agent_header(agent)
+    icon = ( agent.is_a?(User) ?
+              "icons/actions/configure.png" :
+              "icons/actions/user-group-properties.png" )
+
     returning "" do |html|
       html << link_logotype(agent, :size => 48)
       if authorized?(:update, agent)
-        html << " " + link_to(t(:edit), polymorphic_path(agent, :action => :edit), :class => 'actions')
+        html << " "
+        html << link_to(image_tag(icon), polymorphic_path(agent, :action => :edit), :title => t('edit'), :alt => t('edit'))
       end
       html << "<p><em>#{ sanitize agent.description }</em></p>" if agent.description.present?
     end
@@ -142,8 +147,12 @@ module ApplicationHelper
                 :time => time_ago_in_words(resource.updated_at))
       if resource.authorizes?(:update, :to => current_agent)
         html << ' '
-        html << link_to(t('edit'), send("edit_#{ resource.container.class.to_s.underscore }_#{ resource.class.to_s.underscore }_path", resource.container, resource), :class => 'actions')
+        html << link_to(image_tag("icons/actions/document-edit.png"), polymorphic_path([ resource.container, resource ], :action => :edit), :title => t('edit'), :alt => t('edit'))
         #TODO: versions
+      end
+      if resource.authorizes?(:delete, :to => current_agent)
+        html << ' '
+        html << link_to(image_tag("icons/actions/edit-delete.png"), polymorphic_path([ resource.container, resource ]), :title => t('delete'), :alt => t('delete'), :confirm => t('confirm_delete', :scope => resource.class.to_s.underscore), :method => :delete)
       end
       html << '</div>'
     end

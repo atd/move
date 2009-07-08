@@ -171,7 +171,15 @@ a.actions:hover, .actions a:hover {
 
 #session_actions {
 	padding-top: 15px;
+	padding-right: 5px;
 	float: right;
+	text-align: right;
+}
+
+#session_actions img {
+	margin-bottom: -2px;
+	margin-right: 2px;
+	margin-left: 5px;
 }
 
 #header_subtitle {
@@ -300,9 +308,12 @@ div#performances {
 	font-weight: italic;
 }
 
-#main .published-data img.logo {
+#main .published-data img {
 	margin-bottom: -4px;
-	margin-right: 3px;
+}
+
+#main .published-data img.logo {
+	margin-right: 2px;
 }
 
 #main a.bookmark {

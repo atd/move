@@ -6,10 +6,10 @@
         :date => time_ago_in_words(post.updated_at)
   %>
   <% if authorized?(:update, post) %>
-  <%= link_to t(:edit), polymorphic_path([ post.postable, post], :action => :edit), :class => 'actions' %>
+  <%= link_to image_tag('icons/actions/document-edit.png'), polymorphic_path([ post.postable, post], :action => :edit), :title => t(:edit), :alt => t(:edit) %>
   <% end -%>
   <% if authorized?(:delete, post) %>
-  <%= link_to t(:delete), [ post.postable, post ], :confirm => t('post.confirm_delete'), :method => :delete, :class => 'actions' %>
+  <%= link_to image_tag('icons/actions/edit-delete.png'), [ post.postable, post ], :confirm => t('post.confirm_delete'), :method => :delete, :title => t(:delete), :alt => t(:delete) %>
   <% end -%>
 </div>
 <%= simple_format(auto_link(sanitize(post.text))) %>

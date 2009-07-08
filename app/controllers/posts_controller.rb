@@ -72,5 +72,7 @@ class PostsController < ApplicationController
 
   def postable
     @postable ||= record_from_path(:acts_as => :resource)
+    @container ||= @postable.container
+    @postable
   end
 end

@@ -10,7 +10,8 @@ class Post < ActiveRecord::Base
     :author_type, :text
 
   def local_affordances
-    [ ActiveRecord::Authorization::Affordance.new(author, :update) ] +
+    [ ActiveRecord::Authorization::Affordance.new(author, :update),
+      ActiveRecord::Authorization::Affordance.new(author, :delete) ] +
       postable.affordances.select{ |a| a.action?(:delete) }
   end
 end
