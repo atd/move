@@ -1,6 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   map.home 'home', :controller => 'home'
+  map.home_atom 'home.atom', :controller => 'home', :format => 'atom'
   map.root :controller => 'public'
+  map.root_atom '.atom', :controller => 'public', :format => 'atom'
 
   map.resources(*ActiveRecord::Resource.symbols) do |r|
     r.resources :posts

@@ -1,3 +1,5 @@
+<% atom_link_header :title => title(t('user.home'), :append_site_name => true) %>
+
 <% content_for :title_header, title(t('user.home'), :append_site_name => true) %>
 <% content_for :pagination, will_paginate(@contents) %>
 <% content_for :sidebar, home_sidebar %>
