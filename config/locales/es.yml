@@ -108,9 +108,11 @@ es:
     home: "Inicio"
     preferences: "Preferencias"
     last activity: "Última actividad de {{user}}"
-    network_activity: "Actividad en mi red"
+    network_activity: "Actividad en mi Red"
     editing: "Editando Preferencias"
     updated: "Preferencias actualizadas"
+    group:
+      other: "Mis Grupos"
   group:
     one: "Grupo"
     other: "Grupos"

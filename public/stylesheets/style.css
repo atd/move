@@ -191,9 +191,10 @@ a.actions:hover, .actions a:hover {
 #navigation { background: #67FBE4; }
 #main { }
 #sidebar {
-/*	width: 189px;
-/*	border-left: 1px #C9740A solid;
-	margin-top: -10px; */
+}
+
+#sidebar h1 {
+	margin-right: 0px;
 }
 
 #sidebar img.logo {
