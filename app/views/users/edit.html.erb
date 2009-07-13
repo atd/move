@@ -1,3 +1,4 @@
+<% content_for :headers, javascript_include_tag('fckeditor/fckeditor') -%>
 <%= content_for :sidebar, container_menu(@user) %>
 
 <h1><%= t 'user.editing' %></h1>
@@ -23,6 +24,13 @@
   <p>
   <%= f.label :password_confirmation, t('agent.authentication.confirm_password') %><br />
   <%= f.text_field :password_confirmation, :class => 'text' %>
+  </p>
+  </fieldset>
+
+  <fieldset>
+  <p>
+  <%= f.label :description, t('user.description') %><br />
+  <%= fckeditor_textarea :user, :description, :toolbarSet => 'Simple', :width => '100%', :height => '400px' %>
   </p>
   </fieldset>
 

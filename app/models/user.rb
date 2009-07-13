@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   acts_as_container
   acts_as_logoable
 
+  attr_accessible :description
+
   # FIXME: Rails 2.3 nested_attributes
   attr_accessible :_logo
 

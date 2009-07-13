@@ -106,6 +106,7 @@ es:
     index:
       other: "Personas Registradas"
     home: "Inicio"
+    description: "Descripción"
     preferences: "Preferencias"
     last activity: "Última actividad de {{user}}"
     network_activity: "Actividad en mi Red"
