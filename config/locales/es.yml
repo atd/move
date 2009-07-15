@@ -115,6 +115,7 @@ es:
     group:
       other: "Mis Grupos"
   group:
+    none: "No hay ningún grupo"
     one: "Grupo"
     other: "Grupos"
     index:
