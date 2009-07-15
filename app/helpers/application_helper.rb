@@ -158,4 +158,17 @@ module ApplicationHelper
     end
 
   end
+
+  # This should go in some AtomHelper
+  def atom_entry_author(atom_entry, content)
+    atom_entry.author do |author|
+      entry_author = content.author_for(current_agent)
+
+      author.name(sanitize(entry_author.name))
+      if entry_author.respond_to?(:openid_uris) && entry_author.openid_uris.any?
+        author.uri(entry_author.openid_uris.first)
+      end
+    end
+
+  end
 end

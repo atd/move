@@ -9,6 +9,8 @@ end if audio.description.present?
 entry.tag!("app:edited", audio.updated_at.xmlschema)
 
 entry.link(:rel => 'edit', :href => polymorphic_url([ audio.container, audio ], :format => :atom ))
+
+atom_entry_author(entry, audio)
   
 url_args = ( audio.respond_to?(:container) && audio.container ? [ audio.container, audio ] : audio )
 

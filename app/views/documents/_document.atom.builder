@@ -9,7 +9,9 @@ end if document.description.present?
 entry.tag!("app:edited", document.updated_at.xmlschema)
 
 entry.link(:rel => 'edit', :href => polymorphic_url([ document.container, document], :format => :atom))
-  
+
+atom_entry_author(entry, document)
+ 
 url_args = ( document.respond_to?(:container) && document.container ? [ document.container, document ] : document )
 
 options = {}

@@ -9,6 +9,9 @@ atom_feed do |feed|
   @contents.each do |content|
     feed.entry(content, :url => polymorphic_url([ content.container, content ])) do |entry|
       entry.title(sanitize(content.title))
+
+      atom_entry_author(entry, content)
+
       entry.content :type => 'xhtml' do |xhtml|
         xhtml << render(:partial => 'content.html.erb', :object => content)
       end

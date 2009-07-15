@@ -9,6 +9,8 @@ end if photo.description.present?
 entry.tag!("app:edited", photo.updated_at.xmlschema)
 
 entry.link(:rel => 'edit', :href => polymorphic_url([ photo.container, photo ], :format => :atom ))
+
+atom_entry_author(entry, photo)
   
 url_args = ( photo.respond_to?(:container) && photo.container ? [ photo.container, photo ] : photo )
 

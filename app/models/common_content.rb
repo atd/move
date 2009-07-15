@@ -32,4 +32,16 @@ module CommonContent
   def notification?
     self.notification.present? && self.notification != '0'
   end
+
+  # The author for this content taking into account Group privacy settings
+  def author_for(agent)
+    case owner
+    when Group
+      owner.authorizes?([ :read, :performance ], :to => agent) ?
+        author :
+        owner
+    else
+      author
+    end
+  end
 end
