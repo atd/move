@@ -8,7 +8,7 @@
                       polymorphic_path(@photo, :format => @photo.format)) %>
 
 <br />
-<%= sanitize @photo.description if @photo.description %>
+<%= simple_format(auto_link(sanitize(@photo.description))) if @photo.description.present? %>
 
 <p>
   <%= tags(@photo) %>

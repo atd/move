@@ -3,7 +3,7 @@
 <%= published_data(@bookmark) %>
 
 <div class="description">
-  <%= sanitize @bookmark.description %>
+  <%= simple_format(auto_link(sanitize(@bookmark.description))) if @bookmark.description.present? %>
 </div>
 
 <%= link_to h(@bookmark.uri), h(@bookmark.uri), :class => 'bookmark' %>
