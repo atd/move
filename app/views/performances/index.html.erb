@@ -48,4 +48,6 @@
 
 <% end -%>
 
-<%= render :partial => 'new_invitation' %>
+<% if authorized?([ :create, :performance ], @group) -%>
+  <%= render :partial => 'new_invitation' %>
+<% end -%>
