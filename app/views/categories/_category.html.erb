@@ -1,0 +1,12 @@
+<% div_for category do -%>
+  <%= link_logotype(category) %>
+  <% if authorized?([ :update, :content ], category.domain) %>
+    <%= link_to image_tag("icons/actions/document-edit.png"), polymorphic_path([ category.domain, category ], :action => :edit), :title => t('edit'), :alt => t('edit') %>
+  <% end -%>
+  <% if authorized?([ :delete, :content ], category.domain) %>
+  <%= link_to image_tag("icons/actions/edit-delete.png"), polymorphic_path([ category.domain, category ]), :title => t('delete'), :alt => t('delete'), :confirm => t('category.confirm_delete'), :method => :delete %>
+  <% end -%>
+  <p>
+  <%= sanitize(category.description) if category.description.present? %>
+  </p>
+<% end -%>

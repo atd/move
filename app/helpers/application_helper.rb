@@ -116,6 +116,9 @@ module ApplicationHelper
         html << "<li>"
         html << link_logo(Category.new, :url => [ container, Category.new ])
         html << link_to_unless_current(t('category.other'), [ container, Category.new ])
+        if authorized?([ :update, :content ], container)
+          html << link_to(image_tag("icons/actions/document-edit.png"), [ container, Category.new ])
+        end
         html << "<ul id=\"categories_ul\">"
         container.domain_categories.each do |c|
           html << "<li>#{ link_to sanitize(c.name), [ container, c ]}</li>"

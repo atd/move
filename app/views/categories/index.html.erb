@@ -1,0 +1,10 @@
+<h1><%= title %></h1>
+
+<div id="categories">
+  <%= render @categories %>
+</div>
+
+<div id="new-category">
+  <%= link_to image_tag("icons/actions/folder-new.png", :class => 'icon'), new_polymorphic_path([ current_container, Category.new ]) %>
+  <%= link_to t('category.new'), new_polymorphic_path([ current_container, Category.new ]) %>
+</div>
