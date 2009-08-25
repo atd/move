@@ -29,11 +29,11 @@ module ApplicationHelper
     returning "" do |html|
       html << agent_header(container)
       html << "<hr>"
-      if container.authorizes?([ :create, :performance ], :to => current_agent)
+      if container.authorize?([ :create, :performance ], :to => current_agent)
         html << performances(container)
       end
 
-      if container.authorizes?([ :create, :content ], :to => current_agent)
+      if container.authorize?([ :create, :content ], :to => current_agent)
         html << new_contents(container)
       end
       html << contents(container)
@@ -148,12 +148,12 @@ module ApplicationHelper
                 :scope => resource.class.to_s.underscore,
                 :author => link_author(resource),
                 :time => time_ago_in_words(resource.updated_at))
-      if resource.authorizes?(:update, :to => current_agent)
+      if resource.authorize?(:update, :to => current_agent)
         html << ' '
         html << link_to(image_tag("icons/actions/document-edit.png"), polymorphic_path([ resource.container, resource ], :action => :edit), :title => t('edit'), :alt => t('edit'))
         #TODO: versions
       end
-      if resource.authorizes?(:delete, :to => current_agent)
+      if resource.authorize?(:delete, :to => current_agent)
         html << ' '
         html << link_to(image_tag("icons/actions/edit-delete.png"), polymorphic_path([ resource.container, resource ]), :title => t('delete'), :alt => t('delete'), :confirm => t('confirm_delete', :scope => resource.class.to_s.underscore), :method => :delete)
       end

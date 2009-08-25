@@ -39,13 +39,13 @@ class User < ActiveRecord::Base
 
   validates_length_of       :login,    :within => 1..40
 
-  def local_affordances
-    [ :read, :update,
-      [ :create, :content ], [ :read, :content ],
-      [ :update, :content ], [ :delete, :content ]
-    ].map{ |action|
-      ActiveRecord::Authorization::Affordance.new self, action
-    }
+  acl_set do |acl, user|
+    acl << [ user, :read ]
+    acl << [ user, :update ]
+    acl << [ user, :create, :content ]
+    acl << [ user, :read,   :content ]
+    acl << [ user, :update, :content ]
+    acl << [ user, :delete, :content ]
   end
 
   def email_with_name

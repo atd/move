@@ -23,6 +23,11 @@ class Group < ActiveRecord::Base
 
   after_create :create_author_performance
 
+  acl_set do |acl, group|
+    acl << [ Anyone.current, :read, :performance ] if group.others_read_members?
+    acl << [ Authenticated.current, :create, :performance ] if group.others_write_members?
+  end
+
   def local_affordances(options = {})
     affs = []
     if others_read_members?

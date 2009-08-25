@@ -15,18 +15,19 @@ module CommonContent
                  :dependent => :destroy
 
         attr_accessor :notification, :notification_text
+
+        acl_set :public_read_acl_set
+        acl_set :authenticated_post_acl_set
       end
     end
   end
 
-  def local_affordances
-    affs = []
-    if public_read?
-      affs << ActiveRecord::Authorization::Affordance.new(Anyone.current, :read)
-    end
+  def public_read_acl_set(acl)
+    acl << [ Anyone.current, :read ] if public_read?
+  end
 
-    affs << ActiveRecord::Authorization::Affordance.new(Authenticated.current, [ :create, :post])
-    affs
+  def authenticated_post_acl_set(acl)
+    acl << [ Authenticated.current, :create, :post ]
   end
 
   def notification?
@@ -37,7 +38,7 @@ module CommonContent
   def author_for(agent)
     case owner
     when Group
-      owner.authorizes?([ :read, :performance ], :to => agent) ?
+      owner.authorize?([ :read, :performance ], :to => agent) ?
         author :
         owner
     else

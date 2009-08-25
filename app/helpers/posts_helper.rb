@@ -7,7 +7,7 @@ module PostsHelper
         html << render(:partial => 'posts/post',
                        :collection => resource.posts)
       end
-      html << ( resource.authorizes?([ :create, :post ], :to => current_agent) ?
+      html << ( resource.authorize?([ :create, :post ], :to => current_agent) ?
                 render(:partial => 'posts/new') :
                 link_to(t('post.authentication_required'),
                         with_options :redirect_to => "#{ request.request_uri }#new_post" do |r|
