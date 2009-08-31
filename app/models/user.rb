@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   has_many :audios,    :as => :owner
   has_many :bookmarks, :as => :owner
   has_many :documents, :as => :owner
+  has_many :tasks,     :as => :owner
 
   has_many :memberships
   has_many :groups, :through => :memberships, :source => :group

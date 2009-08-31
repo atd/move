@@ -1,6 +1,6 @@
 class Group < ActiveRecord::Base
   belongs_to :parent, :class_name => "Group", :foreign_key => 'parent_id'
-  has_many :childs, :class_name => "Group", :foreign_key => 'parent_id'
+  has_many :children, :class_name => "Group", :foreign_key => 'parent_id'
 
   belongs_to :user
 #  has_many :memberships, :as => :group
@@ -11,6 +11,7 @@ class Group < ActiveRecord::Base
   has_many :audios,    :as => :owner
   has_many :bookmarks, :as => :owner
   has_many :documents, :as => :owner
+  has_many :tasks,     :as => :owner
 
   acts_as_resource :per_page => 15
   acts_as_container :sources => true

@@ -380,6 +380,19 @@ ActiveRecord::Schema.define(:version => 20091021132500) do
 
   add_index "tags", ["name"], :name => "index_tags_on_name"
 
+  create_table "tasks", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "offset",      :default => 0
+    t.integer  "owner_id"
+    t.string   "owner_type"
+    t.integer  "author_id"
+    t.string   "author_type"
+    t.boolean  "public_read"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "uris", :force => true do |t|
     t.string "uri"
   end
