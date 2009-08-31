@@ -1,4 +1,7 @@
 class Group < ActiveRecord::Base
+  belongs_to :parent, :class_name => "Group", :foreign_key => 'parent_id'
+  has_many :childs, :class_name => "Group", :foreign_key => 'parent_id'
+
   belongs_to :user
 #  has_many :memberships, :as => :group
 #  has_many :members, :through => :memberships

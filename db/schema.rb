@@ -176,6 +176,7 @@ ActiveRecord::Schema.define(:version => 20091021132500) do
     t.boolean  "others_write_content"
     t.integer  "user_id"
     t.string   "email"
+    t.integer  "parent_id"
   end
 
   create_table "invitations", :force => true do |t|

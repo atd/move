@@ -119,6 +119,7 @@ es:
     none: "No hay ningún grupo"
     one: "Grupo"
     other: "Grupos"
+    other_in_container: "Grupos de {{container}}"
     index:
       other: "Grupos"
     new: "Crear un grupo nuevo"
