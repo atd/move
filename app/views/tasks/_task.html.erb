@@ -1,10 +1,6 @@
-<p>
-  <b>Title:</b>
-  <%=h task.title %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%=h task.description %>
-</p>
+<% div_for task do %>
+  <%= link_to sanitize(task.title), [ task.container, task ] %>
+  <%= link_to t(:edit), edit_polymorphic_path([ task.container, task ]) %>
+  <%= link_to t(:delete), polymorphic_path([ task.container, task ]), :confirm => t('task.confirm_delete'), :method => :delete %>
+<% end %>
 

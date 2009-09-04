@@ -1,9 +1,28 @@
+<% content_for :headers, javascript_include_tag(:defaults) %>
+
 <h1><%= title %></h1>
 
 <% form_for [ current_container, @task ] do |f| %>
   <%= f.error_messages %>
 
+  <fieldset>
   <%= render :partial => 'form', :object => f %>
 
   <%= f.submit t(:update) %>
+  </fieldset>
 <% end %>
+
+<h2><%= t 'turn.other' %></h2>
+
+<ul id="turns">
+  <% task.turns.each do |turn| %>
+    <% content_tag_for :li, turn do %>
+      <span class="handle">[drag]</span>
+      <%= link_logotype(turn.responsible) %>
+      <%= link_to t(:delete), [ task, turn ], :method => :delete, :confirm => t('turn.confirm_delete') %>
+    <% end %>
+ <% end %>
+</ul>
+<%= sortable_element("turns", :url => sort_task_turns_path(task), :handle => "handle") %>
+
+<%= render :partial => 'new_turn' %>

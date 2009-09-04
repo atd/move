@@ -118,6 +118,20 @@ es:
     updated: "Tarea actualizada"
     editing: "Modificar Tarea"
     confirm_delete: "¿Borrar Tarea?"
+  turn:
+    a: "un turno"
+    one: "Turno"
+    other: "Turnos"
+    other_in_container: "Turnos de {{container}}"
+    the_one: "el turno"
+    responsible:
+      one: "Responsable"
+      other: "Responsables"
+    new: "Nuevo Turno"
+    created: "Turno creado"
+    updated: "Turno actualizado"
+    editing: "Editando Turno"
+    confirm_delete: "¿Borrar Turno?"
   user:
     one: "Persona"
     other: "Personas"

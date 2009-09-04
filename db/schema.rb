@@ -393,6 +393,15 @@ ActiveRecord::Schema.define(:version => 20091021132500) do
     t.datetime "updated_at"
   end
 
+  create_table "turns", :force => true do |t|
+    t.integer  "position"
+    t.integer  "task_id"
+    t.integer  "responsible_id"
+    t.string   "responsible_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "uris", :force => true do |t|
     t.string "uri"
   end

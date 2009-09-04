@@ -1,1 +1,7 @@
-<%= render task %>
+<h1><%= sanitize task.title %></h1>
+<%= sanitize(task.description) if task.description.present? %>
+
+<div id="edit">
+<%= link_to t(:edit), polymorphic_path([ task.container, task ], :action => :edit ) %>
+</div>
+

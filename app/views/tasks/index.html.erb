@@ -1,20 +1,7 @@
 <h1><%= title %></h1>
 
-<table>
-  <tr>
-    <th><%= t(:title) %></th>
-  </tr>
+<%= render @tasks %>
 
-<% for task in @tasks -%>
-  <tr>
-    <td><%=sanitize task.title %></td>
-    <td><%= link_to t(:show), polymorphic_path(task) %></td>
-    <td><%= link_to t(:edit), edit_polymorphic_path(task) %></td>
-    <td><%= link_to t(:delete), polymorphic_path(task), :confirm => t(:are_you_sure), :method => :delete %></td>
-  </tr>
-<% end -%>
-</table>
-
-<br />
-
+<div id='new-task'>
 <%= link_to t(:new, :scope => :task), polymorphic_path([ current_container, Task.new ], :action => :new) %>
+</div>

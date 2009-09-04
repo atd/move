@@ -1,0 +1,9 @@
+<h3><%= t 'turn.new' %></h3>
+<% form_for [ @task, Turn.new ] do |f| %>
+
+  <%= f.label :responsible, t('turn.responsible.one') %><br/>
+  <%= f.select :_responsible_dom_id, @task.owner.children | (Group.parent_scoped - Array(@task.owner)).map{ |r| [ r.name, "#{ r.id }-#{ r.class.to_s.underscore }" ] } %>
+
+  <%= f.submit t(:create) %>
+<% end -%>
+

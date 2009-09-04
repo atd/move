@@ -7,6 +7,11 @@ ActionController::Routing::Routes.draw do |map|
   map.resources(*ActiveRecord::Resource.symbols) do |r|
     r.resources :posts
   end
+
+  map.resources :tasks do |task|
+    task.resources :turns, :collection => { :sort => :post }
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
