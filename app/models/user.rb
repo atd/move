@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   acts_as_agent :activation => true,
                 :openid_server => true
-  acts_as_resource :per_page => 15
+  acts_as_resource :per_page => 15, :param => :login
   acts_as_container
   acts_as_logoable
 
@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
 #    end
 #  end
 
-  validates_length_of       :login,    :within => 1..40
+  validates_format_of :login, :with => /^[\w -]+$/
 
   acl_set do |acl, user|
     acl << [ user, :read ]
