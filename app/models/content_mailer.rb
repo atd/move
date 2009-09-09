@@ -1,8 +1,7 @@
 class ContentMailer < ActionMailer::Base
   def notification(content)
     setup_email(content)
-    @subject +=
-      I18n.t("#{ content.class.to_s.underscore }.#{ content.created_at == content.updated_at ? 'created' : 'updated' }")
+    @subject += content.title!
   end
   
  

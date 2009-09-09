@@ -45,4 +45,9 @@ module CommonContent
       author
     end
   end
+
+  def title!
+    title.present? && title ||
+      "#{ I18n.t( self.class.to_s.underscore, :count => 1 ) } #{ to_param }" 
+  end
 end
