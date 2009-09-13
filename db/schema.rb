@@ -391,6 +391,8 @@ ActiveRecord::Schema.define(:version => 20091021132500) do
     t.boolean  "public_read"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "start_at"
+    t.integer  "recurrence"
   end
 
   create_table "turns", :force => true do |t|

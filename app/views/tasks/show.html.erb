@@ -1,7 +1,15 @@
 <h1><%= sanitize task.title %></h1>
+<%= published_data(task) %>
+<p id="description">
 <%= sanitize(task.description) if task.description.present? %>
+</p>
 
-<div id="edit">
-<%= link_to t(:edit), polymorphic_path([ task.container, task ], :action => :edit ) %>
-</div>
+<%= t('task.start_at') %>: <%= localize task.start_at %><br/>
+<%= t('task.recurrence.one') %>: <%= task.recurrence_in_words %>
+
+
+<% if task.turns.any? %>
+  <h2><%= t 'turn.following.other' %></h2>
+  <%= render task.turns.sorted_at %>
+<% end %>
 

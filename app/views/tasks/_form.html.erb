@@ -8,4 +8,14 @@
   <%= form.text_area :description %>
 </p>
 
+<p>
+  <label><%= form.label :start_at, t('task.start_at')%></label><br />
+  <%= form.datetime_select :start_at %>
+</p>
+
+<p>
+  <label><%= form.label :recurrence, t('task.recurrence.one')%></label><br />
+  <%= form.select :recurrence, Task::RECURRENCE.each_with_index.map{ |r, i| 
+  [ t(r, :scope => 'task.recurrence'), i ] } %>
+</p>
 

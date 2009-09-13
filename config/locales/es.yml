@@ -112,6 +112,14 @@ es:
     updated_by_author_since_time: "Modificada por {{author}} hace {{time}}"
     title: "Título"
     description: "Descripción"
+    start_at: "Fecha de inicio"
+    recurrence:
+      one: "Repetición"
+      no_recurrence: "Sin repetición"
+      dayly: "Diaria"
+      weekly: "Semanal"
+      monthly: "Mensual"
+      yearly: "Anual"
     public_read: "Tarea pública"
     new: "Crear Tarea"
     created: "Tarea creada con éxito"
@@ -132,6 +140,9 @@ es:
     updated: "Turno actualizado"
     editing: "Editando Turno"
     confirm_delete: "¿Borrar Turno?"
+    following:
+      one: "Siguiente turno"
+      other: "Siguientes turnos"
   user:
     one: "Persona"
     other: "Personas"
