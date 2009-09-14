@@ -18,8 +18,8 @@
   <% task.turns.each do |turn| %>
     <% content_tag_for :li, turn do %>
       <span class="handle">[drag]</span>
-      <%= link_logotype(turn.responsible) %>
-      <%= link_to t(:delete), [ task, turn ], :method => :delete, :confirm => t('turn.confirm_delete') %>
+      <%= turn.responsibles.map{ |r| link_logotype r }.join(", ") %>
+      <%= link_to image_tag("icons/actions/edit-delete.png", :alt => t(:delete), :title => t(:delete)), [ task, turn ], :method => :delete, :confirm => t('turn.confirm_delete') %>
     <% end %>
  <% end %>
 </ul>

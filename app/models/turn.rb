@@ -2,25 +2,38 @@ class Turn < ActiveRecord::Base
   belongs_to :task
   acts_as_list :scope => :task
 
-  belongs_to :responsible, :polymorphic => true
+  has_many :responsibilities, :dependent => :destroy
+  has_many :responsibles, :through => :responsibilities, :source_type => 'Group'
 
   acts_as_resource 
 
-  validates_presence_of :responsible_id, :responsible_type
+  accepts_nested_attributes_for :responsibilities
 
-  # Polymorphic responsible
-  attr_accessor :_responsible_dom_id
+  # Quick dirty dreadful hack
+  def responsibilities_attributes_with_awful_hack=(attributes)
+    if attributes.present? &&
+       attributes.size == 1 &&
+       attributes['0'].present? &&
+       attributes['0'][:responsible_id].is_a?(Array)
+      ids = attributes['0'][:responsible_id]
 
-  before_validation :_complete_responsible
+      attributes = HashWithIndifferentAccess.new
 
-  private
+      ids.each_with_index do |id, index|
+        attributes[index.to_s] = { :responsible_id => id,
+                              :responsible_type => 'Group' }
+      end
+    end
 
-  def _complete_responsible
-    return if _responsible_dom_id.blank?
+    self.responsibilities_attributes_without_awful_hack = attributes
+  end
+  alias_method_chain :responsibilities_attributes=, :awful_hack
 
-    res_id, res_class = _responsible_dom_id.split('-')
-    self.responsible = res_class.classify.constantize.find(res_id)
+  def at_in_words
+    I18n.t task.recurrence_sym, :scope => 'turn.at', :count => task.turn_order(self)
   end
 
-
+  def validate
+    errors.add(:responsibilities, :blank) if responsibilities.blank?
+  end
 end

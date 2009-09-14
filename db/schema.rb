@@ -322,6 +322,12 @@ ActiveRecord::Schema.define(:version => 20091021132500) do
     t.string  "read_agent_type"
   end
 
+  create_table "responsibilities", :force => true do |t|
+    t.integer "turn_id"
+    t.integer "responsible_id"
+    t.string  "responsible_type"
+  end
+
   create_table "roles", :force => true do |t|
     t.string "name"
     t.string "stage_type"
@@ -398,8 +404,6 @@ ActiveRecord::Schema.define(:version => 20091021132500) do
   create_table "turns", :force => true do |t|
     t.integer  "position"
     t.integer  "task_id"
-    t.integer  "responsible_id"
-    t.string   "responsible_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

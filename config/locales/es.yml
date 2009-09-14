@@ -126,6 +126,11 @@ es:
     updated: "Tarea actualizada"
     editing: "Modificar Tarea"
     confirm_delete: "¿Borrar Tarea?"
+    next_turn:
+      dayly: "Hoy le toca a {{turn}}"
+      weekly: "Esta semana le toca a {{turn}}"
+      monthly: "Este mes le toca a {{turn}}"
+      yearly: "Este año le toca a {{turn}}"
   turn:
     a: "un turno"
     one: "Turno"
@@ -143,6 +148,24 @@ es:
     following:
       one: "Siguiente turno"
       other: "Siguientes turnos"
+    at:
+      dayly:
+        zero: "hoy"
+        one: "mañana"
+        two: "pasado mañana"
+        other: "dentro de {{count}} días"
+      weekly:
+        zero: "esta semana"
+        one: "la semana que viene"
+        other: "dentro de {{count}} semanas"
+      monthly:
+        zero: "este mes"
+        one: "el mes que viene"
+        other: "dentro de {{count}} meses"
+      yearly:
+        zero: "este año"
+        one: "el año que viene"
+        other: "dentro de {{count}} años"
   user:
     one: "Persona"
     other: "Personas"

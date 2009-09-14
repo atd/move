@@ -16,7 +16,7 @@ class TurnsController < ApplicationController
       flash[:error] = @turn.errors.to_xml
     end
 
-    redirect_to [ current_task.container, current_container ]
+    redirect_to polymorphic_path([ current_task.container, current_container ], :action => :edit)
   end
 
   def sort
@@ -32,7 +32,7 @@ class TurnsController < ApplicationController
 
     @turn.destroy
 
-    redirect_to [ current_task.container, current_task ]
+    redirect_to polymorphic_path([ current_task.container, current_task ], :action => :edit, :anchor => 'turns')
   end
 
   private

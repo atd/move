@@ -16,6 +16,10 @@
       <%= link_to sanitize(content.name), [ content.owner, content ] %>
     </div>
 
+    <div class="activity-content-description">
+      <%= render :partial => "#{ content.class.to_s.tableize }/content_description", :locals => { :content => content } %>
+    </div>
+
     <div class="activity-content-posts">
       <%= link_to("#{ content.posts.size } #{ t('post', :count => content.posts.size) }", polymorphic_path([ content.container, content], :anchor => 'posts')) if content.posts.any? %>
     </div>

@@ -1,0 +1,1 @@
+<%= content.next_turn_in_words(content.turns.sorted_at.first.responsibles.map{ |r| link_to(r.name, r) }.join(", ")) if content.reload.turns.any? %>

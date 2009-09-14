@@ -1,3 +1,4 @@
 <% div_for turn do %>
-  <%= link_logotype turn.responsible %>
+  <%= turn.responsibles.map{ |r| link_logotype r }.join(", ") %>
+  <%= turn.at_in_words %>
 <% end %>

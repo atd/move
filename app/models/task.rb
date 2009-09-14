@@ -40,10 +40,15 @@ class Task < ActiveRecord::Base
   validates_presence_of :title, :start_at, :recurrence
   validates_inclusion_of :recurrence, :in => 0..(RECURRENCE.length - 1)
 
-  def recurrence_in_words
-    I18n.t RECURRENCE[recurrence], :scope => 'task.recurrence'
+  def recurrence_sym
+    RECURRENCE[recurrence]
   end
 
+  def recurrence_in_words
+    I18n.t recurrence_sym, :scope => 'task.recurrence'
+  end
+
+  # Number of ocurrences until t
   def occurrences(t = Time.now)
     return nil if recurrence == 0
 
@@ -70,6 +75,16 @@ class Task < ActiveRecord::Base
     else
       raise "RECURRENCE invalid index: #{ recurrence }"
     end
+  end
+
+  def turn_order(turn, t = Time.now)
+    return nil if turns.blank? || turn.blank?
+
+    turns.sorted_at.index(turn)
+  end
+
+  def next_turn_in_words(turn)
+    I18n.t recurrence_sym, :scope => 'task.next_turn', :turn => turn
   end
 
 end

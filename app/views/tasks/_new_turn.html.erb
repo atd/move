@@ -1,8 +1,12 @@
 <h3><%= t 'turn.new' %></h3>
-<% form_for [ @task, Turn.new ] do |f| %>
+<% form_for [ @task, Turn.new(:responsibilities => [ Responsibility.new ]) ] do |f| %>
 
-  <%= f.label :responsible, t('turn.responsible.one') %><br/>
-  <%= f.select :_responsible_dom_id, @task.owner.children | (Group.parent_scoped - Array(@task.owner)).map{ |r| [ r.name, "#{ r.id }-#{ r.class.to_s.underscore }" ] } %>
+  <p>
+  <% f.fields_for :responsibilities do |rf| %>
+    <%= rf.label :responsible, t('turn.responsible.other') %><br/>
+    <%= rf.select :responsible_id, @task.owner.children | (Group.parent_scoped - Array(@task.owner)).map{ |r| [ r.name, r.id ] }, {}, { :multiple => true } %>
+  <% end %>
+  </p>
 
   <%= f.submit t(:create) %>
 <% end -%>
