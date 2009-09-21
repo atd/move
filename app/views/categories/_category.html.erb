@@ -1,5 +1,5 @@
 <% div_for category do -%>
-  <%= link_logotype(category) %>
+  <%= link_logotype(category, :url => [ category.domain, category ]) %>
   <% if authorized?([ :update, :content ], category.domain) %>
     <%= link_to image_tag("icons/actions/document-edit.png"), polymorphic_path([ category.domain, category ], :action => :edit), :title => t('edit'), :alt => t('edit') %>
   <% end -%>

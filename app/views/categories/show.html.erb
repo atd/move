@@ -2,6 +2,6 @@
 
 <% @categorizables.each do |t| %>
   <% div_for(t, :class => 'span-3 boxes') do %>
-  <%= link_logotype t, :size => 64, :spacer => '<br />' %>
+  <%= link_logotype t, :url => [ t.container, t ], :size => 64, :spacer => '<br />' %>
   <% end %>
 <% end -%>
