@@ -23,22 +23,9 @@ class Group < ActiveRecord::Base
 
   after_create :create_author_performance
 
-  acl_set do |acl, group|
-    acl << [ Anyone.current, :read, :performance ] if group.others_read_members?
-    acl << [ Authenticated.current, :create, :performance ] if group.others_write_members?
-  end
-
-  def local_affordances(options = {})
-    affs = []
-    if others_read_members?
-      affs << ActiveRecord::Authorization::Affordance.new(Anyone.current, [:read, :performance])
-    end
-
-    if others_write_members?
-      affs << ActiveRecord::Authorization::Affordance.new(Authenticated.current, [:create, :performance])
-    end
-
-    affs
+  authorizing do |agent, permission|
+    permission == [ :read, :performance ] && others_read_members? ||
+      permission == [ :create, :performance ] && ! agent.is_a?(SingularAgent)
   end
 
   def users

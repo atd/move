@@ -9,11 +9,12 @@ class Post < ActiveRecord::Base
   validates_presence_of :postable_id, :postable_type, :author_id,
     :author_type, :text
 
-  acl_set do |acl, post|
-    acl << [ post.author, :update ]
-    acl << [ post.author, :delete ]
-    post.postable.acl.entries.select{ |ace| ace.action?(:delete) }.each { |ace|
-      acl << ace
-    } if post.postable.present?
+  authorizing do |agent, permission|
+    agent == author &&
+      ( permission == :update || permission == :delete ) ||
+      # Delegate delete to postable
+      postable.present? &&
+      permission == :delete &&
+      postable.authorize?(:delete, :to => agent)
   end
 end

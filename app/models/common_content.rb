@@ -16,18 +16,18 @@ module CommonContent
 
         attr_accessor :notification, :notification_text
 
-        acl_set :public_read_acl_set
-        acl_set :authenticated_post_acl_set
+        authorizing :public_read_auth
+        authorizing :authenticated_post_auth
       end
     end
   end
 
-  def public_read_acl_set(acl)
-    acl << [ Anyone.current, :read ] if public_read?
+  def public_read_auth(agent, permission)
+    permission == :read && public_read?
   end
 
-  def authenticated_post_acl_set(acl)
-    acl << [ Authenticated.current, :create, :post ]
+  def authenticated_post_auth(agent, permission)
+    permission == [ :create, :post ] && ! agent.is_a?(SingularAgent)
   end
 
   def notification?

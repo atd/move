@@ -6,6 +6,10 @@ end
 Factory.define :container, :parent => :group do |g|
 end
 
+Factory.define :public_group, :parent => :group do |g|
+  g.others_read_content true
+end
+
 def populated_group
   g = Factory(:group)
   2.times do

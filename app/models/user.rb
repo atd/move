@@ -39,13 +39,8 @@ class User < ActiveRecord::Base
 
   validates_format_of :login, :with => /^[\w -]+$/
 
-  acl_set do |acl, user|
-    acl << [ user, :read ]
-    acl << [ user, :update ]
-    acl << [ user, :create, :content ]
-    acl << [ user, :read,   :content ]
-    acl << [ user, :update, :content ]
-    acl << [ user, :delete, :content ]
+  authorizing do |agent, permission|
+    agent == self
   end
 
   def email_with_name

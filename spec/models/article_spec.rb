@@ -6,30 +6,40 @@ describe Article do
   describe "in private group" do
 
     before(:all) do
-      @article = Factory(:article)
-      @container = @article.container
-      @admin = Factory(:admin, :stage => @container).agent
-      @participant = Factory(:participant, :stage => @container).agent
-      @observer = Factory(:observer, :stage => @container).agent
+      @group = Factory.create(:group)
+      @admin = Factory.create(:admin, :stage => @group).agent
+      @participant = Factory.create(:participant, :stage => @group).agent
+      @observer = Factory.create(:observer, :stage => @group).agent
     end
 
-    it_should_authorize(:admin, :read, :article)
-    it_should_authorize(:admin, :update, :article)
-    it_should_authorize(:admin, :delete, :article)
-    it_should_authorize(:participant, :read, :article)
-    it_should_authorize(:participant, :update, :article)
-    it_should_not_authorize(:participant, :delete, :article)
-    it_should_authorize(:observer, :read, :article)
-    it_should_not_authorize(:observer, :update, :article)
-    it_should_not_authorize(:observer, :delete, :article)
-    it_should_authorize(Anonymous.current, :read, :article)
-    it_should_not_authorize(Anonymous.current, :update, :article)
-    it_should_not_authorize(Anonymous.current, :delete, :article)
-
-    describe "with private article" do
+    describe "being public" do
 
       before(:all) do
-        @article.update_attribute :public_read, false
+        @article = Factory.create(:article, :container => @group)
+        # FIXME:
+        # Reset authorization_cache, because Factory doesn't create new @article.id
+        Anonymous.current.authorization_cache[@article] = Hash.new
+      end
+
+      it_should_authorize(:admin, :read, :article)
+      it_should_authorize(:admin, :update, :article)
+      it_should_authorize(:admin, :delete, :article)
+      it_should_authorize(:participant, :read, :article)
+      it_should_authorize(:participant, :update, :article)
+      it_should_not_authorize(:participant, :delete, :article)
+      it_should_authorize(:observer, :read, :article)
+      it_should_not_authorize(:observer, :update, :article)
+      it_should_not_authorize(:observer, :delete, :article)
+      it_should_authorize(Anonymous.current, :read, :article)
+      it_should_not_authorize(Anonymous.current, :update, :article)
+      it_should_not_authorize(Anonymous.current, :delete, :article)
+    end
+
+
+    describe "being private" do
+
+      before(:all) do
+        @article = Factory.create(:private_article, :container => @group)
       end
 
       it_should_authorize(:admin, :read, :article)
@@ -51,31 +61,41 @@ describe Article do
   describe "in public group" do
 
     before(:all) do
-      @article = Factory(:article)
-      @container = @article.container
-      @container.update_attribute(:others_read_content, true)
-      @admin = Factory(:admin, :stage => @container).agent
-      @participant = Factory(:participant, :stage => @container).agent
-      @observer = Factory(:observer, :stage => @container).agent
+      @group = Factory.create(:public_group)
+      @admin = Factory.create(:admin, :stage => @group).agent
+      @participant = Factory.create(:participant, :stage => @group).agent
+      @observer = Factory.create(:observer, :stage => @group).agent
     end
 
-    it_should_authorize(:admin, :read, :article)
-    it_should_authorize(:admin, :update, :article)
-    it_should_authorize(:admin, :delete, :article)
-    it_should_authorize(:participant, :read, :article)
-    it_should_authorize(:participant, :update, :article)
-    it_should_not_authorize(:participant, :delete, :article)
-    it_should_authorize(:observer, :read, :article)
-    it_should_not_authorize(:observer, :update, :article)
-    it_should_not_authorize(:observer, :delete, :article)
-    it_should_authorize(Anonymous.current, :read, :article)
-    it_should_not_authorize(Anonymous.current, :update, :article)
-    it_should_not_authorize(Anonymous.current, :delete, :article)
+    describe "being public" do
+      before do
+        @article = Factory.create(:article, :container => @group)
+        # FIXME:
+        # Reset authorization_cache, because Factory doesn't create new @article.id
+        Anonymous.current.authorization_cache[@article] = Hash.new
+      end
 
-    describe "with private article" do
+      it_should_authorize(:admin, :read, :article)
+      it_should_authorize(:admin, :update, :article)
+      it_should_authorize(:admin, :delete, :article)
+      it_should_authorize(:participant, :read, :article)
+      it_should_authorize(:participant, :update, :article)
+      it_should_not_authorize(:participant, :delete, :article)
+      it_should_authorize(:observer, :read, :article)
+      it_should_not_authorize(:observer, :update, :article)
+      it_should_not_authorize(:observer, :delete, :article)
+      it_should_authorize(Anonymous.current, :read, :article)
+      it_should_not_authorize(Anonymous.current, :update, :article)
+      it_should_not_authorize(Anonymous.current, :delete, :article)
+    end
 
-      before(:all) do
-        @article.update_attribute :public_read, false
+    describe "being private" do
+
+      before do
+        @article = Factory.create(:private_article, :container => @group)
+        # FIXME:
+        # Reset authorization_cache, because Factory doesn't create new @article.id
+        Anonymous.current.authorization_cache[@article] = Hash.new
       end
 
       it_should_authorize(:admin, :read, :article)
@@ -97,21 +117,30 @@ describe Article do
   describe "in user" do
 
     before(:all) do
-      @article = Factory(:user_article)
-      @user = @article.container
+      @user = Factory.create(:user)
     end
 
-    it_should_authorize(:user, :read, :article)
-    it_should_authorize(:user, :update, :article)
-    it_should_authorize(:user, :delete, :article)
-    it_should_authorize(Anonymous.current, :read, :article)
-    it_should_not_authorize(Anonymous.current, :update, :article)
-    it_should_not_authorize(Anonymous.current, :delete, :article)
+    describe "being public" do
+      before do
+        @article = Factory.create(:user_article, :author => @user, :container => @user)
+        # FIXME:
+        # Reset authorization_cache, because Factory doesn't create new @article.id
+        Anonymous.current.authorization_cache[@article] = Hash.new
+      end
 
-    describe "with private article" do
+      it_should_authorize(:user, :read, :article)
+      it_should_authorize(:user, :update, :article)
+      it_should_authorize(:user, :delete, :article)
+      it_should_authorize(Anonymous.current, :read, :article)
+      it_should_not_authorize(Anonymous.current, :update, :article)
+      it_should_not_authorize(Anonymous.current, :delete, :article)
+    end
 
-      before(:all) do
-        @article.update_attribute :public_read, false
+
+    describe "being private" do
+
+      before do
+        @article = Factory.create(:private_user_article, :author => @user, :container => @user)
       end
 
       it_should_authorize(:user, :read, :article)
@@ -121,7 +150,6 @@ describe Article do
       it_should_not_authorize(Anonymous.current, :update, :article)
       it_should_not_authorize(Anonymous.current, :delete, :article)
     end
-
   end
 
 end

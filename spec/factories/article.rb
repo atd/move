@@ -1,6 +1,6 @@
 Factory.define :article do |a|
-  a.title "Test"
-  a.body "Content"
+  a.sequence(:title) { |n| "Article #{ n }" }
+  a.body "Article Content"
   a.public_read true
   a.association :container
   a.association :author
@@ -11,8 +11,8 @@ Factory.define :private_article, :parent => :article do |a|
 end
 
 Factory.define :user_article, :class => 'article' do |a|
-  a.title "Test"
-  a.body "Content"
+  a.sequence(:title) { |n| "Article #{ n }" }
+  a.body "Article Content"
   a.public_read true
   a.container { |c| c.association :author }
   a.association :author
