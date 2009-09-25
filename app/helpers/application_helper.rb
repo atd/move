@@ -29,7 +29,7 @@ module ApplicationHelper
     returning "" do |html|
       html << agent_header(container)
       html << "<hr>"
-      if container.authorize?([ :create, :performance ], :to => current_agent)
+      if container.is_a?(Group) && container.authorize?([ :create, :performance ], :to => current_agent)
         html << performances(container)
       end
 
