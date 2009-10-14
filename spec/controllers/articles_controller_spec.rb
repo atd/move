@@ -6,8 +6,6 @@ describe ArticlesController do
 
   before(:all) do
     @article = Factory(:article)
-    # FIXME
-    Anonymous.current.authorization_cache[@article] = Hash.new
   end
 
   it "should render show" do

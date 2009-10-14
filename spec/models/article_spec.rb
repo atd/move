@@ -16,9 +16,6 @@ describe Article do
 
       before(:all) do
         @article = Factory.create(:article, :container => @group)
-        # FIXME:
-        # Reset authorization_cache, because Factory doesn't create new @article.id
-        Anonymous.current.authorization_cache[@article] = Hash.new
       end
 
       it_should_authorize(:admin, :read, :article)
@@ -70,9 +67,6 @@ describe Article do
     describe "being public" do
       before do
         @article = Factory.create(:article, :container => @group)
-        # FIXME:
-        # Reset authorization_cache, because Factory doesn't create new @article.id
-        Anonymous.current.authorization_cache[@article] = Hash.new
       end
 
       it_should_authorize(:admin, :read, :article)
@@ -93,9 +87,6 @@ describe Article do
 
       before do
         @article = Factory.create(:private_article, :container => @group)
-        # FIXME:
-        # Reset authorization_cache, because Factory doesn't create new @article.id
-        Anonymous.current.authorization_cache[@article] = Hash.new
       end
 
       it_should_authorize(:admin, :read, :article)
@@ -123,9 +114,6 @@ describe Article do
     describe "being public" do
       before do
         @article = Factory.create(:user_article, :author => @user, :container => @user)
-        # FIXME:
-        # Reset authorization_cache, because Factory doesn't create new @article.id
-        Anonymous.current.authorization_cache[@article] = Hash.new
       end
 
       it_should_authorize(:user, :read, :article)
