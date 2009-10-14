@@ -24,8 +24,11 @@ class Group < ActiveRecord::Base
   after_create :create_author_performance
 
   authorizing do |agent, permission|
-    permission == [ :read, :performance ] && others_read_members? ||
-      permission == [ :create, :performance ] && ! agent.is_a?(SingularAgent)
+    if permission == [ :read, :performance ] && others_read_members?
+      true
+    elsif permission == [ :create, :performance ] && ! agent.is_a?(SingularAgent)
+      true
+    end
   end
 
   def users

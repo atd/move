@@ -40,7 +40,9 @@ class User < ActiveRecord::Base
   validates_format_of :login, :with => /^[\w -]+$/
 
   authorizing do |agent, permission|
-    agent == self
+    if agent == self
+      true
+    end
   end
 
   def email_with_name

@@ -23,11 +23,15 @@ module CommonContent
   end
 
   def public_read_auth(agent, permission)
-    permission == :read && public_read?
+    if permission == :read && public_read?
+      true
+    end
   end
 
   def authenticated_post_auth(agent, permission)
-    permission == [ :create, :post ] && ! agent.is_a?(SingularAgent)
+    if permission == [ :create, :post ] && ! agent.is_a?(SingularAgent)
+      true
+    end
   end
 
   def notification?

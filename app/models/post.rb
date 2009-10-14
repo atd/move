@@ -10,11 +10,11 @@ class Post < ActiveRecord::Base
     :author_type, :text
 
   authorizing do |agent, permission|
-    agent == author &&
-      ( permission == :update || permission == :delete ) ||
+    if agent == author && ( permission == :update || permission == :delete )
+      true
+    elsif postable.present? && permission == :delete
       # Delegate delete to postable
-      postable.present? &&
-      permission == :delete &&
       postable.authorize?(:delete, :to => agent)
+    end
   end
 end
