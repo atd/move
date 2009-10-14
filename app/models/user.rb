@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   acts_as_agent :activation => true,
                 :openid_server => true
   acts_as_resource :per_page => 15, :param => :login
-  acts_as_container
+  acts_as_container :sources => true
   acts_as_logoable
 
   attr_accessible :description
