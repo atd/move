@@ -1,6 +1,7 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe ArticlesController do
+  include ActionController::AuthenticationTestHelper
   
   integrate_views
 
@@ -8,10 +9,24 @@ describe ArticlesController do
     @article = Factory(:article)
   end
 
-  it "should render show" do
-    get :show, :id => @article.id, @article.container.class.to_s.foreign_key.to_sym => @article.container.id
+  describe "as Anonymous" do
+    it "should render show" do
+      get :show, :id => @article.id, @article.container.class.to_s.foreign_key.to_sym => @article.container.id
 
-    response.should be_success
+      response.should be_success
+    end
+  end
+
+  describe "as authenticated" do
+    before do
+      login_as(Factory(:user))
+    end
+
+    it "should render show" do
+      get :show, :id => @article.id, @article.container.class.to_s.foreign_key.to_sym => @article.container.id
+
+      response.should be_success
+    end
   end
 
 end

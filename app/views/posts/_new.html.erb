@@ -1,4 +1,4 @@
-<% form_for([ @content, Post.new ]) do |f| %>
+<% form_for([ @resource, Post.new ], :url => polymorphic_path([ @resource, Post.new ], :container => false)) do |f| %>
   <%= f.error_messages %>
 
   <%= link_logotype(current_agent, :size => 32) %>
