@@ -164,6 +164,8 @@ es:
     updated: "Comentario actualizado"
     confirm_delete: "¿Borrar Comentario?"
     authentication_required: "Para comentar tienes que identificarte"
+  source:
+    public_read: "Lectura pública"
 
   activerecord:
     errors:

@@ -1,0 +1,16 @@
+<% form.fields_for :uri do |uri_form| %>
+<p>
+  <%= uri_form.label :uri, t('source.uri') %><br />
+  <%= uri_form.text_field :uri %>
+</p>
+<% end %>
+
+<p>
+  <%= form.label :target, t('source.target') %><br />
+  <%= form.select :target, ActiveRecord::Resource.classes.select{|k| k.respond_to?(:params_from_atom) }.map(&:to_s) %>
+</p>
+
+<p>
+  <%= form.label :public_read, t('source.public_read') %><br />
+  <%= form.check_box :public_read %>
+</p>

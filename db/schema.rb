@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091014103745) do
+ActiveRecord::Schema.define(:version => 20091021103827) do
 
   create_table "admissions", :force => true do |t|
     t.string   "type"
@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(:version => 20091014103745) do
     t.integer  "author_id"
     t.boolean  "public_read"
     t.string   "author_type"
-    t.string   "guid"
   end
 
   create_table "articles", :force => true do |t|
@@ -61,7 +60,6 @@ ActiveRecord::Schema.define(:version => 20091014103745) do
     t.integer  "author_id"
     t.boolean  "public_read"
     t.string   "author_type"
-    t.string   "guid"
   end
 
   create_table "audios", :force => true do |t|
@@ -345,6 +343,15 @@ ActiveRecord::Schema.define(:version => 20091014103745) do
     t.string   "exception_notifications_email"
   end
 
+  create_table "source_importations", :force => true do |t|
+    t.integer  "source_id"
+    t.integer  "importation_id"
+    t.string   "importation_type"
+    t.string   "guid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "sources", :force => true do |t|
     t.integer  "uri_id"
     t.string   "content_type"
@@ -354,6 +361,7 @@ ActiveRecord::Schema.define(:version => 20091014103745) do
     t.datetime "imported_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "public_read"
   end
 
   create_table "taggings", :force => true do |t|
