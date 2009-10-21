@@ -22,9 +22,13 @@ class Source
         end
         old_source_importation.touch
       else
+        link = entry.links.select{ |l| l['rel'] = 'alternate' }.first.try(:href)
+        uri = link.present? ? Uri.find_or_create_by_uri(link) : nil
+
         # Create new Importation
         source_importations.create :importation => importation_class.new.from_atom!(entry),
-                                   :guid => entry.id
+                                   :guid => entry.id,
+                                   :uri => uri
       end
     end
 

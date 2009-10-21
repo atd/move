@@ -28,6 +28,7 @@ es:
     updated: "Artículo actualizado"
     editing: "Editando Artículo"
     confirm_delete: "¿Borrar Artículo?"
+    source: "Artículo original"
   photo:
     a: "una imagen"
     one: "Imagen"

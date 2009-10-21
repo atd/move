@@ -12,6 +12,12 @@
 <%= sanitize @article.body %>
 </div>
 
+<% if @article.source_importation.try(:uri).present? -%>
+<div class="article-source">
+  <%= link_to t('article.source'), @article.source_importation.uri.to_s %>
+</div>
+<% end -%>
+
 <%= categories @article %>
 <%= tags @article %>
 
