@@ -36,4 +36,23 @@ class Turn < ActiveRecord::Base
   def validate
     errors.add(:responsibilities, :blank) if responsibilities.blank?
   end
+
+  def responsible_users
+    find_users(responsibles.to_a).flatten.uniq
+  end
+
+  private
+
+  def find_users(o)
+    case o
+    when Array
+      o.map{ |e| find_users(e) }
+    when Group
+      o.users
+    when User
+      o
+    else
+      raise "Unknow object #{ o.inspect }"
+    end
+  end
 end

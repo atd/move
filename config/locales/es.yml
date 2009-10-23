@@ -113,6 +113,9 @@ es:
     title: "Título"
     description: "Descripción"
     start_at: "Fecha de inicio"
+    email_notifications: "Enviar avisos por correo electrónico"
+    email_subject: "Asunto"
+    email_body: "Cuerpo"
     recurrence:
       one: "Repetición"
       no_recurrence: "Sin repetición"

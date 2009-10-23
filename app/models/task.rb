@@ -35,7 +35,15 @@ class Task < ActiveRecord::Base
     def at(t = Time.now)
       sorted_at(t).first
     end
+
+    def now
+      at
+    end
   end
+
+  named_scope :email_notifications, lambda {
+    { :conditions => { :email_notifications => true } }
+  }
 
   validates_presence_of :title, :start_at, :recurrence
   validates_inclusion_of :recurrence, :in => 0..(RECURRENCE.length - 1)
@@ -85,6 +93,16 @@ class Task < ActiveRecord::Base
 
   def next_turn_in_words(turn)
     I18n.t recurrence_sym, :scope => 'task.next_turn', :turn => turn
+  end
+
+  def parse(attribute, turn = turns.now)
+    raise "Invalid attribute" unless [ :email_subject, :email_body ].include?(attribute)
+
+    return "" if (msg = send(attribute)).blank?
+
+    msg.gsub(
+     '@responsibles',      turn.responsibles.map(&:name).join(" - ")).gsub(
+     '@responsible_users', turn.responsible_users.map(&:name).join(" - "))
   end
 
 end

@@ -39,10 +39,14 @@ class Group < ActiveRecord::Base
     actors.select{ |a| a.is_a?(User) }
   end
 
+  def email_with_name
+    "#{ name } <#{ email }>"
+  end
+
   def notification_email
     email.present? ?
-      email :
-      users.map(&:email).join(', ')
+      email_with_name :
+      users.map(&:notification_email).join(', ')
   end
 
   private

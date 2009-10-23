@@ -389,7 +389,7 @@ ActiveRecord::Schema.define(:version => 20091021132500) do
   create_table "tasks", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.integer  "offset",      :default => 0
+    t.integer  "offset",              :default => 0
     t.integer  "owner_id"
     t.string   "owner_type"
     t.integer  "author_id"
@@ -399,6 +399,9 @@ ActiveRecord::Schema.define(:version => 20091021132500) do
     t.datetime "updated_at"
     t.datetime "start_at"
     t.integer  "recurrence"
+    t.boolean  "email_notifications"
+    t.string   "email_subject"
+    t.text     "email_body"
   end
 
   create_table "turns", :force => true do |t|

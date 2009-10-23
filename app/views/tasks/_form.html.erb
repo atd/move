@@ -19,3 +19,22 @@
   [ t(r, :scope => 'task.recurrence'), i ] } %>
 </p>
 
+<fieldset>
+
+<p>
+  <label><%= form.label :email_notifications, t('task.email_notifications')%></label><br />
+  <%= form.check_box :email_notifications %>
+</p>
+
+<p>
+  <label><%= form.label :email_subject, t('task.email_subject')%></label><br />
+  <%= form.text_field :email_subject %>
+</p>
+
+<p>
+  <label><%= form.label :email_body, t('task.email_body')%></label><br />
+  <%= form.text_area :email_body %>
+</p>
+
+
+</fieldset>
