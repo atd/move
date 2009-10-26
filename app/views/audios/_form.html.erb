@@ -1,12 +1,12 @@
 <fieldset>
 <p>
-  <%= form.label :title, t('audio.title') %><br />
-  <%= form.text_field :title, :class => "title"%>
+  <%= form.label :title, t('audio.file')%><br />
+  <%= form.file_field :media %>
 </p>
 
 <p>
-  <%= form.label :title, t('audio.file')%><br />
-  <%= form.file_field :media %>
+  <%= form.label :title, t('audio.title') %><br />
+  <%= form.text_field :title, :class => "title"%>
 </p>
 
 <p>
