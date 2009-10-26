@@ -4,7 +4,7 @@
   <p>
   <% f.fields_for :responsibilities do |rf| %>
     <%= rf.label :responsible, t('turn.responsible.other') %><br/>
-    <%= rf.select :responsible_id, @task.owner.children | (Group.parent_scoped - Array(@task.owner)).map{ |r| [ r.name, r.id ] }, {}, { :multiple => true } %>
+    <%= rf.select :responsible_id, @task.owner.children | (Group.roots - Array(@task.owner)).map{ |r| [ r.name, r.id ] }, {}, { :multiple => true } %>
   <% end %>
   </p>
 
