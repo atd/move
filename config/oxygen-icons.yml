@@ -1,0 +1,32 @@
+source_dir: /usr/share/icons/oxygen
+destination_dir: public/images/models
+
+resource_sizes: [ 16, 48, 64, 128 ]
+
+mime_types:
+  - application-pdf.png
+  - application-postscript.png
+  - application-rtf.png
+  - application-vnd.ms-excel.png
+  - application-vnd.ms-powerpoint.png
+  - application-vnd.oasis.opendocument.presentation.png
+  - application-vnd.oasis.opendocument.spreadsheet.png
+  - application-vnd.oasis.opendocument.text.png
+  - application-vnd.scribus.png
+  - audio-x-wav.png
+  - text-html.png
+
+resources:
+  - dir: mimetypes
+    file: application-msword.png
+    name: application-vnd.ms-word.png
+  - dir: mimetypes
+    file: audio-x-generic.png
+    name: audio-mpeg.png
+  - dir: mimetypes
+    file: audio-x-generic.png
+    name: audio-x-vorbis-ogg.png
+  - dir: apps
+    file: gimp.png
+    name: image-x-xcf.png
+ 

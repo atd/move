@@ -13,11 +13,12 @@ class Document < ActiveRecord::Base
                                     'application/msword', 
                                     'application/vnd.ms-excel',
                                     'application/msexcel',
-                                    'application/vnd.scribus' ],
+                                    'application/vnd.scribus',
+                                    'image/x-xcf' ],
                  :storage => :db_file,
                  :max_size => 1000.megabytes
 
-  acts_as_resource :mime_types => [ :pdf, :ps, :odt, :odp, :rtf, :doc, :ppt, :xls, :sla ],
+  acts_as_resource :mime_types => [ :pdf, :ps, :odt, :odp, :rtf, :doc, :ppt, :xls, :sla, :xcf ],
                    :disposition => :inline,
                    :has_media => :attachment_fu,
                    :per_page => 15,
