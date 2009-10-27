@@ -219,9 +219,6 @@ es:
         updated_at_time: "{{author}} modificó {{content}} en {{container}} el {{time}}."
   community: "Comunidad"
   last activity: "Última actividad"
-  pagination:
-    prev_label: "&laquo; Anterior"
-    next_label: "Siguiente &raquo;"
   privacy: "Privacidad"
   post:
     one: "Comentario"
