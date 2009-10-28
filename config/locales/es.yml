@@ -28,6 +28,7 @@ es:
     updated: "Artículo actualizado"
     editing: "Editando Artículo"
     confirm_delete: "¿Borrar Artículo?"
+    deleted: "Artículo borrado"
     source: "Artículo original"
   photo:
     a: "una imagen"
@@ -47,6 +48,7 @@ es:
     updated: "Imagen actualizada"
     editing: "Modificar Imagen"
     confirm_delete: "¿Borrar Imagen?"
+    deleted: "Imagen borrada"
   audio:
     a: "un audio"
     one: "Audio"
@@ -65,6 +67,7 @@ es:
     updated: "Audio actualizado"
     editing: "Modificar Audio"
     confirm_delete: "¿Borrar Audio?"
+    deleted: "Audio borrado"
   bookmark:
     a: "un enlace"
     one: "Enlace"
@@ -83,6 +86,7 @@ es:
     updated: "Enlace actualizado"
     editing: "Editando Enlace"
     confirm_delete: "¿Borrar Enlace?"
+    deleted: "Enlace borrado"
   document:
     a: "un fichero"
     one: "Fichero"
@@ -101,6 +105,7 @@ es:
     updated: "Fichero actualizado"
     editing: "Modificar Fichero"
     confirm_delete: "¿Borrar Fichero?"
+    deleted: "Fichero borrado"
   task:
     a: "una tarea"
     one: "Tarea"
@@ -129,6 +134,7 @@ es:
     updated: "Tarea actualizada"
     editing: "Modificar Tarea"
     confirm_delete: "¿Borrar Tarea?"
+    deleted: "Tarea borrada"
     next_turn:
       dayly: "Hoy le toca a {{turn}}"
       weekly: "Esta semana le toca a {{turn}}"
@@ -148,6 +154,7 @@ es:
     updated: "Turno actualizado"
     editing: "Editando Turno"
     confirm_delete: "¿Borrar Turno?"
+    deleted: "Turno borrado"
     following:
       one: "Siguiente turno"
       other: "Siguientes turnos"
