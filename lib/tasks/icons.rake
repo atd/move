@@ -29,6 +29,19 @@ namespace :icons do
           system command
         end
       end
+
+      # New Resources
+      icons['new_resources'].each do |resource|
+        resource['new-name'] = resource['name'] + '-new.png'
+        puts resource['name']
+
+        command = "cp "
+        command += File.join(icons['source_dir'], "16x16", resource['dir'], resource['file'])
+        command += " "
+        command += File.join(RAILS_ROOT, icons['destination_dir'], "16", resource['new-name'])
+
+        system command
+      end
     end
   end
 end

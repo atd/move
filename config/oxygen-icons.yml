@@ -30,3 +30,16 @@ resources:
     file: gimp.png
     name: image-x-xcf.png
  
+new_resources:
+  - dir: actions
+    file: archive-insert.png
+    name: document
+  - dir: actions
+    file: document-edit.png
+    name: article
+  - dir: actions
+    file: insert-link.png
+    name: bookmark
+  - dir: actions
+    file: appointment-new.png
+    name: task

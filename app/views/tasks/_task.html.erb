@@ -1,6 +1,5 @@
 <% div_for task do %>
   <%= link_to sanitize(task.title), [ task.container, task ] %>
-  <%= link_to t(:edit), edit_polymorphic_path([ task.container, task ]) %>
-  <%= link_to t(:delete), polymorphic_path([ task.container, task ]), :confirm => t('task.confirm_delete'), :method => :delete %>
+  <%= edit_and_delete(task) %>
 <% end %>
 

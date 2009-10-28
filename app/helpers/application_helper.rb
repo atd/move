@@ -71,18 +71,25 @@ module ApplicationHelper
   end
 
   def new_contents(container)
-    contents = [ :document, :article, :bookmark ]
+    contents = [ :document, :article, :bookmark, :tasks ]
 
     returning "" do |html|
       html << '<div id="new_contents-wrapper" class="span-6 last">'
       html << '<div id="new_contents" class="actions span-5">'
       html << "<ul>"
-      contents.each do |content|
-          html << "<li>"
-          html << link_logo(content.to_class.new, :url => [ container, content.to_class.new ])
-          html << link_to_unless_current(t(:new, :scope => content.to_s.singularize), 
-                          send("new_#{ container.class.to_s.underscore }_#{ content.to_s.singularize }_path", container))
-          html << "</li>"
+      contents.each do |content_sym|
+        next if container.is_a?(User) && content_sym == :tasks
+
+        html << "<li>"
+        content = content_sym.to_class.new
+        content.container = container
+        content_path = polymorphic_path(content, :action => :new)
+
+        html << link_to(image_tag("models/16/#{ content_sym.to_s.singularize }-new.png", :class => 'logo'), content_path)
+        html << link_to_unless_current(
+                  t(:new, :scope => content_sym.to_s.singularize), 
+                  content_path)
+        html << "</li>"
       end
       html << "</ul>"
       html << "</div>"
@@ -148,18 +155,24 @@ module ApplicationHelper
                 :scope => resource.class.to_s.underscore,
                 :author => link_author(resource),
                 :time => time_ago_in_words(resource.updated_at))
+      html << edit_and_delete(resource)
+      html << '</div>'
+    end
+
+  end
+
+  def edit_and_delete(resource)
+    returning "" do |html|
       if resource.authorize?(:update, :to => current_agent)
         html << ' '
-        html << link_to(image_tag("icons/actions/document-edit.png"), polymorphic_path([ resource.container, resource ], :action => :edit), :title => t('edit'), :alt => t('edit'))
+        html << link_to(image_tag("icons/actions/document-edit.png"), polymorphic_path(resource, :action => :edit), :title => t('edit'), :alt => t('edit'))
         #TODO: versions
       end
       if resource.authorize?(:delete, :to => current_agent)
         html << ' '
-        html << link_to(image_tag("icons/actions/edit-delete.png"), polymorphic_path([ resource.container, resource ]), :title => t('delete'), :alt => t('delete'), :confirm => t('confirm_delete', :scope => resource.class.to_s.underscore), :method => :delete)
+        html << link_to(image_tag("icons/actions/edit-delete.png"), polymorphic_path(resource), :title => t('delete'), :alt => t('delete'), :confirm => t('confirm_delete', :scope => resource.class.to_s.underscore), :method => :delete)
       end
-      html << '</div>'
     end
-
   end
 
   # This should go in some AtomHelper

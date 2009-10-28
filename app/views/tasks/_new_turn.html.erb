@@ -1,10 +1,10 @@
 <h3><%= t 'turn.new' %></h3>
-<% form_for [ @task, Turn.new(:responsibilities => [ Responsibility.new ]) ] do |f| %>
+<% form_for [ @task, Turn.new(:responsibilities => [ Responsibility.new ]) ], :url => polymorphic_path([ @task, Turn.new ], :container => false) do |f| %>
 
   <p>
   <% f.fields_for :responsibilities do |rf| %>
     <%= rf.label :responsible, t('turn.responsible.other') %><br/>
-    <%= rf.select :responsible_id, @task.owner.children | (Group.roots - Array(@task.owner)).map{ |r| [ r.name, r.id ] }, {}, { :multiple => true } %>
+    <%= rf.select :responsible_id, @task.owner.children.map{ |r| [ r.name, r.id ] }, {}, { :multiple => true } %>
   <% end %>
   </p>
 
