@@ -1,4 +1,4 @@
-<% if @group.invitations.pending.any? -%>
+<% if ! current_agent.is_a?(SingularAgent) && @group.invitations.pending.any? -%>
 <div id="pending-invitations" class="span-16">
   <h2><%= t 'invitation.pending.other' %></h2>
   <% @group.invitations.pending.each do |i| %>
