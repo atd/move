@@ -67,10 +67,6 @@ div.logo-16, div.logo-22, div.logo-32, div.logo-48, div.logo-64, div.logo-72, di
 	padding: 2px;
 }
 
-#sidebar div.actions {
-	-moz-border-radius: 0;
-}
-
 .actions img.logo {
 	border-color: #359296;
 }
@@ -195,6 +191,7 @@ a.actions:hover, .actions a:hover {
 
 #sidebar h1 {
 	margin-right: 0px;
+	font-size: 20px;
 }
 
 #sidebar img.logo {
@@ -225,6 +222,23 @@ a.actions:hover, .actions a:hover {
 	margin-bottom: 4px;
 }
 
+#sidebar div {
+	margin-bottom: 8px;
+}
+
+
+#sidebar div.actions {
+	-moz-border-radius: 0;
+}
+
+#sidebar div.new-performance {
+	background-color: #E4F3F2;
+}
+
+#sidebar img.new-performance {
+	border-color: #359296;
+}
+
 #sidebar div.groups {
 	font-size: 0.75em;
 	text-align: center;
@@ -241,14 +255,20 @@ a.actions:hover, .actions a:hover {
 	float: none;
 }
 
+#sidebar div.new-child {
+	background-color: #E4F3F2;
+}
+#sidebar img.new-child {
+	border-color: #359296;
+}
+
+#sidebar div#new_contents {
+	margin-bottom: 0px;
+}
+
 
 #contents {
 	color: #359296;
-	margin-top: 3px;
-}
-
-#new_contents {
-	margin-bottom: 10px;
 }
 
 div#performances {

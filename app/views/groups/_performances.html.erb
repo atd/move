@@ -1,0 +1,19 @@
+<div id="performances" class="span-6 last">
+  <h1>
+    <%= link_logo(User.new, :url => [ group, Performance.new ]) %>
+    <%= link_to(t('group.performance.other'), [ group, Performance.new ]) %>
+  </h1>
+
+  <%= render :partial => 'groups/member', :collection => group.users %>
+
+  <% if group.authorize?([:create, :performance], :to => current_agent) -%>
+  <% div_for User.new, :class => "span-1 new-performance" do %>
+  <%= link_to image_tag('models/32/user-new.png',
+                        :alt => t('group.performance.new'),
+                        :title => t('group.performance.new'),
+                        :class => 'logo new-performance'),
+              polymorphic_path([ group, Performance.new ], :anchor => 'new_invitation') %>
+  <% end %>
+  <% end -%>
+</div>
+

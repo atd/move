@@ -6,7 +6,7 @@ namespace :icons do
 
       # Mimetypes
       icons['mime_types'].each do |mime_type|
-        puts mime_type
+        print "."
         icons['resource_sizes'].each do |size|
           command = "cp "
           command += File.join(icons['source_dir'], "#{ size }x#{ size }", "mimetypes", mime_type)
@@ -19,7 +19,8 @@ namespace :icons do
 
       # Resources
       icons['resources'].each do |resource|
-        puts resource['name']
+        print "."
+
         icons['resource_sizes'].each do |size|
           command = "cp "
           command += File.join(icons['source_dir'], "#{ size }x#{ size }", resource['dir'], resource['file'])
@@ -33,15 +34,20 @@ namespace :icons do
       # New Resources
       icons['new_resources'].each do |resource|
         resource['new-name'] = resource['name'] + '-new.png'
-        puts resource['name']
+        resource['size'] ||= [ 16 ]
+        print "."
 
-        command = "cp "
-        command += File.join(icons['source_dir'], "16x16", resource['dir'], resource['file'])
-        command += " "
-        command += File.join(RAILS_ROOT, icons['destination_dir'], "16", resource['new-name'])
+        resource['size'].each do |size|
+          command = "cp "
+          command += File.join(icons['source_dir'], "#{ size }x#{ size }", resource['dir'], resource['file'])
+          command += " "
+          command += File.join(RAILS_ROOT, icons['destination_dir'], size.to_s, resource['new-name'])
 
-        system command
+          system command
+        end
       end
+
+      puts
     end
   end
 end

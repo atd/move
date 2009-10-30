@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
   include ActionController::StationResources
 
-  authentication_filter :only => [ :new, :create ]
+  authorization_filter :create, :group, :only => [ :new, :create ]
   authorization_filter :update, :group, :only => [ :edit, :update ]
   authorization_filter :delete, :group, :only => [ :destroy ]
 

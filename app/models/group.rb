@@ -3,8 +3,6 @@ class Group < ActiveRecord::Base
   has_many :children, :class_name => "Group", :foreign_key => 'parent_id'
 
   belongs_to :user
-#  has_many :memberships, :as => :group
-#  has_many :members, :through => :memberships
 
   has_many :articles,  :as => :owner
   has_many :photos,    :as => :owner
@@ -30,11 +28,21 @@ class Group < ActiveRecord::Base
   authorizing do |agent, permission|
     if permission == [ :read, :performance ] && others_read_members?
       true
-    elsif permission == [ :create, :performance ] && ! agent.is_a?(SingularAgent)
-      true
     end
   end
 
+  authorizing do |agent, permission|
+    if permission == :create && parent.blank?
+      ! agent.is_a?(SingularAgent)
+    end
+  end
+
+  authorizing do |agent, permission|
+    if parent.present?
+      parent.authorize?(permission, :to => agent)
+    end
+  end
+  
   def users
     actors.select{ |a| a.is_a?(User) }
   end

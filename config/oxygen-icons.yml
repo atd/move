@@ -30,6 +30,7 @@ resources:
     file: gimp.png
     name: image-x-xcf.png
  
+# size is 16 by default
 new_resources:
   - dir: actions
     file: archive-insert.png
@@ -43,3 +44,8 @@ new_resources:
   - dir: actions
     file: appointment-new.png
     name: task
+  - dir: actions
+    file: user-group-new.png
+    name: group
+    size: [ 32 ]
+    

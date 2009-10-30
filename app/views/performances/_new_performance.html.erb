@@ -1,0 +1,10 @@
+<div id="new_performance" class="span-16">
+  <h1><%= t('group.performance.new_in', :stage => @group.name) %></h1>
+
+  <% form_for [ @group, Performance.new ] do |f| %>
+    <%= f.select :agent, (@group.parent.users - @group.users).map{ |u| [ u.name, "#{ u.class.base_class.to_s.underscore }-#{ u.id }" ] }%>
+    <%= f.select :role_id, Group.roles.map{ |r| [ r.name, r.id ] } %>
+    <%= submit_tag :add %>
+  <% end -%>
+</div>
+

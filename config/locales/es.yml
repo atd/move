@@ -210,10 +210,17 @@ es:
     others_write_members: "Cualquiera se puede apuntar al grupo"
     performance:
       other: "Integrantes"
+      new: "Añadir integrante"
+      new_in: "Añadir integrante a {{stage}}"
     notification:
       one: "Avisar al grupo"
       send: "Enviar correo electrónico avisando al grupo"
       text: "Comentario"
+    children:
+      one: "Subgrupo"
+      other: "Subgrupos"
+      new: "Nuevo subgrupo"
+      new_in: "Nuevo subgrupo de {{parent}}"
   content:
     stream:
       user: 

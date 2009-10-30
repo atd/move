@@ -28,7 +28,7 @@ describe GroupsController do
       post :create, :group => Factory.attributes_for(:group)
 
       assert redirect_to login_path
-      assigns(:group).should be_nil
+      assigns(:group).should be_new_record
     end
 
     describe "as authenticated" do

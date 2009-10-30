@@ -29,13 +29,9 @@ module ApplicationHelper
     returning "" do |html|
       html << agent_header(container)
       html << "<hr>"
-      if container.is_a?(Group) && container.authorize?([ :create, :performance ], :to => current_agent)
-        html << performances(container)
-      end
 
-      if container.authorize?([ :create, :content ], :to => current_agent)
-        html << new_contents(container)
-      end
+      html << group_sidebar(container)
+
       html << contents(container)
     end
   end
@@ -55,22 +51,37 @@ module ApplicationHelper
     end
   end
 
-  def performances(container)
+  def group_sidebar(group)
+    return "" unless group.is_a?(Group)
+
     returning "" do |html|
-      html << '<div id="performances-wrapper" class="span-6 last">'
-      html << '<div id="performances" class="actions span-5">'
-      html << "<ul>"
-      html << "<li>"
-      html << link_logo(User.new, :url => [ container, Performance.new ])
-      html << link_to(t('performance.other', :scope => container.class.to_s.underscore),
-                      [ container, Performance.new ])
-      html << "</li>"
-      html << "</div>"
-      html << "</div>"
+      html << performances(group)
+
+      html << group_children(group)
     end
   end
 
+  def group_children(group)
+    return "" unless group.authorize?([ :read, :performance ], :to => current_agent) &&
+                     group.children.any? ||
+                     group.authorize?([ :create, :performance ], :to => current_agent)
+
+    returning "" do |html|
+      html << render(:partial => 'groups/children',
+                     :object => group.children,
+                     :locals => { :group => group })
+    end
+  end
+
+  def performances(group)
+    group.authorize?([ :read, :performance ], :to => current_agent) ?
+      render(:partial => 'groups/performances', :locals => { :group => group }) :
+      ""
+  end
+
   def new_contents(container)
+    return "" unless container.authorize?([ :create, :content ], :to => current_agent)
+
     contents = [ :document, :article, :bookmark, :tasks ]
 
     returning "" do |html|
@@ -78,7 +89,7 @@ module ApplicationHelper
       html << '<div id="new_contents" class="actions span-5">'
       html << "<ul>"
       contents.each do |content_sym|
-        next if container.is_a?(User) && content_sym == :tasks
+      next if container.is_a?(User) && content_sym == :tasks
 
         html << "<li>"
         content = content_sym.to_class.new
@@ -100,6 +111,12 @@ module ApplicationHelper
   def contents(container)
     returning "" do |html|
       html << '<div id="contents" class= "span-6 last">'
+
+      html << "<h1>#{ image_tag('models/16/content.png', :class => 'logo') } #{ t('content.other') }</h1>"
+
+      html << new_contents(container)
+
+      html << '<div id="current_contents" class= "span-6 last">'
 
       # Contents
       html << "<ul>"
@@ -136,6 +153,7 @@ module ApplicationHelper
       end
 
       html << "</div>"
+      html << "</div>"
     end
   end
 
@@ -155,19 +173,26 @@ module ApplicationHelper
                 :scope => resource.class.to_s.underscore,
                 :author => link_author(resource),
                 :time => time_ago_in_words(resource.updated_at))
-      html << edit_and_delete(resource)
+      html << edit(resource)
+      html << ' '
+      html << delete(resource)
       html << '</div>'
     end
 
   end
 
-  def edit_and_delete(resource)
+  def edit(resource)
     returning "" do |html|
       if resource.authorize?(:update, :to => current_agent)
         html << ' '
         html << link_to(image_tag("icons/actions/document-edit.png"), polymorphic_path(resource, :action => :edit), :title => t('edit'), :alt => t('edit'))
         #TODO: versions
       end
+    end
+  end
+
+  def delete(resource)
+    returning "" do |html|
       if resource.authorize?(:delete, :to => current_agent)
         html << ' '
         html << link_to(image_tag("icons/actions/edit-delete.png"), polymorphic_path(resource), :title => t('delete'), :alt => t('delete'), :confirm => t('confirm_delete', :scope => resource.class.to_s.underscore), :method => :delete)
