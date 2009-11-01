@@ -1,10 +1,10 @@
-<% content_for :pagination, will_paginate(@contents) %>
+<% content_for :pagination, will_paginate(@group_contents) %>
 <% content_for :sidebar, container_menu(@group) %>
 
 <div id="activity_stream">
   <h1><%= t 'group.last activity', :group => sanitize(@group.name) %></h1>
-  <%= render :partial => 'content', :collection => @contents %>
-  <% if @contents.blank? %>
+  <%= render :partial => 'content', :collection => @group_contents %>
+  <% if @group_contents.blank? %>
   <div class="error">
     <%= t('agent.no_contents', :agent => link_logotype(@group)) %>
   </div>

@@ -17,6 +17,9 @@ module CommonContents
     @conditions = ( current_container && authorized?([ :read, :content], current_container) ?
                    nil :
                    { :public_read => true } )
+
+    params[:order] ||= 'updated_at'
+    params[:direction] ||= "DESC"
       
     index_without_public
   end
