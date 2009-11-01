@@ -1,5 +1,6 @@
 <% div_for task do %>
   <%= link_to sanitize(task.title), [ task.container, task ] %>
-  <%= edit_and_delete(task) %>
+  <%= edit(task) %>
+  <%= delete(task) %>
 <% end %>
 
