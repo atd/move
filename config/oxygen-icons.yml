@@ -47,5 +47,5 @@ new_resources:
   - dir: actions
     file: user-group-new.png
     name: group
-    size: [ 32 ]
+    size: [ 32, 48 ]
     

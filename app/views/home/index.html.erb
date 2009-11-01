@@ -2,7 +2,7 @@
 
 <% content_for :title_header, title(t('user.home'), :append_site_name => true) %>
 <% content_for :pagination, will_paginate(@contents) %>
-<% content_for :sidebar, home_sidebar %>
+<% content_for :sidebar, render(:partial => 'sidebar')  %>
 
 <h1><%= t 'user.network_activity' %></h1>
 <div id="activity_stream">

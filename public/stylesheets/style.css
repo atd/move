@@ -255,10 +255,11 @@ a.actions:hover, .actions a:hover {
 	float: none;
 }
 
-#sidebar div.new-child {
-	background-color: #E4F3F2;
+#sidebar div.new-child a, div.new-group a {
+	color: #359296;
 }
-#sidebar img.new-child {
+#sidebar img.new-child, #sidebar img.new-group {
+	background-color: #E4F3F2;
 	border-color: #359296;
 }
 
@@ -375,9 +376,6 @@ div.post {
 	height: 100px;
 }
 
-#new-group {
-	margin-top: 10px;
-}
 
 .new-resource {
 	margin-top: 10px;

@@ -1,0 +1,17 @@
+<h1><%= t('user.group.other') %></h1>
+
+<div id="home-groups" class="groups span-7 last">
+  <%= render(:partial => 'group', :collection => current_agent.stages) %>
+  <div id="new-group" class="group new-group span-2">
+    <%= link_to image_tag('models/48/group-new.png',
+                          :alt => t('group.new'),
+                          :title => t('group.new'),
+                          :class => 'logo new-group'),
+                          polymorphic_path(Group.new, :action => :new) %>
+                          <br />
+    <%= link_to t('group.new'),
+                polymorphic_path(Group.new, :action => :new) %>
+
+  </div>
+</div>
+
