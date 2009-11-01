@@ -32,7 +32,7 @@ class Group < ActiveRecord::Base
   end
 
   authorizing do |agent, permission|
-    if permission == :create && parent.blank?
+    if permission == :create && parent.blank? && new_record?
       ! agent.is_a?(SingularAgent)
     end
   end

@@ -6,6 +6,7 @@
 
   <%= render :partial => 'groups/child', :collection => children %>
 
+  <% if authorized?([ :create, :performance ], group) %>
   <div id='new_child' class="child span-1 new-child">
     <%= link_to image_tag('models/32/group-new.png',
                           :alt => t('group.children.new'),
@@ -13,4 +14,5 @@
                           :class => 'logo new-child'),
                           polymorphic_path(Group.new, :action => :new, :group => { :parent_id => group.id }) %>
   </div>
+  <% end -%>
 </div>
