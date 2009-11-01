@@ -129,7 +129,7 @@ es:
       monthly: "Mensual"
       yearly: "Anual"
     public_read: "Tarea pública"
-    new: "Crear Tarea"
+    new: "Añadir Tarea"
     created: "Tarea creada con éxito"
     updated: "Tarea actualizada"
     editing: "Modificar Tarea"
