@@ -37,18 +37,8 @@ module ApplicationHelper
   end
 
   def agent_header(agent)
-    icon = ( agent.is_a?(User) ?
-              "icons/actions/configure.png" :
-              "icons/actions/user-group-properties.png" )
-
-    returning "" do |html|
-      html << link_logotype(agent, :size => 48)
-      if authorized?(:update, agent)
-        html << " "
-        html << link_to(image_tag(icon), polymorphic_path(agent, :action => :edit), :title => t('edit'), :alt => t('edit'))
-      end
-      html << "<p><em>#{ sanitize agent.description }</em></p>" if agent.description.present?
-    end
+    render :partial => "#{ agent.class.to_s.tableize }/sidebar_header",
+           :locals => { agent.class.to_s.underscore.to_sym => agent }
   end
 
   def group_sidebar(group)

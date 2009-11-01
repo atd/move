@@ -221,6 +221,7 @@ es:
       other: "Subgrupos"
       new: "Nuevo subgrupo"
       new_in: "Nuevo subgrupo de {{parent}}"
+      about_parent: "Es un subgrupo de {{parent}}"
   content:
     stream:
       user: 

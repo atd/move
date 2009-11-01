@@ -1,0 +1,13 @@
+<div id='sidebar-header'>
+  <%= link_logotype(group, :size => 48) %>
+  <%= link_to(image_tag("icons/actions/user-group-properties.png"),
+              polymorphic_path(group, :action => :edit),
+              :title => t('edit'), :alt => t('edit')) if authorized?(:update, group) %>
+  <% if group.parent.present? %>
+    <div id="group-about-parent">
+      <%= t('group.children.about_parent', :parent => link_to(sanitize(group.parent.name), group.parent)) %>
+    </div>
+  <% end -%>
+
+  <p><em><%= sanitize group.description if group.description.present? %></em></p>
+</div>

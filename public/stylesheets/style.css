@@ -231,11 +231,8 @@ a.actions:hover, .actions a:hover {
 	-moz-border-radius: 0;
 }
 
-#sidebar div.new-performance {
-	background-color: #E4F3F2;
-}
-
 #sidebar img.new-performance {
+	background-color: #E4F3F2;
 	border-color: #359296;
 }
 
@@ -253,6 +250,10 @@ a.actions:hover, .actions a:hover {
 
 #sidebar div.groups img.logo {
 	float: none;
+}
+
+#sidebar div#group-about-parent {
+	font-weight: italic;
 }
 
 #sidebar div.new-child a, div.new-group a {

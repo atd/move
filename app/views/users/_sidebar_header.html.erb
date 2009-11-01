@@ -1,0 +1,8 @@
+<div id='sidebar-header'>
+  <%= link_logotype(user, :size => 48) %>
+  <%= link_to(image_tag("icons/actions/configure.png"),
+              polymorphic_path(user, :action => :edit),
+              :title => t('edit'), :alt => t('edit')) if authorized?(:update, user) %>
+
+  <p><em><%= sanitize user.description if user.description.present? %></em></p>
+</div>
