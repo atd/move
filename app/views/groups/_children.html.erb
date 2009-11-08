@@ -6,7 +6,7 @@
 
   <%= render :partial => 'groups/child', :collection => children %>
 
-  <% if authorized?([ :create, :performance ], group) %>
+  <% if authorized?(:create, group.children.new) %>
   <div id='new_child' class="child span-1 new-child">
     <%= link_to image_tag('models/32/group-new.png',
                           :alt => t('group.children.new'),

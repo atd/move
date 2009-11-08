@@ -10,6 +10,10 @@ Factory.define :public_group, :parent => :group do |g|
   g.others_read_content true
 end
 
+Factory.define :children_group, :parent => :group do |g|
+  g.association :parent, :factory => :group
+end
+
 def populated_group
   g = Factory(:group)
   2.times do
