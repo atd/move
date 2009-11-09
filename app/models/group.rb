@@ -52,10 +52,10 @@ class Group < ActiveRecord::Base
     "#{ name } <#{ email }>"
   end
 
-  def notification_email
+  def notification_emails
     email.present? ?
-      email_with_name :
-      users.map(&:notification_email).join(', ')
+      Array(email_with_name) :
+      users.map(&:notification_emails).flatten
   end
 
   private

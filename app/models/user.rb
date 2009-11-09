@@ -50,7 +50,7 @@ class User < ActiveRecord::Base
     "#{ name } <#{ email }>"
   end
 
-  def notification_email
-    email_with_name
+  def notification_emails
+    Array(email_with_name)
   end
 end

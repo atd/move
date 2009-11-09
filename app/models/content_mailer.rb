@@ -7,7 +7,7 @@ class ContentMailer < ActionMailer::Base
  
   protected
     def setup_email(content)
-      @recipients  = content.container.notification_email
+      @recipients  = content.container.notification_emails
       @from        = Site.current.email_with_name
       @subject     = "[#{ Site.current.name }] "
       @sent_on     = Time.now
