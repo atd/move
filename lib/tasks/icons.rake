@@ -19,9 +19,10 @@ namespace :icons do
 
       # Resources
       icons['resources'].each do |resource|
+        resource['size'] ||= icons['resource_sizes']
         print "."
 
-        icons['resource_sizes'].each do |size|
+        resource['size'].each do |size|
           command = "cp "
           command += File.join(icons['source_dir'], "#{ size }x#{ size }", resource['dir'], resource['file'])
           command += " "

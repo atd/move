@@ -16,6 +16,7 @@ mime_types:
   - audio-x-wav.png
   - text-html.png
 
+# size is resource_sizes by default
 resources:
   - dir: mimetypes
     file: application-msword.png
@@ -29,6 +30,14 @@ resources:
   - dir: apps
     file: gimp.png
     name: image-x-xcf.png
+  - dir: actions
+    file: view-media-artist.png
+    name: anonymous.png
+    size: [ 16 ]
+  - dir: apps
+    file: kalarm.png
+    name: cron_agent.png
+    size: [ 16 ]
  
 # size is 16 by default
 new_resources:
