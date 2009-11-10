@@ -210,6 +210,10 @@ a.actions:hover, .actions a:hover {
 
 }
 
+#sidebar ul, #sidebar ol {
+	padding-left: 1.25em;
+}
+
 #sidebar ul#categories_ul li {
 	font-size: 0.85em;
 }
@@ -364,6 +368,10 @@ div.post {
 #post_content {
 	width: 550px;
 	height: 100px;
+}
+
+#pagination_container {
+	text-align: center;
 }
 
 #footer { }

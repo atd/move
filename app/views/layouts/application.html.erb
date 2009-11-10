@@ -37,12 +37,12 @@
       </div>
       <div id="main" class="span-16">
         <%= yield %>
+        <div id="pagination_container" class="prepend-1 span-14 append-1 prepend-top">
+          <%= yield :pagination %>
+        </div>
       </div>
       <div id="sidebar" class="span-6 last">
         <%= yield(:sidebar) || sidebar_menu %>
-      </div>
-      <div id="pagination_container" class="prepend-16 span-7 last">
-        <%= yield :pagination %>
       </div>
     </div>
     <hr class="site">
