@@ -263,4 +263,8 @@ es:
     attributes:
       photo:
         title: "El título"
+      document:
+        size: "El tamaño"
+        content_type: "El tipo de contenido"
+        filename: "El nombre del fichero"
 

@@ -184,6 +184,28 @@ a.actions:hover, .actions a:hover {
 	padding-top: 10px;
 }
 
+#notification_area .success, #notification_area .error, #notification_area .notice {
+	padding-left: 50px;
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+
+#errorExplanation {
+	padding-left: 50px;
+	background-repeat: no-repeat;
+	background-position: 2px 18px;
+}
+#notification_area .success {
+	background-image: url(/images/icons/status/dialog-ok.png);
+}
+
+#errorExplanation, #notification_area .error {
+	background-image: url(/images/icons/status/dialog-error.png);
+}
+
+#notification_area .notice {
+	background-image: url(/images/icons/status/dialog-information.png);
+}
 #navigation { background: #67FBE4; }
 #main { }
 #sidebar {

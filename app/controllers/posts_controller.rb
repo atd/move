@@ -28,7 +28,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        flash[:notice] = t('post.created')
+        flash[:success] = t('post.created')
         format.html { redirect_to(polymorphic_path([ postable.container, postable ], :anchor => dom_id(@post))) }
         format.xml  { render :xml => @post, :status => :created, :location => @post }
       else
@@ -43,7 +43,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if post.update_attributes(params[:post])
-        flash[:notice] = t('post.updated')
+        flash[:success] = t('post.updated')
         format.html { redirect_to(polymorphic_path([ postable.container, postable ], :anchor => dom_id(@post))) }
         format.xml  { head :ok }
       else
