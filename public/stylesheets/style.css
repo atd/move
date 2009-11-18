@@ -38,9 +38,22 @@ a:hover {
 	height: 120px;
 }
 
+span.logotype:hover img.logo {
+	border: 1px #C9740A solid;
+}
+span.logotype:hover a {
+	text-decoration: underline;
+}
+
+
 img.logo {
 	/* border: 1px #C9740A solid; */
 	margin: 1px 0px -4px 1px;
+	border: 1px solid transparent;
+}
+
+img.logo:hover {
+	border: 1px #C9740A solid;
 }
 
 div.logo-16, div.logo-22, div.logo-32, div.logo-48, div.logo-64, div.logo-72, div.logo-96, div.logo-128, div.logo-256 {
@@ -65,10 +78,6 @@ div.logo-16, div.logo-22, div.logo-32, div.logo-48, div.logo-64, div.logo-72, di
 	border: 1px solid #359296;
 	-moz-border-radius: 5px;
 	padding: 2px;
-}
-
-.actions img.logo {
-	border-color: #359296;
 }
 
 a.actions, .actions a {
@@ -149,7 +158,7 @@ a.actions:hover, .actions a:hover {
 	color: #363636;
 }
 
-#session img.logo {
+#session span.logotype:hover img.logo {
 	border: 1px solid #359296;
 }
 
@@ -260,6 +269,9 @@ a.actions:hover, .actions a:hover {
 
 #sidebar img.new-performance {
 	background-color: #E4F3F2;
+}
+
+#sidebar img.new-performance:hover {
 	border-color: #359296;
 }
 
@@ -288,6 +300,9 @@ a.actions:hover, .actions a:hover {
 }
 #sidebar img.new-child, #sidebar img.new-group {
 	background-color: #E4F3F2;
+}
+
+#sidebar img.new-child:hover, #sidebar img.new-group:hover {
 	border-color: #359296;
 }
 
@@ -295,10 +310,24 @@ a.actions:hover, .actions a:hover {
 	margin-bottom: 0px;
 }
 
+#new_contents li:hover img.logo {
+	border-color: #359296;
+}
+#new_contents li:hover a {
+	color: #363636;
+}
 
 #contents {
 	color: #359296;
 }
+
+#current_contents li:hover img.logo {
+	border: 1px #C9740A solid;
+}
+#current_contents li:hover a {
+	text-decoration: underline;
+}
+
 
 div#performances {
 	margin-bottom: 1px;
