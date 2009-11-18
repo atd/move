@@ -639,6 +639,10 @@ jQuery(
 				var item = $(document.createElement('span'));
 				item.append(option.text());
 				item.attr("rel", option.val());
+				if (option.attr("weight"))
+				{
+					item.css("font-size", option.attr("weight") + "em");
+				}
 				item.mousedown(
 					function()
 					{
