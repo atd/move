@@ -9,21 +9,19 @@
   <%= form.text_field :title, :class => "title"%>
 </p>
 
+<%= form.tags_select %>
+
 <p>
   <%= form.label :public_read, t('photo.public_read') %><br />
   <%= form.check_box :public_read %>
 </p>
 </fieldset>
 
-<%= render :partial => 'contents/notification_form', :object => form %>
-
 <fieldset>
 <p>
   <%= form.label :title, t('photo.description')%><br />
   <%= form.text_area :description %>
 </p>
-
-<%= form.categories %>
-<%= form.tags %>
 </fieldset>
 
+<%= render :partial => 'contents/notification_form', :object => form %>

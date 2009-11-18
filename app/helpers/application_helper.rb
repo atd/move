@@ -124,24 +124,6 @@ module ApplicationHelper
       end
       html << "</ul>"
 
-      # Categories
-      if authorized?([ :read, :content ], container) && container.domain_categories.any?
-        html << "<ul>"
-        html << "<li>"
-        html << link_logo(Category.new, :url => [ container, Category.new ])
-        html << link_to_unless_current(t('category.other'), [ container, Category.new ])
-        if authorized?([ :update, :content ], container)
-          html << link_to(image_tag("icons/actions/document-edit.png"), [ container, Category.new ])
-        end
-        html << "<ul id=\"categories_ul\">"
-        container.domain_categories.each do |c|
-          html << "<li>#{ link_to sanitize(c.name), [ container, c ]}</li>"
-        end
-        html << "</ul>"
-        html << "</li>"
-      html << "</ul>"
-      end
-
       html << "</div>"
       html << "</div>"
     end
@@ -201,5 +183,28 @@ module ApplicationHelper
       end
     end
 
+  end
+
+  def jquery_tags(model)
+    content_for :headers do
+      returning '' do |h|
+        h << javascript_include_tag('jquery', 'jquery.fcbkcomplete')
+        h << stylesheet_link_tag('fcbkcomplete', :media => 'screen, projection')
+      end
+    end
+   
+    content_for :javascript do
+      <<-EOF
+        $("##{ model }__tags").fcbkcomplete({
+          cache: true,
+          filter_case: false,
+          filter_hide: true,
+          firstselected: true,
+          filter_selected: true,
+          maxshownitems: 4,
+          newel: true
+        });
+      EOF
+    end
   end
 end

@@ -214,7 +214,7 @@ es:
       new_in: "Añadir integrante a {{stage}}"
     notification:
       one: "Avisar al grupo"
-      send: "Enviar correo electrónico avisando al grupo"
+      send: "Enviar un correo electrónico"
       text: "Comentario"
     children:
       one: "Subgrupo"

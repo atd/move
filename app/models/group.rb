@@ -11,6 +11,8 @@ class Group < ActiveRecord::Base
   has_many :documents, :as => :owner
   has_many :tasks,     :as => :owner
 
+  has_many :tags, :as => :container
+
   acts_as_resource :per_page => 15
   acts_as_container :sources => true
   acts_as_stage

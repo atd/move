@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
   has_many :documents, :as => :owner
   has_many :tasks,     :as => :owner
 
+  has_many :tags, :as => :container
+
   has_many :memberships
   has_many :groups, :through => :memberships, :source => :group
   

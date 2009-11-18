@@ -2,10 +2,18 @@
 <fieldset>
   <legend><%= t 'group.notification.one' %></legend>
   <p>
-    <%= notification_form.label :notification, t('group.notification.send') %><br />
     <%= notification_form.check_box :notification %>
+    <%= notification_form.label :notification, t('group.notification.send') %>
   </p>
-  <p>
+
+  <% content_for :headers, javascript_include_tag('jquery.livequery') %>
+  <% content_for :javascript do %>
+  $("#notification-comment").hide();
+  $("input#<%= notification_form.object_name %>_notification").livequery("click", function() {
+    $("#notification-comment").slideToggle("slow");
+  });
+  <% end -%>
+  <p id="notification-comment">
     <%= notification_form.label :notification_text, t('group.notification.text') %><br />
     <%= notification_form.text_area :notification_text %>
   </p>

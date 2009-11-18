@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091021132500) do
+ActiveRecord::Schema.define(:version => 20091113122126) do
 
   create_table "admissions", :force => true do |t|
     t.string   "type"
@@ -91,26 +91,9 @@ ActiveRecord::Schema.define(:version => 20091021132500) do
     t.integer  "uri_id"
   end
 
-  create_table "categories", :force => true do |t|
-    t.string   "name"
-    t.integer  "domain_id"
-    t.string   "domain_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "parent_id"
-    t.text     "description"
-    t.boolean  "public_read"
-  end
-
   create_table "categories_profiles", :id => false, :force => true do |t|
     t.integer "category_id"
     t.integer "profile_id"
-  end
-
-  create_table "categorizations", :force => true do |t|
-    t.integer "categorizable_id"
-    t.string  "categorizable_type"
-    t.integer "category_id"
   end
 
   create_table "contacts", :force => true do |t|
@@ -381,10 +364,13 @@ ActiveRecord::Schema.define(:version => 20091021132500) do
   add_index "taggings", ["tag_id", "taggable_id", "taggable_type"], :name => "index_taggings_on_tag_id_and_taggable_id_and_taggable_type"
 
   create_table "tags", :force => true do |t|
-    t.string "name"
+    t.string  "name"
+    t.integer "container_id"
+    t.string  "container_type"
+    t.integer "taggings_count", :default => 0
   end
 
-  add_index "tags", ["name"], :name => "index_tags_on_name"
+  add_index "tags", ["name", "container_id", "container_type"], :name => "index_tags_on_name_and_container_id_and_container_type"
 
   create_table "tasks", :force => true do |t|
     t.string   "title"

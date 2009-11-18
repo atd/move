@@ -15,6 +15,12 @@
   <![endif]-->
 
   <%= yield :headers %>
+
+  <script type="text/javascript" charset="utf-8">
+     $(document).ready(function() {
+      <%= yield :javascript %>
+     })
+  </script>
 </head>
 
 <body>

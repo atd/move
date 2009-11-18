@@ -1,13 +1,17 @@
+<% jquery_tags('bookmark') %>
+
 <fieldset>
+<p>
+  <%= form.label :uri, t('bookmark.uri') %><br />
+  <%= form.text_field :uri, :class => "text"%>
+</p>
+
 <p>
   <%= form.label :title, t('bookmark.title') %><br />
   <%= form.text_field :title, :class => "title"%>
 </p>
 
-<p>
-  <%= form.label :body, t('bookmark.uri') %><br />
-  <%= form.text_field :uri, :class => "text"%>
-</p>
+<%= form.tags_select %>
 
 <p>
   <%= form.label :public_read, t('bookmark.public_read') %><br />
@@ -15,17 +19,12 @@
 </p>
 </fieldset>
 
-
-<%= render :partial => 'contents/notification_form', :object => form %>
-
 <fieldset>
-
 <p>
   <%= form.label :description, t('bookmark.description'), :onclick => "new Element.toggle('toggle');" %><br />
   <%= form.text_area :description %>
 </p>
 
-<%= form.categories %>
-<%= form.tags %>
-
 </fieldset>
+
+<%= render :partial => 'contents/notification_form', :object => form %>
