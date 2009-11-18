@@ -1,6 +1,6 @@
 PATHS = {
   :photos => {
-    :root => "/usr/share/pixmaps/backgrounds/",
+    :root => "/usr/share/backgrounds/",
     :files => "*/**"
   },
   :audios => {
@@ -69,6 +69,12 @@ namespace :setup do
         end
       end
 
+      def tags(resources)
+        resources.each do |r|
+          r.tag_with Populator.words(0..4).gsub(" ", ",")
+        end
+      end
+
       def articles(owner, authors)
         Article.populate 10..100 do |article|
           content_fields(article, owner, authors)
@@ -77,6 +83,7 @@ namespace :setup do
         end
 
         posts(owner.articles)
+        tags(owner.articles)
       end
 
       def photos(owner, authors)
@@ -92,6 +99,7 @@ namespace :setup do
         end
 
         posts(owner.photos)
+        tags(owner.photos)
       end
 
       def audios(owner, authors)
@@ -107,6 +115,7 @@ namespace :setup do
         end
 
         posts(owner.audios)
+        tags(owner.audios)
       end
 
       def documents(owner, authors)
@@ -122,6 +131,7 @@ namespace :setup do
         end
 
         posts(owner.documents)
+        tags(owner.documents)
       end
 
       def bookmarks(owner, authors)
@@ -132,6 +142,7 @@ namespace :setup do
         end
 
         posts(owner.bookmarks)
+        tags(owner.bookmarks)
       end
 
       def contents(owner, authors)
@@ -155,11 +166,10 @@ namespace :setup do
         author = authors.rand
         content.author_id = author.id
         content.author_type = author.class.base_class.to_s
-  #        post.tag_with Populator.words(1..4).gsub(" ", ",")
       end
 
       User.populate 35 do |user|
-        user.login = Faker::Name.name
+        user.login = Faker::Name.name.gsub('.', '')
         user.email = Faker::Internet.email
         user.crypted_password = User.encrypt("test", "")
         user.activated_at = 2.years.ago..Time.now
