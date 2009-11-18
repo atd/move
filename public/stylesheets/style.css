@@ -39,8 +39,8 @@ a:hover {
 }
 
 img.logo {
-	border: 1px #C9740A solid;
-	margin: 1px;
+	/* border: 1px #C9740A solid; */
+	margin: 1px 0px -4px 1px;
 }
 
 div.logo-16, div.logo-22, div.logo-32, div.logo-48, div.logo-64, div.logo-72, div.logo-96, div.logo-128, div.logo-256 {
@@ -360,10 +360,6 @@ div#performances {
 
 #main .published-data img {
 	margin-bottom: -4px;
-}
-
-#main .published-data img.logo {
-	margin-right: 2px;
 }
 
 #main a.bookmark {
