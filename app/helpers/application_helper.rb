@@ -33,6 +33,10 @@ module ApplicationHelper
       html << group_sidebar(container)
 
       html << contents(container)
+
+      if authorized?([ :read, :content ], container)
+        html << tag_cloud(container)
+      end
     end
   end
 

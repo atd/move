@@ -3,6 +3,7 @@ destination_dir: public/images/models
 
 resource_sizes: [ 16, 48, 64, 128 ]
 
+# Copied in all resource_sizes
 mime_types:
   - application-pdf.png
   - application-postscript.png
@@ -38,7 +39,11 @@ resources:
     file: kalarm.png
     name: cron_agent.png
     size: [ 16 ]
- 
+  - dir: status
+    file: mail-tagged.png
+    name: tag.png
+    size: [ 16 ]
+
 # size is 16 by default
 new_resources:
   - dir: actions
