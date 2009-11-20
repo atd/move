@@ -16,11 +16,13 @@
 
   <%= yield :headers %>
 
+  <% if yield(:javascript).present? %>
   <script type="text/javascript" charset="utf-8">
      $(document).ready(function() {
       <%= yield :javascript %>
      })
   </script>
+  <% end %>
 </head>
 
 <body>
