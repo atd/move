@@ -1,0 +1,8 @@
+<div class="span-6 last">
+  <h1><%= link_logotype(container.tags.new, :text => t('tag.other')) %></h1>
+  <%= tag_list(container, :limit => 10, :conditions => "taggings_count > 1") %>
+  <div id="tags-all" class="small span-5 prepend-1">
+  <%= link_to t('tag.all') + " →", container.tags.new %>
+  </div>
+</div>
+

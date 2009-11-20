@@ -231,7 +231,6 @@ a.actions:hover, .actions a:hover {
 /*	margin-bottom: 4px; */
 }
 #sidebar li {
-	font-size: 1.5em;
 	list-style-type: none;
 }
 
@@ -321,6 +320,10 @@ a.actions:hover, .actions a:hover {
 	color: #359296;
 }
 
+#contents li {
+	font-size: 1.5em;
+}
+
 #current_contents li:hover img.logo {
 	border: 1px #C9740A solid;
 }
@@ -331,6 +334,13 @@ a.actions:hover, .actions a:hover {
 
 div#performances {
 	margin-bottom: 1px;
+}
+
+#tag-list li {
+	padding-left: 20px;
+}
+#tag-list li:hover {
+	background: url("/images/models/16/tag.png") left center no-repeat;
 }
 
 #activity_stream img.logo {

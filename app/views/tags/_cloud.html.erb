@@ -1,4 +1,3 @@
-<h1><%= logo(Tag.new) %> <%= t('tag.other') %></h1>
 <% cloud.each do |tag| %>
   <%= link_to tag.name, tag, :style => "font-size: #{ tag.em }em;" %>
 <% end %>

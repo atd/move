@@ -248,6 +248,8 @@ es:
     authentication_required: "Para comentar tienes que identificarte"
   source:
     public_read: "Lectura pública"
+  tag:
+    all: "Todas las etiquetas"
 
   activerecord:
     errors:

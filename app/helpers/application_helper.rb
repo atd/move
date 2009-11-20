@@ -34,8 +34,8 @@ module ApplicationHelper
 
       html << contents(container)
 
-      if authorized?([ :read, :content ], container)
-        html << tag_cloud(container)
+      if authorized?([ :read, :content ], container) && container.tags.any?
+        html << render(:partial => 'tags/sidebar_list', :locals => { :container => container })
       end
     end
   end

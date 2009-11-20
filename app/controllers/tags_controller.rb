@@ -2,6 +2,8 @@
 require_dependency "#{ RAILS_ROOT }/vendor/plugins/station/app/controllers/tags_controller"
 
 class TagsController
+  authorization_filter [ :read, :content ], :current_container, :only => [ :index ]
+
   def show_with_authorization
     show_without_authorization
 
