@@ -343,6 +343,10 @@ div#performances {
 	background: url("/images/models/16/tag.png") left center no-repeat;
 }
 
+div.tags {
+	text-align: center;
+}
+
 #activity_stream img.logo {
 	margin-bottom: -4px;
 }
@@ -395,6 +399,7 @@ div#performances {
 /*	background-color: #e6feff; */
 	padding: 3px;
 	font-weight: italic;
+	margin-bottom: 5px;
 }
 
 #main .published-data img {
@@ -411,6 +416,7 @@ div#performances {
 	height: 1px;
 }
 
+
 #posts img.logo {
 	margin-right: 5px;
 	margin-bottom: 5px;
@@ -418,9 +424,23 @@ div#performances {
 }
 
 div.post {
-	width: 100%;
+	width: 550px;
 	min-height: 40px;
-	margin-bottom: 5px;
+	padding: 0.5em 10px 0.5em 10px;
+}
+
+div.post:hover {
+	background-color: #E4F3F2;
+}
+
+div.new-post {
+	padding: 0.5em 10px 0.5em 10px;
+	width: 550px;
+}
+
+textarea.post {
+	width: 550px;
+	height: 206px;
 }
 
 #post_content {

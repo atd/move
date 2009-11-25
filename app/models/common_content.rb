@@ -54,4 +54,9 @@ module CommonContent
     title.present? && title ||
       "#{ I18n.t( self.class.to_s.underscore, :count => 1 ) } #{ to_param }" 
   end
+
+  def last_action
+    created_at == updated_at ? 'published' : 'modified'
+  end
+
 end

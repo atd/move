@@ -1,5 +1,7 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
+  PUBLISHED_DATA_TIME_LIMIT = 1.month
+
   def sidebar_menu
     current_container && current_container != current_site ?
       container_menu :
@@ -144,11 +146,17 @@ module ApplicationHelper
   def published_data(resource)
     returning "" do |html|
       html << '<div class="published-data">'
-      action = ( resource.created_at == resource.updated_at ? 'published' : 'updated' )
-      html << t("#{ action }_by_author_since_time",
+      html << link_logotype(resource.author_for(current_agent))
+      html << ' '
+
+      preposition, time =
+       ( Time.now - resource.updated_at > PUBLISHED_DATA_TIME_LIMIT ) ?
+        [ 'at', l(resource.updated_at) ] :
+        [ 'since', time_ago_in_words(resource.updated_at) ]
+
+      html << t("#{ resource.last_action }.#{ preposition }",
                 :scope => resource.class.to_s.underscore,
-                :author => link_author(resource),
-                :time => time_ago_in_words(resource.updated_at))
+                :time => time )
       html << edit(resource)
       html << ' '
       html << delete(resource)

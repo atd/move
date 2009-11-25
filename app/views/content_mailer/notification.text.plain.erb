@@ -1,5 +1,4 @@
-<% action = ( @content.created_at == @content.updated_at ? 'published' : 'updated' ) -%>
-<%= t("content.stream.group.#{ action }_at_time",
+<%= t("content.stream.group.#{ @content.last_action }.at",
       :author => @content.author.name,
       :content => "#{ t('the_one', :scope => @content.class.to_s.underscore) } \"#{ @content.title }\"",
       :container => @content.container.name,

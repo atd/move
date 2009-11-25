@@ -1,9 +1,8 @@
 module PostsHelper
   def posts(resource)
     returning "" do |html|
-      html << '<div id="posts">'
+      html << '<div id="posts" class="prepend-top">'
       if resource.posts.any?
-        html << "<h2>#{ t('post.other') }</h2>"
         html << render(:partial => 'posts/post',
                        :collection => resource.posts)
       end

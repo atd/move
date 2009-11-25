@@ -1,11 +1,8 @@
 <div id="activity-<%= dom_id(content) %>" class="activity">
   <div class="activity-details published-data">
     <%=
-    action = ( content.created_at == content.updated_at ? 'published' : 'updated' )
-    t "content.stream.user.#{ action }",
-      :author => link_logotype(authorized?([ :read, :performance], @group) ? 
-                               content.author :
-                               content.owner),
+    t "content.stream.user.#{ content.last_action }.since",
+      :author => link_logotype(content.author_for(current_agent)),
       :content   => link_to(t('a', :scope => content.class.to_s.underscore), [ content.owner, content ]),
       :time => time_ago_in_words(content.updated_at)
     %>

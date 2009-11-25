@@ -6,12 +6,10 @@
   <%= simple_format(auto_link(sanitize(@bookmark.description))) if @bookmark.description.present? %>
 </div>
 
-<%= link_to h(@bookmark.uri), h(@bookmark.uri), :class => 'bookmark' %>
+<% div_for(@bookmark, :class => 'prepend-1 prepend-top append-bottom') do %>
+  <%= link_to h(@bookmark.uri), h(@bookmark.uri), :class => 'bookmark' %>
+<% end %>
 
-<p>
-  <%= tags(@bookmark) %>
-</p>
-
-<hr>
+<%= tags(@bookmark) %>
 
 <%= posts(@bookmark) %>

@@ -1,8 +1,7 @@
 <div id="activity_<%= dom_id(content) %>" class="activity">
   <div class="activity-details published-data">
     <%= 
-    action = ( content.created_at == content.updated_at ? 'published' : 'updated' )
-    t "content.stream.user.#{ action }",
+    t "content.stream.user.#{ content.last_action }.since",
       :author => link_logotype(content.owner),
       :content   => link_to(t('a', :scope => content.class.to_s.underscore), [ content.owner, content ]),
       :time => time_ago_in_words(content.updated_at)

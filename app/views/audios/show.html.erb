@@ -7,10 +7,6 @@
 <br />
 <%= simple_format(auto_link(sanitize(@audio.description))) if @audio.description.present? %>
 
-<p>
-  <%= tags(@audio) %>
-</p>
-
-<hr>
+<%= tags(@audio) %>
 
 <%= posts(@audio) %>

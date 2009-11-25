@@ -17,4 +17,16 @@ class Post < ActiveRecord::Base
       postable.authorize?(:delete, :to => agent)
     end
   end
+
+  def container
+    postable
+  end
+
+  def author_for(agent)
+    author
+  end
+
+  def last_action
+    created_at == updated_at ? 'published' : 'modified'
+  end
 end

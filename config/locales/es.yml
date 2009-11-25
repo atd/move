@@ -16,9 +16,12 @@ es:
     other: "Artículos"
     other_in_container: "Artículos de {{container}}"
     the_one: "el artículo"
-    published_by_author_at_date: "Publicado por {{author}} el {{date}}"
-    published_by_author_since_time: "Publicado por {{author}} hace {{time}}"
-    updated_by_author_since_time: "Modificado por {{author}} hace {{time}}"
+    published:
+      at: "Publicado el {{time}}"
+      since: "Publicado hace {{time}}"
+    modified:
+      at: "Modificado el {{time}}"
+      since: "Modificado hace {{time}}"
     title: "Título"
     description: "Entradilla"
     body: "Contenido"
@@ -36,9 +39,12 @@ es:
     other: "Imágenes"
     other_in_container: "Imágenes de {{container}}"
     the_one: "la imagen"
-    published_by_author_at_date: "Publicada por {{author}} el {{date}}"
-    published_by_author_since_time: "Publicada por {{author}} hace {{time}}"
-    updated_by_author_since_time: "Modificada por {{author}} hace {{time}}"
+    published:
+      at: "Publicada el {{time}}"
+      since: "Publicada hace {{time}}"
+    modified:
+      at: "Modificada el {{time}}"
+      since: "Modificada hace {{time}}"
     title: "Título"
     description: "Descripción"
     file: "Fichero"
@@ -55,9 +61,12 @@ es:
     other: "Audios"
     other_in_container: "Audios de {{container}}"
     the_one: "el audio"
-    published_by_author_at_date: "Publicado por {{author}} el {{date}}"
-    published_by_author_since_time: "Publicado por {{author}} hace {{time}}"
-    updated_by_author_since_time: "Modificado por {{author}} hace {{time}}"
+    published:
+      at: "Publicado el {{time}}"
+      since: "Publicado hace {{time}}"
+    modified:
+      at: "Modificado el {{time}}"
+      since: "Modificado hace {{time}}"
     title: "Título"
     description: "Descripción"
     file: "Fichero"
@@ -74,9 +83,12 @@ es:
     other: "Enlaces"
     other_in_container: "Enlaces de {{container}}"
     the_one: "el enlace"
-    published_by_author_at_date: "Publicado por {{author}} el {{date}}"
-    published_by_author_since_time: "Publicado por {{author}} hace {{time}}"
-    updated_by_author_since_time: "Modificado por {{author}} hace {{time}}"
+    published:
+      at: "Publicado el {{time}}"
+      since: "Publicado hace {{time}}"
+    modified:
+      at: "Modificado el {{time}}"
+      since: "Modificado hace {{time}}"
     title: "Título"
     description: "Descripción"
     uri: "Enlace"
@@ -93,9 +105,12 @@ es:
     other: "Ficheros"
     other_in_container: "Ficheros de {{container}}"
     the_one: "el fichero"
-    published_by_author_at_date: "Publicado por {{author}} el {{date}}"
-    published_by_author_since_time: "Publicado por {{author}} hace {{time}}"
-    updated_by_author_since_time: "Modificado por {{author}} hace {{time}}"
+    published:
+      at: "Publicado el {{time}}"
+      since: "Publicado hace {{time}}"
+    modified:
+      at: "Modificado el {{time}}"
+      since: "Modificado hace {{time}}"
     title: "Título"
     description: "Descripción"
     file: "Fichero"
@@ -112,9 +127,12 @@ es:
     other: "Tareas"
     other_in_container: "Tareas de {{container}}"
     the_one: "la tarea"
-    published_by_author_at_date: "Publicada por {{author}} el {{date}}"
-    published_by_author_since_time: "Publicada por {{author}} hace {{time}}"
-    updated_by_author_since_time: "Modificada por {{author}} hace {{time}}"
+    published:
+      at: "Publicado el {{time}}"
+      since: "Publicado hace {{time}}"
+    modified:
+      at: "Modificado el {{time}}"
+      since: "Modificado hace {{time}}"
     title: "Título"
     description: "Descripción"
     start_at: "Fecha de inicio"
@@ -225,13 +243,17 @@ es:
   content:
     stream:
       user: 
-        published: "{{author}} publicó {{content}} hace {{time}}."
-        updated: "{{author}} modificó {{content}} hace {{time}}."
+        published:
+          since: "{{author}} publicó {{content}} hace {{time}}."
+        modified:
+          since: "{{author}} modificó {{content}} hace {{time}}."
       group:
-        published: "{{author}} publicó {{content}} en {{container}} hace {{time}}."
-        published_at_time: "{{author}} publicó {{content}} en {{container}} el {{time}}."
-        updated: "{{author}} modificó {{content}} en {{container}} hace {{time}}."
-        updated_at_time: "{{author}} modificó {{content}} en {{container}} el {{time}}."
+        published:
+          at: "{{author}} publicó {{content}} en {{container}} el {{time}}."
+          since: "{{author}} publicó {{content}} en {{container}} hace {{time}}."
+        modified:
+          at: "{{author}} modificó {{content}} en {{container}} el {{time}}."
+          since: "{{author}} modificó {{content}} en {{container}} hace {{time}}."
   community: "Comunidad"
   last activity: "Última actividad"
   privacy: "Privacidad"
@@ -239,7 +261,12 @@ es:
     one: "Comentario"
     other: "Comentarios"
     submit: "Comentar"
-    published_by_author_since_time: "{{author}} hace {{date}}"
+    published:
+      at: "Publicado el {{time}}"
+      since: "Publicado hace {{time}}"
+    modified:
+      at: "Modificado el {{time}}"
+      since: "Modificado hace {{time}}"
     new: "Nuevo Comentario"
     created: "Comentario creado"
     editing: "Editando Comentario"

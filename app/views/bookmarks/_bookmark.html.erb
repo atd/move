@@ -1,14 +1,15 @@
 <% div_for bookmark do -%>
-  <h2><%= link_to sanitize(bookmark.title), bookmark.uri.to_s %></h2>
+  <h2><%= link_to sanitize(bookmark.title), bookmark %></h2>
   <%= published_data(bookmark) %>
   
   <% unless bookmark.description.blank? -%>
   <p class="soft"><%= sanitize bookmark.description %></p>
   <% end -%>
 
-  <%= link_to h(bookmark.uri.to_s), sanitize(bookmark.uri.to_s), :class => "bookmark" %>
-  <p>
+  <% div_for bookmark, :class => 'prepend-1 prepend-top append-bottom' do %>
+    <%= link_to h(bookmark.uri.to_s), sanitize(bookmark.uri.to_s), :class => "bookmark" %>
+  <% end %>
+
   <%= tags(bookmark) %>
-  </p>
 
 <% end -%>

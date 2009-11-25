@@ -1,11 +1,15 @@
+<div class="new-post">
 <% form_for([ @resource, Post.new ], :url => polymorphic_path([ @resource, Post.new ], :container => false)) do |f| %>
   <%= f.error_messages %>
 
-  <%= link_logotype(current_agent, :size => 32) %>
+  <div class="published-data">
+  <%= link_logotype(current_agent) %>
+  </div>
 
   <p>
-  <%= f.text_area :text, :class => 'text' %>
+  <%= f.text_area :text, :class => 'text post' %>
   </p>
 
   <%= f.submit t('post.submit') %>
 <% end %>
+</div>
