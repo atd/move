@@ -468,6 +468,9 @@ textarea.post {
 	margin-top: 10px;
 }
 
+.center {
+	text-align: center;
+}
 
 /*
  * Style in Performance options *

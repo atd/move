@@ -2,7 +2,9 @@
 
 <%= published_data(@document) %>
 
-<%= link_logo(@document, :size => 128, :url => formatted_document_path(@document, @document.format)) %>
+<% div_for @document, :class => 'center' do %>
+  <%= link_logo(@document, :size => 128, :url => formatted_document_path(@document, @document.format)) %>
+<% end %>
 
 <br />
 <%= simple_format(auto_link(sanitize(@document.description))) if @document.description.present? %>
