@@ -4,10 +4,12 @@
 
 <% div_for @audio, :class => 'center' do %>
   <%= link_logo @audio, :size => 128, :url => formatted_audio_path(@audio, @audio.format) %>
-<% end %>
 
-<br />
+<p>
 <%= simple_format(auto_link(sanitize(@audio.description))) if @audio.description.present? %>
+</p>
+
+<% end %>
 
 <%= tags(@audio) %>
 
