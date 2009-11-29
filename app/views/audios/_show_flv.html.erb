@@ -1,0 +1,11 @@
+<% div_for @audio, :class => :center do %>
+  <%= link_to image_tag("flowplayer/audio.png"), polymorphic_path(@audio, :format => :flv), :id => 'flash-player' %>
+  <p>
+  <%= link_logotype @audio, :text => "#{ @audio.title } (#{ @audio.format.to_s })", :url => polymorphic_path(@audio, :format => @audio.format) %>
+  </p>
+  <p>
+  <%= simple_format(auto_link(sanitize(@audio.description))) if @audio.description.present? %>
+  </p>
+
+<% end %>
+

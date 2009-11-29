@@ -290,9 +290,16 @@ es:
       bookmark: "este enlace"
       document: "este fichero"
     attributes:
+      audio:
+        size: "El tamaño"
+        content_type: "El tipo de contenido"
+        filename: "El nombre del fichero"
+      document:
+        size: "El tamaño"
+        content_type: "El tipo de contenido"
+        filename: "El nombre del fichero"
       photo:
         title: "El título"
-      document:
         size: "El tamaño"
         content_type: "El tipo de contenido"
         filename: "El nombre del fichero"

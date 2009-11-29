@@ -1,9 +1,15 @@
+<% content_for :headers, javascript_include_tag('jquery', 'flowplayer-3.1.4.min') %>
+<% content_for :javascript do %>
+  $('#<%= dom_id(@audio) %>').replaceWith("<%= escape_javascript(render :partial => 'show_flv') %>");
+  flowplayer("flash-player", "/flowplayer/flowplayer-3.1.5.swf");
+<% end %>
+
 <h1><%= title %></h1>
 
 <%= published_data(@audio) %>
 
 <% div_for @audio, :class => 'center' do %>
-  <%= link_logo @audio, :size => 128, :url => formatted_audio_path(@audio, @audio.format) %>
+  <%= link_logo @audio, :size => 128, :url => audio_path(@audio, :format => @audio.format) %>
 
 <p>
 <%= simple_format(auto_link(sanitize(@audio.description))) if @audio.description.present? %>

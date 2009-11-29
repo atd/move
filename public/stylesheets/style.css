@@ -472,6 +472,13 @@ textarea.post {
 	text-align: center;
 }
 
+#flash-player {
+	margin-left: 50px;
+	display: block;
+	width: 550px;
+	height: 350px;
+}
+
 /*
  * Style in Performance options *
 #new_performance option {

@@ -19,16 +19,23 @@ after 'deploy:update_code', 'deploy:link_files'
 after 'deploy:update_code', 'deploy:fix_file_permissions'
 
 namespace(:deploy) do
+  # Running as www-data
   task :fix_file_permissions do
     # AttachmentFu dir is deleted in deployment
     run  "/bin/mkdir -p #{ release_path }/tmp/attachment_fu"
+    # Make tmp/ writtable by group
     sudo "/bin/chmod -R g+w #{ release_path }/tmp"
+    # Set tmp/ group to www-data
     sudo "/bin/chgrp -R www-data #{ release_path }/tmp"
   end
 
   task :link_files do
+    # Database configuration
     run "ln -sf #{ shared_path }/config/database.yml #{ release_path }/config/"
+    # Public Logos
     run "ln -sf #{ shared_path }/public/logos #{ release_path }/public/"
+    # AttachmentFu files
+    run "ln -sf #{ shared_path }/files #{ release_path }/files/"
   end
 
   desc "Restarting mod_rails with restart.txt"
