@@ -35,7 +35,7 @@ namespace(:deploy) do
     # Public Logos
     run "ln -sf #{ shared_path }/public/logos #{ release_path }/public/"
     # AttachmentFu files
-    run "ln -sf #{ shared_path }/files #{ release_path }/files/"
+    run "ln -sf #{ shared_path }/files #{ release_path }/"
   end
 
   desc "Restarting mod_rails with restart.txt"
