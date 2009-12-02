@@ -11,7 +11,10 @@
   <%= form.text_field :title, :class => "title"%>
 </p>
 
-<%= form.tags_select %>
+<p>
+  <%= form.label :tags, t('tag.other') %><br />
+  <%= form.tags_select %>
+</p>
 
 <p>
   <%= form.label :public_read, t('document.public_read') %><br />

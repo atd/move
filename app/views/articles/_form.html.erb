@@ -11,7 +11,10 @@
   <%= fckeditor_textarea :article, :body, :toolbarSet => 'Simple', :width => '100%', :height => '400px' %>
 </p>
 
-<%= form.tags_select %>
+<p>
+  <%= form.label :tags, t('tag.other') %><br />
+  <%= form.tags_select %>
+</p>
 
 <p>
   <%= form.label :public_read, t('article.public_read') %><br />
