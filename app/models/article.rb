@@ -9,7 +9,9 @@ class Article < ActiveRecord::Base
   class << self
     def params_from_atom(entry)
       { :title => entry.title.to_s,
-        :body => entry.content.to_s,
+        :body => ( entry.content.to_s.present? ?
+                   entry.content.to_s :
+                   "<a href=\"#{ entry.links.select{ |l| l['rel'] == 'alternate' }.first.try(:href) }\" >#{ entry.title.to_s}</a>" ),
         :public_read => entry.public_read }
     end
   end
