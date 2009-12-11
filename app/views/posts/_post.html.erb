@@ -1,5 +1,5 @@
 <% div_for post do %>
 <%= published_data(post) %>
 
-<%= simple_format(auto_link(sanitize(post.text))) %>
+<%= format_post_text(post.text) %>
 <% end %>

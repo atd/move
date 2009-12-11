@@ -9,7 +9,7 @@
 <% end -%>
 
 <div class="article-body">
-<%= sanitize @article.body %>
+<%= sanitize move_format_text(@article.body) %>
 </div>
 
 <% if @article.source_importation.try(:uri).present? -%>

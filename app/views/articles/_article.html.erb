@@ -4,7 +4,7 @@
 
   <div class="body">
   <% if article.description.blank? -%>
-  <%= sanitize Hpricot(truncate(article.body, :length => 1024, :omission => "... #{ link_to(t('read_more'), article) }"), :xml_strict => true).to_s %>
+  <%= sanitize Hpricot(truncate(move_format_text(article.body), :length => 2048, :omission => "... #{ link_to(t('article.read_more'), article) }"), :xml_strict => true).to_s %>
   <% else -%>
     <%= sanitize article.description %>
   <% end -%>

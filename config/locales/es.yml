@@ -33,6 +33,7 @@ es:
     confirm_delete: "¿Borrar Artículo?"
     deleted: "Artículo borrado"
     source: "Artículo original"
+    read_more: "Leer más"
   photo:
     a: "una imagen"
     one: "Imagen"

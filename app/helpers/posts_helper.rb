@@ -19,4 +19,8 @@ module PostsHelper
       html << '</div>'
     end
   end
+
+  def format_post_text(text)
+    simple_format(auto_link(sanitize(move_format_text(text))))
+  end
 end

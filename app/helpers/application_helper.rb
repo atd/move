@@ -197,6 +197,17 @@ module ApplicationHelper
 
   end
 
+  def move_format_text(text)
+    move_format_text_users(text)
+  end
+
+  def move_format_text_users(text)
+    text.gsub /@[\w_-]+/ do |s|
+      ( user = User.find_by_login(s[1..-1].gsub('_', ' '))) ?
+        link_logotype(user) : s
+    end
+  end
+
   def jquery_tags(model)
     content_for :headers do
       returning '' do |h|
