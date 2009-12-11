@@ -446,6 +446,28 @@ textarea.post {
 	text-align: center;
 }
 
+div.pagination a, div.pagination span.current, div.pagination span.disabled {
+	border: 1px solid #FFFFFF;
+	padding: 2px 6px;
+}
+
+div.pagination a {
+	color: #C9740A;
+	background-color: #FFFFFF;
+	border-color: #EEEEEE;
+}
+
+div.pagination span.current, div.pagination span.disabled {
+	color: #FFFFFF;
+	background-color: #C9740A;
+}
+
+div.pagination a:hover {
+	text-decoration: none;
+	color: #E4F3F2;
+	background-color: #359296;
+}
+
 #footer { }
 
 #main .performance:hover, #main .invitation:hover {
