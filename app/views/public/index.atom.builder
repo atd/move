@@ -1,8 +1,6 @@
 atom_feed do |feed|
 
-  feed.title(:type => "xhtml") do 
-    feed.div(sanitize(current_site.name),:xmlns => "http://www.w3.org/1999/xhtml")
-  end
+  feed.title(sanitize(current_site.name))
 
   feed.subtitle(:type => "xhtml") do
     feed.div(sanitize(current_site.description), :xmlns => "http://www.w3.org/1999/xhtml")
