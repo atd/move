@@ -1,13 +1,20 @@
 <h3><%= t 'turn.new' %></h3>
 <% form_for [ @task, Turn.new(:responsibilities => [ Responsibility.new ]) ], :url => polymorphic_path([ @task, Turn.new ], :container => false) do |f| %>
 
-  <p>
+  <div class="span-8">
   <% f.fields_for :responsibilities do |rf| %>
     <%= rf.label :responsible, t('turn.responsible.other') %><br/>
     <%= rf.select :responsible_id, @task.owner.children.map{ |r| [ r.name, r.id ] }, {}, { :multiple => true } %>
   <% end %>
-  </p>
+  </div>
+  <div class="span-8 last">
+    <%= f.label :recurrence_match, t('task.recurrence_match') %><br/>
+    <span class="small"><%= t('task.recurrence_match_help') %></span>
+    <%= f.text_field :recurrence_match %>
+  </div>
 
+  <div class="span-16">
   <%= f.submit t(:create) %>
+  </div>
 <% end -%>
 

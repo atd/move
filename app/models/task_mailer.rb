@@ -1,11 +1,11 @@
 class TaskMailer < ActionMailer::Base
   
 
-  def next_turn(task, sent_at = Time.now)
+  def notification(task, sent_at = Time.now)
     from       Site.current.email_with_name
-    recipients task.turns.now.responsibles.map(&:notification_emails).flatten
-    cc         task.container.notification_emails - task.turns.now.responsibles.map(&:notification_emails).flatten
-    reply_to   task.turns.now.responsibles.map(&:notification_emails).flatten
+    recipients task.notification_emails
+    cc         task.container.notification_emails - task.notification_emails
+    reply_to   task.notification_emails
 
     subject    task.parse(:email_subject)
 

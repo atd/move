@@ -9,6 +9,8 @@ class Turn < ActiveRecord::Base
 
   accepts_nested_attributes_for :responsibilities
 
+  validates_format_of :recurrence_match, :with => Task::RECURRENCE_MATCH, :allow_blank => true
+
   # Quick dirty dreadful hack
   def responsibilities_attributes_with_awful_hack=(attributes)
     if attributes.present? &&
@@ -30,7 +32,7 @@ class Turn < ActiveRecord::Base
   alias_method_chain :responsibilities_attributes=, :awful_hack
 
   def at_in_words
-    I18n.t task.recurrence_sym, :scope => 'turn.at', :count => task.turn_order(self)
+    I18n.t task.recurrence_sym, :scope => 'turn.at', :count => position - 1
   end
 
   def validate

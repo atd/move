@@ -7,11 +7,11 @@ describe Task do
 
   describe "monthly" do
     before do
-      @task = Factory(:task, :recurrence => 3, :start_at => @time_now)
+      @task = Factory(:task, :recurrence => 3, :start_at => @time_now, :recurrence_match => "#{ (@time_now.mday / 7.0 ).ceil } #{ @time_now.wday }")
     end
 
-    it "should have right occurrences" do
-      assert @task.occurrences(@time_now.months_since(1)) == 1
+    it "should have right recurrence_match" do
+      assert @task.match_recurrence?
     end
   end
 

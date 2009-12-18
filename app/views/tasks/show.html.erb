@@ -10,7 +10,7 @@
 
 <% if task.turns.any? %>
   <h2><%= t 'turn.other' %></h2>
-  <%= render task.turns.sorted_at %>
+  <%= render task.turns %>
 <% end %>
 
 <%= posts(task) %>

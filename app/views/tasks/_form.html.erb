@@ -13,11 +13,21 @@
   <%= form.datetime_select :start_at %>
 </p>
 
+<div class="span-16">
+
+  <div class="span-8">
 <p>
   <label><%= form.label :recurrence, t('task.recurrence.one')%></label><br />
   <%= form.select :recurrence, Task::RECURRENCE.each_with_index.map{ |r, i| 
   [ t(r, :scope => 'task.recurrence'), i ] } %>
 </p>
+  </div>
+  <div class="span-8 last">
+    <%= form.label :recurrence_match, t('task.recurrence_match') %><br/>
+    <span class="small"><%= t('task.recurrence_match_help') %></span>
+    <%= form.text_field :recurrence_match %>
+  </div>
+</div>
 
 <fieldset>
 

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091113122126) do
+ActiveRecord::Schema.define(:version => 20091214221312) do
 
   create_table "admissions", :force => true do |t|
     t.string   "type"
@@ -388,6 +388,7 @@ ActiveRecord::Schema.define(:version => 20091113122126) do
     t.boolean  "email_notifications"
     t.string   "email_subject"
     t.text     "email_body"
+    t.string   "recurrence_match",    :default => ""
   end
 
   create_table "turns", :force => true do |t|
@@ -395,6 +396,7 @@ ActiveRecord::Schema.define(:version => 20091113122126) do
     t.integer  "task_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "recurrence_match", :default => ""
   end
 
   create_table "uris", :force => true do |t|
