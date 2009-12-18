@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091214221312) do
+ActiveRecord::Schema.define(:version => 20091218121101) do
 
   create_table "admissions", :force => true do |t|
     t.string   "type"
@@ -160,6 +160,7 @@ ActiveRecord::Schema.define(:version => 20091214221312) do
     t.integer  "user_id"
     t.string   "email"
     t.integer  "parent_id"
+    t.boolean  "global",                :default => false
   end
 
   create_table "invitations", :force => true do |t|

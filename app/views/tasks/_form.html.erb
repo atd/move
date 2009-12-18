@@ -13,9 +13,9 @@
   <%= form.datetime_select :start_at %>
 </p>
 
-<div class="span-16">
+<div class="span-15">
 
-  <div class="span-8">
+  <div class="span-7">
 <p>
   <label><%= form.label :recurrence, t('task.recurrence.one')%></label><br />
   <%= form.select :recurrence, Task::RECURRENCE.each_with_index.map{ |r, i| 

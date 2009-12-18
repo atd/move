@@ -4,7 +4,7 @@
   <div class="span-8">
   <% f.fields_for :responsibilities do |rf| %>
     <%= rf.label :responsible, t('turn.responsible.other') %><br/>
-    <%= rf.select :responsible_id, @task.owner.children.map{ |r| [ r.name, r.id ] }, {}, { :multiple => true } %>
+    <%= rf.select :responsible_id, responsible_options(@task), {}, { :multiple => true } %>
   <% end %>
   </div>
   <div class="span-8 last">
