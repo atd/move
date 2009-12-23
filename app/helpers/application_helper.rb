@@ -225,7 +225,8 @@ module ApplicationHelper
           firstselected: true,
           filter_selected: true,
           maxshownitems: 4,
-          newel: true
+          newel: true,
+          complete_opts: true
         });
       EOF
     end
