@@ -464,8 +464,8 @@ div.pagination span.current, div.pagination span.disabled {
 
 div.pagination a:hover {
 	text-decoration: none;
-	color: #E4F3F2;
-	background-color: #359296;
+	color: #359296;
+	background-color: #E4F3F2;
 }
 
 #footer { }
