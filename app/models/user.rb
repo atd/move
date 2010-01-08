@@ -1,8 +1,26 @@
 class User < ActiveRecord::Base
+  has_many :articles,  :as => :owner
+  has_many :photos,    :as => :owner
+  has_many :audios,    :as => :owner
+  has_many :bookmarks, :as => :owner
+  has_many :documents, :as => :owner
+  has_many :tasks,     :as => :owner
+  has_many :events,    :as => :owner
+
+  has_many :attendances
+  has_many :appointments, :through => :attendances, :source => :event
+
+  has_many :tags, :as => :container
+
+  has_many :memberships
+  has_many :groups, :through => :memberships, :source => :group
+
   acts_as_agent :activation => true,
                 :openid_server => true
+
   acts_as_resource :per_page => 15, :param => :login
-  acts_as_container :sources => true
+  acts_as_container :sources => true,
+                    :contents => [ :articles, :photos, :audios, :bookmarks, :documents, :tasks, :events ]
   acts_as_logoable
 
   attr_accessible :description
@@ -10,18 +28,7 @@ class User < ActiveRecord::Base
   # FIXME: Rails 2.3 nested_attributes
   attr_accessible :_logo
 
-  has_many :articles,  :as => :owner
-  has_many :photos,    :as => :owner
-  has_many :audios,    :as => :owner
-  has_many :bookmarks, :as => :owner
-  has_many :documents, :as => :owner
-  has_many :tasks,     :as => :owner
-
-  has_many :tags, :as => :container
-
-  has_many :memberships
-  has_many :groups, :through => :memberships, :source => :group
-  
+ 
   # Space aliases
   alias_attribute :name, :login
 

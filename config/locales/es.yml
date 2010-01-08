@@ -122,6 +122,45 @@ es:
     editing: "Modificar Fichero"
     confirm_delete: "¿Borrar Fichero?"
     deleted: "Fichero borrado"
+  event:
+    a: "una convocatoria"
+    one: "Convocatoria"
+    other: "Convocatorias"
+    other_in_container: "Convocatorias de {{container}}"
+    the_one: "la convocatoria"
+    published:
+      at: "Publicada el {{time}}"
+      since: "Publicada hace {{time}}"
+    modified:
+      at: "Modificada el {{time}}"
+      since: "Modificada hace {{time}}"
+    title: "Título"
+    description: "Descripción"
+    start_at: "Fecha de inicio"
+    end_at: "Fecha de finalización"
+    will_last: "Durará {{time}}"
+    public_read: "Convocatoria pública"
+    new: "Enviar Convocatoria"
+    created: "Convocatoria añadida"
+    updated: "Convocatoria actualizada"
+    editing: "Modificar Convocatoria"
+    confirm_delete: "¿Borrar Convocatoria?"
+    deleted: "Convocatoria borrada"
+    attendee:
+      one: "Una persona apuntada"
+      other: "{{count}} personas apuntadas"
+    upcoming:
+      other: "Próximas convocatorias"
+    past:
+      other: "Convocatorias pasadas"
+  attendance:
+    new: "Voy a ir"
+    destroy: "No voy a ir"
+    created: "Te has apuntado a la convocatoria"
+    deleted: "Te has borrado de la convocatoria"
+  attendee:
+    one: "Asistente"
+    other: "Asistentes"
   task:
     a: "una tarea"
     one: "Tarea"
@@ -129,11 +168,11 @@ es:
     other_in_container: "Tareas de {{container}}"
     the_one: "la tarea"
     published:
-      at: "Publicado el {{time}}"
-      since: "Publicado hace {{time}}"
+      at: "Publicada el {{time}}"
+      since: "Publicada hace {{time}}"
     modified:
-      at: "Modificado el {{time}}"
-      since: "Modificado hace {{time}}"
+      at: "Modificada el {{time}}"
+      since: "Modificada hace {{time}}"
     title: "Título"
     description: "Descripción"
     start_at: "Fecha de inicio"

@@ -1,0 +1,7 @@
+<% size ||= 128 %>
+<div class="event-start-time event-start-time-<%= size %>">
+  <div class="event-start-time-mday event-start-time-mday-<%= size %>"><%= event.start_at.mday %></div>
+  <div class="event-start-time-month event-start-time-month-<%= size %>"><%= l event.start_at, :format => "%b" %></div>
+  <div class="event-start-time-hour event-start-time-hour-<%= size %>"><%= l event.start_at, :format => "%H:%M" %></div>
+</div>
+

@@ -8,13 +8,11 @@ class UsersController < ApplicationController
 
   def show
     conditions = {}
-    conditions[:public_read] = true unless authorized?([ :read, :Content ], user)
+    conditions[:public_read] = true unless authorized?([ :read, :content ], user)
 
-    @contents = ActiveRecord::Content.all(:container => user,
-                                          :page => params[:page], 
-                                          :per_page => 10, 
-                                          :select => "id, title, created_at, updated_at, owner_id, owner_type",
-                                         :conditions => conditions)
+    @contents = user.contents(:page => params[:page], 
+                              :per_page => 5,
+                              :conditions => conditions)
 
     respond_to do |format|
       format.html {

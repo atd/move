@@ -6,15 +6,13 @@ class GroupsController < ApplicationController
   authorization_filter :delete, :group, :only => [ :destroy ]
 
   def show_with_contents
-    conditions = authorized?([ :read, :content ], :resource) ?
+    conditions = authorized?([ :read, :content ], group) ?
       nil :
       { :public_read => true }
 
-    @group_contents = ActiveRecord::Content.all(:container => resource,
-                                                :page => params[:page], 
-                                                :per_page => 5, 
-                                                :select => "id, title, created_at, updated_at, owner_id, owner_type, author_id, author_type",
-                                                :conditions => conditions)
+    @group_contents = group.contents(:page => params[:page], 
+                                     :per_page => 5, 
+                                     :conditions => conditions)
     show_without_contents
   end
 

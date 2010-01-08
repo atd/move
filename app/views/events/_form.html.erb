@@ -1,0 +1,33 @@
+<% jquery_tags('event') %>
+
+<p>
+  <label><%= form.label :start_at, t('event.start_at')%></label><br />
+  <%= form.datetime_select :start_at %>
+</p>
+
+<p>
+  <label><%= form.label :end_at, t('event.end_at')%></label><br />
+  <%= form.datetime_select :end_at %>
+</p>
+
+<p>
+  <label><%= form.label :title, t('event.title')%></label><br />
+  <%= form.text_field :title, :class => 'title' %>
+</p>
+
+<p>
+  <label><%= form.label :description, t('event.description')%></label><br />
+  <%= form.text_area :description %>
+</p>
+
+<p>
+  <%= form.label :tags, t('tag.other') %><br />
+  <%= form.tags_select %>
+</p>
+
+<p>
+  <label><%= form.label :public_read, t('event.public_read')%></label><br />
+  <%= form.check_box :public_read %>
+</p>
+
+

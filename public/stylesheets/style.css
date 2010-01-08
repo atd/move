@@ -495,6 +495,100 @@ div.pagination a:hover {
 	height: 350px;
 }
 
+.event {
+	padding: 6px;
+}
+.event:hover {
+	background-color:#E4F3F2;
+}
+.event-start-time {
+	color: #555555;
+	float: left;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+	margin-right: 10px;
+}
+
+.event-start-time-64 {
+	width: 64px;
+	height: 64px;
+	background: url("/images/models/64/event-time.png") center center no-repeat;
+}
+.event-start-time-128 {
+	width: 128px;
+	height: 128px;
+	background: url("/images/models/128/event-time.png") center center no-repeat;
+}
+
+.event-start-time-mday-64 {
+	margin-top: 20px;
+	font-size: 1.6em;
+	line-height: 90%;
+}.event-start-time-mday-128 {
+	margin-top: 42px;
+	font-size: 3em;
+	line-height: 90%;
+}
+.event-start-time-month-64 {
+	font-size: 1.2em;
+	line-height: 70%;
+}.event-start-time-month-128 {
+	font-size: 2em;
+	line-height: 70%;
+}
+.event-start-time-hour-64 {
+	font-size: 0.8em;
+}
+.event-start-time-hour-128 {
+	font-size: 1.2em;
+}
+.event-details {
+	margin-top: 4px;
+}
+
+#attendance-create {
+	float: left;
+	margin-right: 4px;
+}
+
+#attendiees {
+	clear: both;
+}
+
+#attendiees-list {
+	list-style-type: none;
+	padding-left: 18px;
+}
+
+#attendiees-list li {
+	display: block;
+	float: left;
+	text-align: center;
+	min-width: 70px;
+	width: 70px;
+	max-width: 70px;
+	margin-right: 10px;
+	overflow: hidden;
+	height: 90px;
+	margin-bottom: 10px;
+}
+
+#attendiees-list li span.logotype a.logo {
+	display: block;
+	min-width: 70px;
+	width: 70px;
+	min-height: 48px;
+	height: 48px;
+	margin-bottom: 4px;
+	position: relative;
+}
+
+#attendiees-list li span.logotype a.logo img {
+	margin: auto;
+	top: 0; bottom: 0; right: 0; left: 0;
+	position: absolute;
+}
 /*
  * Style in Performance options *
 #new_performance option {

@@ -1,0 +1,26 @@
+<h1><%= sanitize @event.title %></h1>
+
+<%= published_data(@event) %>
+
+<%= render :partial => 'start_time', :locals => { :size => 128 } %>
+
+<% if @event.description.present? -%>
+<div class="description">
+  <%= sanitize @event.description %>
+</div>
+<% end -%>
+
+<p>
+<%= t('event.will_last', :time => "<b>#{ distance_of_time_in_words(event.end_at, event.start_at) }</b>") %>
+</p>
+
+<%= render :partial => 'attendance' %>
+
+<div id="attendees">
+  <h2><%= t('attendee.other') %></h2>
+  <ul id="attendees-list">
+  <% @event.attendees.each do |user| %>
+  <li><%= link_logotype(user, :size => 48) %></li>
+  <% end %>
+  </ul>
+</div>

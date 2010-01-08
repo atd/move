@@ -78,11 +78,11 @@ module ApplicationHelper
   def new_contents(container)
     return "" unless container.authorize?([ :create, :content ], :to => current_agent)
 
-    contents = [ :document, :article, :bookmark, :tasks ]
+    contents = [ :document, :event, :article, :bookmark, :task ]
 
     returning "" do |html|
       html << '<div id="new_contents-wrapper" class="span-6 last">'
-      html << '<div id="new_contents" class="actions span-5">'
+      html << '<div id="new_contents" class="actions span-6">'
       html << "<ul>"
       contents.each do |content_sym|
       next if container.is_a?(User) && content_sym == :tasks

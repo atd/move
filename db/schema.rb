@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091218121101) do
+ActiveRecord::Schema.define(:version => 20091223153031) do
 
   create_table "admissions", :force => true do |t|
     t.string   "type"
@@ -60,6 +60,11 @@ ActiveRecord::Schema.define(:version => 20091218121101) do
     t.integer  "author_id"
     t.boolean  "public_read"
     t.string   "author_type"
+  end
+
+  create_table "attendances", :force => true do |t|
+    t.integer "user_id"
+    t.integer "event_id"
   end
 
   create_table "audios", :force => true do |t|
@@ -142,6 +147,20 @@ ActiveRecord::Schema.define(:version => 20091218121101) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "version"
+  end
+
+  create_table "events", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.integer  "owner_id"
+    t.string   "owner_type"
+    t.integer  "author_id"
+    t.string   "author_type"
+    t.boolean  "public_read"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "groups", :force => true do |t|

@@ -1,0 +1,19 @@
+<div id="attendance">
+  <div id="attendance-create">
+    <% form_for event.attendances.new do |f| %>
+    <%= f.submit t('attendance.new'), :disabled => authenticated? && event.attendees.include?(current_agent) %>
+    <% end %>
+  </div>
+  <% if authenticated? %>
+  <div id="attendance-destroy">
+    <% attendance = event.attendances.find_by_user_id(current_user) %>
+
+    <% form_for attendance || event.attendances.new do |f| %>
+    <%= hidden_field_tag '_method', 'delete' %>
+    <%= f.submit t('attendance.destroy'), :disabled => attendance.blank? %>
+    <% end %>
+  </div>
+  <% end %>
+</div>
+
+

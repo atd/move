@@ -1,0 +1,9 @@
+<% div_for index_event, :class => "span-15" do %>
+  <%= render :partial => 'start_time', :locals => { :event => index_event, :size => 64 } %>
+  <div class="event-details">
+    <b><%= link_to sanitize(index_event.title), index_event %></b><br />
+    <%= sanitize(index_event.description) if index_event.description.present? %>
+    <br />
+    <%= link_to t('event.attendee', :count => index_event.attendees.count), polymorphic_path(index_event, :anchor => 'attendees') %>
+  </div>
+<% end %>
