@@ -13,7 +13,7 @@ module CommonContents
     end
   end
 
-  def index_with_public
+  def index_with_public(&block)
     @conditions = ( current_container && authorized?([ :read, :content], current_container) ?
                    nil :
                    { :public_read => true } )
@@ -21,6 +21,6 @@ module CommonContents
     params[:order] ||= 'updated_at'
     params[:direction] ||= "DESC"
       
-    index_without_public
+    index_without_public(&block)
   end
 end

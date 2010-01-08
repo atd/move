@@ -1,6 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.home 'home', :controller => 'home'
   map.home_atom 'home.atom', :controller => 'home', :format => 'atom'
+  map.home_ical 'home.ics', :controller => 'home', :format => 'ics'
   map.root :controller => 'public'
   map.root_atom '.atom', :controller => 'public', :format => 'atom'
 

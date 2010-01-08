@@ -14,4 +14,7 @@ class Event < ActiveRecord::Base
     event.attendees << event.author
   end
 
+  def ics_visibility
+    public_read? ? "PUBLIC" : "PRIVATE"
+  end
 end
