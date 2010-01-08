@@ -4,6 +4,9 @@
 <h1><%= t 'user.editing' %></h1>
 
 <% form_for @user, :html => { :multipart => true } do |f| %>
+
+  <%= f.error_messages %>
+
   <fieldset>
   <p>
   <%= f.label :login, t('agent.authentication.login') %><br />
