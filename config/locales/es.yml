@@ -241,7 +241,7 @@ es:
     other: "Personas"
     index:
       other: "Personas Registradas"
-    home: "Inicio"
+    home: "Red"
     description: "Descripción"
     preferences: "Preferencias"
     last activity: "Última actividad de {{user}}"
