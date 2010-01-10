@@ -552,16 +552,16 @@ div.pagination a:hover {
 	margin-right: 4px;
 }
 
-#attendiees {
+#attendees {
 	clear: both;
 }
 
-#attendiees-list {
+#attendees-list {
 	list-style-type: none;
 	padding-left: 18px;
 }
 
-#attendiees-list li {
+#attendees-list li {
 	display: block;
 	float: left;
 	text-align: center;
@@ -574,7 +574,7 @@ div.pagination a:hover {
 	margin-bottom: 10px;
 }
 
-#attendiees-list li span.logotype a.logo {
+#attendees-list li span.logotype a.logo {
 	display: block;
 	min-width: 70px;
 	width: 70px;
@@ -584,7 +584,7 @@ div.pagination a:hover {
 	position: relative;
 }
 
-#attendiees-list li span.logotype a.logo img {
+#attendees-list li span.logotype a.logo img {
 	margin: auto;
 	top: 0; bottom: 0; right: 0; left: 0;
 	position: absolute;
