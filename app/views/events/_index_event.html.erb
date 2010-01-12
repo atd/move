@@ -4,6 +4,8 @@
     <b><%= link_to sanitize(index_event.title), index_event %></b><br />
     <%= sanitize(index_event.description) if index_event.description.present? %>
     <br />
-    <%= link_to t('event.attendee', :count => index_event.attendees.count), polymorphic_path(index_event, :anchor => 'attendees') %>
+    <% if index_event.attendees.any? -%>
+      <%= link_to t('event.attendee', :count => index_event.attendees.count), polymorphic_path(index_event, :anchor => 'attendees') %>
+    <% end -%>
   </div>
 <% end %>

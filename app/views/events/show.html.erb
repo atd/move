@@ -16,6 +16,7 @@
 
 <%= render :partial => 'attendance' %>
 
+<% if @event.attendees.any? %>
 <div id="attendees">
   <h2><%= t('attendee.other') %></h2>
   <ul id="attendees-list">
@@ -24,3 +25,4 @@
   <% end %>
   </ul>
 </div>
+<% end %>

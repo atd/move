@@ -1,1 +1,3 @@
-<%= link_to t('event.attendee', :count => content.attendees.count), polymorphic_path(content, :anchor => 'attendees') %>
+<% if content.attendees.any? -%>
+  <%= link_to t('event.attendee', :count => content.attendees.count), polymorphic_path(content, :anchor => 'attendees') %>
+<% end -%>
