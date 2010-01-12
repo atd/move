@@ -416,6 +416,9 @@ div.tags {
 	height: 1px;
 }
 
+div#posts {
+	clear: both;
+}
 
 div.post {
 	width: 550px;
