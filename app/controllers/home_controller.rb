@@ -6,10 +6,11 @@ class HomeController < ApplicationController
 
     respond_to do |format|
       format.html {
+        stages = ( Array(current_agent) | current_agent.stages | Authenticated.current.stages ) - Array(current_site)
         @contents = 
-          ActiveRecord::Content.all(:containers => ( Array(current_agent) + current_agent.stages + Authenticated.current.stages ).uniq,
+          ActiveRecord::Content.all :containers => stages,
                                     :page => params[:page],
-                                    :per_page => 5)
+                                    :per_page => 5
       }
       format.ics
     end
