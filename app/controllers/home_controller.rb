@@ -6,13 +6,23 @@ class HomeController < ApplicationController
 
     respond_to do |format|
       format.html {
-        stages = ( Array(current_agent) | current_agent.stages | Authenticated.current.stages ) - Array(current_site)
-        @contents = 
-          ActiveRecord::Content.all :containers => stages,
-                                    :page => params[:page],
-                                    :per_page => 5
+        contents
+      }
+
+      format.atom {
+        contents
       }
       format.ics
     end
+  end
+
+  private
+
+  def contents
+    stages = ( Array(current_agent) | current_agent.stages | Authenticated.current.stages ) - Array(current_site)
+    @contents = 
+      ActiveRecord::Content.all :containers => stages,
+                                :page => params[:page],
+                                :per_page => 5
   end
 end
