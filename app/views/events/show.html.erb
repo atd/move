@@ -6,7 +6,7 @@
 
 <% if @event.description.present? -%>
 <div class="description">
-  <%= sanitize @event.description %>
+  <%= simple_format(auto_link(sanitize(move_format_text(@event.description)))) %>
 </div>
 <% end -%>
 
