@@ -10,9 +10,12 @@ class GroupsController < ApplicationController
       nil :
       { :public_read => true }
 
-    @group_contents = group.contents(:page => params[:page], 
-                                     :per_page => 5, 
-                                     :conditions => conditions)
+    @group_contents = ActiveRecord::Content.paginate(
+                        { :page => params[:page], 
+                          :per_page => 5,
+                          :order => "updated_at DESC" }, 
+                        { :containers => Array(group),
+                          :conditions => conditions } )
     show_without_contents
   end
 

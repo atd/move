@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   include ActionController::Agents
   
   alias_method :user, :agent
+  helper_method :user
   
   authorization_filter :update, :user, :only => [ :edit, :update ]
 
@@ -10,14 +11,17 @@ class UsersController < ApplicationController
     conditions = {}
     conditions[:public_read] = true unless authorized?([ :read, :content ], user)
 
-    @contents = user.contents(:page => params[:page], 
-                              :per_page => 5,
-                              :conditions => conditions)
+    @contents = ActiveRecord::Content.paginate(
+                  { :page => params[:page], 
+                    :per_page => 5,
+                    :order => "updated_at DESC" },
+                  { :containers => Array(user),
+                    :conditions => conditions } )
 
     respond_to do |format|
       format.html {
         if user.agent_options[:openid_server]
-          headers['X-XRDS-Location'] = formatted_polymorphic_url([ @agent, :xrds ])
+          headers['X-XRDS-Location'] = polymorphic_url(@agent, :format => :xrds)
           @openid_server_agent = @agent
         end
       }

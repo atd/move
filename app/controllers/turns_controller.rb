@@ -5,7 +5,7 @@ class TurnsController < ApplicationController
   # the functionality in the Model
   # include ActionController::StationResources
 
-  before_filter :current_container!
+  before_filter :path_container!
 
   def create
     @turn = current_task.turns.new params[:turn]
@@ -16,7 +16,7 @@ class TurnsController < ApplicationController
       flash[:error] = @turn.errors.to_xml
     end
 
-    redirect_to polymorphic_path([ current_task.container, current_container ], :action => :edit, :anchor => 'turns')
+    redirect_to polymorphic_path([ current_task.container, current_task ], :action => :edit, :anchor => 'turns')
   end
 
   def sort

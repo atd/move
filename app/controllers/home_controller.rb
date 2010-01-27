@@ -21,8 +21,10 @@ class HomeController < ApplicationController
   def contents
     stages = ( Array(current_agent) | current_agent.stages | Authenticated.current.stages ) - Array(current_site)
     @contents = 
-      ActiveRecord::Content.all :containers => stages,
-                                :page => params[:page],
-                                :per_page => 5
+      ActiveRecord::Content.paginate(
+        { :order => "updated_at DESC",
+          :page => params[:page],
+          :per_page => 5 },
+        { :containers => stages } )
   end
 end

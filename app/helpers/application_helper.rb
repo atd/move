@@ -3,7 +3,7 @@ module ApplicationHelper
   PUBLISHED_DATA_TIME_LIMIT = 1.month
 
   def sidebar_menu
-    current_container && current_container != current_site ?
+    path_container && path_container != current_site ?
       container_menu :
       site_menu
   end
@@ -25,7 +25,7 @@ module ApplicationHelper
     end
   end
 
-  def container_menu(container = self.current_container)
+  def container_menu(container = self.path_container)
     return "" unless container
 
     returning "" do |html|

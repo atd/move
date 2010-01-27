@@ -10,7 +10,7 @@ module PostsHelper
                 render(:partial => 'posts/new') :
                 link_to(t('post.authentication_required'),
                         with_options :redirect_to => "#{ request.request_uri }#new_post" do |r|
-                          site.ssl? ?
+                          current_site.ssl? ?
                             r.login_url(:protocol => 'https') :
                             r.login_path
                         end 

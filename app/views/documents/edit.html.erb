@@ -2,7 +2,7 @@
 
 <%= error_messages_for :document %>
 
-<% form_for([ container, @document ], :html => { :multipart => true }) do |f| -%>
+<% form_for(@document, :html => { :multipart => true }) do |f| -%>
 
   <%= render :partial => "form", :object => f %>
 

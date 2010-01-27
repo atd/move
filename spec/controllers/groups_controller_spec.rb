@@ -5,6 +5,14 @@ describe GroupsController do
 
   integrate_views
 
+  describe "show" do
+    it "should work for Anonymous" do
+      get :show, :id => Factory(:group).to_param
+
+      assert_response 200
+    end
+  end
+
   describe "new" do
     it "should ask for authentication to Anonymous" do
       get :new

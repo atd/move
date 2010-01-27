@@ -2,7 +2,7 @@
 
 <%= error_messages_for :bookmark %>
 
-<% form_for([ container, @bookmark]) do |f| -%>
+<% form_for([ path_container, @bookmark]) do |f| -%>
 
   <%= render :partial => "form", :object => f %>
 

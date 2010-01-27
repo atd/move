@@ -2,7 +2,7 @@
 
 <%= error_messages_for :audio %>
 
-<% form_for([ container, @audio ], :html => { :multipart => true }) do |f| -%>
+<% form_for([ path_container, @audio ], :html => { :multipart => true }) do |f| -%>
 
   <%= render :partial => "form", :object => f %>
 

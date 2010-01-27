@@ -2,7 +2,7 @@
 
 <%= error_messages_for(:article) %>
 
-<% form_for([container, @article]) do |f| -%>
+<% form_for(@article) do |f| -%>
 
   <%= render :partial => "form", :object => f %>
 
