@@ -1,3 +1,5 @@
+<% atom_link_header(path_container, Event.new) %>
+
 <% content_for :pagination, will_paginate(@events) %>
 
 <%= events_list %>

@@ -11,7 +11,7 @@ describe ArticlesController do
 
   describe "as Anonymous" do
     it "should render show" do
-      get :show, :id => @article.id, @article.container.class.to_s.foreign_key.to_sym => @article.container.id
+      get :show, :id => @article.id, @article.container.class.name.foreign_key => @article.container.to_param
 
       response.should be_success
     end
@@ -22,8 +22,21 @@ describe ArticlesController do
       login_as(Factory(:user))
     end
 
+    it "should render index" do
+      get :index, @article.container.class.name.foreign_key => @article.container.to_param
+
+      assert_response 200
+    end
+
+    it "should render atom index" do
+      get :index, @article.container.class.name.foreign_key => @article.container.to_param, :format => 'atom'
+
+      assert_response 200
+    end
+
+
     it "should render show" do
-      get :show, :id => @article.id, @article.container.class.to_s.foreign_key.to_sym => @article.container.id
+      get :show, :id => @article.id, @article.container.class.name.foreign_key => @article.container.to_param
 
       response.should be_success
     end
