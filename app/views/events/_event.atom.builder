@@ -4,7 +4,7 @@ end
 
 entry.summary(:type => "xhtml") do
   entry.div(sanitize(event.description), :xmlns => "http://www.w3.org/1999/xhtml")
-end if event.respond_to?(:description.) && event.description.present?
+end if event.respond_to?(:description) && event.description.present?
 
 entry.tag!("app:edited", event.updated_at.xmlschema)
 
