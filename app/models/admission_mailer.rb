@@ -11,7 +11,8 @@ class AdmissionMailer < ActionMailer::Base
 
   def processed_invitation(admission, sent_at = Time.now)
     subject    "[#{ Site.current.name }] #{ admission.state_message }"
-    recipients admission.introducer.email_with_name
+    recipients ( Array(admission.introducer) | 
+                 Array(admission.group.actors(:role => "Admin"))).map(&:email_with_name)
     from       Site.current.email_with_name
     sent_on    sent_at
     
