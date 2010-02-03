@@ -4,7 +4,9 @@ module ApplicationHelper
 
   #FIXME
   def fixme_container
-    current_container || respond_to?(:user) && user
+    c = current_container || respond_to?(:user) && user
+    c = c.container if c.is_a?(Event) || c.is_a?(Task)
+    c
   end
 
   def current_header
@@ -44,7 +46,7 @@ module ApplicationHelper
     end
   end
 
-  def sidebar(container = self.current_container)
+  def sidebar(container = self.fixme_container)
     case container
     when User, Group
       render :partial => "#{ container.class.to_s.tableize }/sidebar",
