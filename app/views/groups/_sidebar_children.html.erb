@@ -4,7 +4,7 @@
     <%= t('group.children.other') %>
   </h1>
 
-  <%= render :partial => 'groups/child', :collection => children %>
+  <%= render :partial => 'groups/child', :collection => group.children %>
 
   <% if authorized?(:create, group.children.new) %>
   <div id='new_child' class="child span-1 new-child">

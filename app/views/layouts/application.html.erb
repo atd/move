@@ -26,19 +26,28 @@
 </head>
 
 <body>
-  <div id="site" class="container ">
-    <div id="header" class="span-24 last">
-      <div id="header_logo" class="prepend-1 span-3">
-        <%= link_logo(current_site, :size => 96, :url => root_path) %>
+  <div id="site" class="container">
+    <div id="header">
+      <div id="header-session">
+        <%= current_header_session %>
       </div>
-      <div id="header_title" class="prepend-1 span-8">
-        <%= link_to current_site.name, root_path %>
+      <div id="header-logotype">
+        <div id="header-logo">
+          <%= current_header[:logo] %>
+        </div>
+        <div id="header-title">
+          <%= current_header[:title] %>
+        </div>
+        <div id="header-subtitle">
+          <%= current_header[:subtitle] %>
+        </div>
       </div>
-      <div id="header_session" class="prepend-18">
-        <%= header_session %>
+      <div id="header-location" class="span-22 last">
+        <%= current_header[:location] %>
+      </div>
+      <div id="header-bottom">
       </div>
     </div>
-    <hr class="site">
     <div id="content" class="prepend-1 span-22 append-1 last">
       <div id="notification" class="span-22 last">
         <%= notification_area %>
@@ -50,7 +59,7 @@
         </div>
       </div>
       <div id="sidebar" class="span-6 last">
-        <%= yield(:sidebar) || sidebar_menu %>
+        <%= yield(:sidebar) || sidebar %>
       </div>
     </div>
     <hr class="site">

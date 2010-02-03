@@ -1,0 +1,50 @@
+<div id="contents" class= "span-6 last">
+
+  <h1><%= image_tag('models/16/content.png', :class => 'logo') + ' ' + t('content.other') %></h1>
+
+  <% if authorized?([ :create, :content ], container) -%>
+
+  <% contents = container.class.contents - [ :photos, :audios ] %>
+
+  <div id="new_contents-wrapper" class="span-6 last">
+    <div id="new_contents" class="actions span-6">
+      <ul>
+        <% contents.each do |content_sym|
+           content = content_sym.to_class.new
+           content.container = container
+           content_path = polymorphic_path(content, :action => :new)
+        %>
+        <li>
+        <%= link_to(image_tag("models/16/#{ content_sym.to_s.singularize }-new.png", :class => 'logo'), content_path) %>
+        <%= link_to_unless_current(
+                  t(:new, :scope => content_sym.to_s.singularize), 
+                  content_path) %>
+        </li>
+        <% end -%>
+      </ul>
+    </div>
+  </div>
+  <% end -%>
+
+  <div id="current_contents" class= "span-6 last">
+    <ul>
+    <% container.class.contents.sort do |x, y| 
+         t(:other, :scope => x.to_s.singularize) <=> 
+         t(:other, :scope => y.to_s.singularize) 
+       end.each do |content| %>
+
+      <% if container.send(content.to_s.pluralize).count > 0 -%>
+        <li>
+        <%= link_logo(content.to_class.new, :url => [ container, content.to_class.new ]) %>
+        <%= link_to_unless_current(t(:other, :scope => content.to_s.singularize), [ container, content.to_class.new ]) %>
+        </li>
+      <% end -%>
+    <% end -%>
+    </ul>
+  </div>
+</div>
+
+<% if authorized?([ :read, :content ], container) && container.tags.any? %>
+  <%= render(:partial => 'tags/sidebar_list',
+  :locals => { :container => container }) %>
+<% end %>

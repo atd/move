@@ -16,7 +16,7 @@ class Group < ActiveRecord::Base
 
   acts_as_resource :per_page => 15
   acts_as_container :sources => true,
-                    :contents => [ :articles, :photos, :audios, :bookmarks, :documents, :tasks, :events ]
+                    :contents => [ :documents, :events, :articles, :bookmarks, :tasks, :photos, :audios ]
   acts_as_stage
   acts_as_logoable
 

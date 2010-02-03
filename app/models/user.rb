@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
                     :contents => [ :articles, :photos, :audios, :bookmarks, :documents, :tasks, :events ]
   acts_as_logoable
 
-  attr_accessible :description
+  attr_accessible :email, :subtitle, :description
 
   # FIXME: Rails 2.3 nested_attributes
   attr_accessible :_logo

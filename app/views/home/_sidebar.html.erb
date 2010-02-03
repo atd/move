@@ -1,17 +1,19 @@
-<h1><%= t('user.group.other') %></h1>
-
-<div id="home-groups" class="groups span-7 last">
-  <%= render(:partial => 'group', :collection => current_agent.stages) %>
-  <div id="new-group" class="group new-group span-2">
-    <%= link_to image_tag('models/48/group-new.png',
+<div id="home-groups" class="span-6 last">
+  <ul id="home-groups-list" class="logotypes">
+    <% current_agent.stages.each do |s| %>
+    <li class="span-2 <%= cycle("", "", "last") %>"><%= link_logotype(s, :size => 64) %></li>
+    <% end %>
+  </ul>
+  <div id="new-group" class="group new-group span-6 last">
+    <span class="logotype">
+    <%= link_to image_tag('models/32/group-new.png',
                           :alt => t('group.new'),
                           :title => t('group.new'),
                           :class => 'logo new-group'),
                           polymorphic_path(Group.new, :action => :new) %>
-                          <br />
     <%= link_to t('group.new'),
                 polymorphic_path(Group.new, :action => :new) %>
-
+    </span>
   </div>
 </div>
 

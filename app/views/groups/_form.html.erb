@@ -13,6 +13,14 @@
   <%= form.text_field :email, :class => 'text' %>
   </p>
 
+</fieldset>
+
+<fieldset>
+  <p>
+  <%= form.label :subtitle, t('group.subtitle') %><br />
+  <%= form.text_field :subtitle, :class => 'text' %>
+  </p>
+
   <p>
   <%= form.label :description, t('group.description') %><br />
   <%= fckeditor_textarea :group, :description, :toolbarSet => 'Simple', :width => '100%', :height => '400px' %>

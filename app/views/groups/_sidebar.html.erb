@@ -1,0 +1,22 @@
+<% if authorized?(:update, group) -%>
+<div id='sidebar-admin'>
+  <%= link_to(image_tag("icons/actions/user-group-properties.png"),
+              polymorphic_path(group, :action => :edit),
+              :title => t('edit'), :alt => t('edit')) %>
+  <%= link_to t('group.edit'), polymorphic_path(group, :action => :edit) %>
+</div>
+<% end -%>
+
+<% if authorized?([ :read, :performance ], group) -%>
+  <%= render(:partial => 'groups/sidebar_performances', :locals => { :group => group }) %>
+<% end -%>
+
+<% if authorized?([ :read, :performance ], group) && group.children.any? ||
+      authorized?([ :create, :performance ], group) %>
+  <%= render(:partial => 'groups/sidebar_children',
+             :object => group.children,
+             :locals => { :group => group }) %>
+<% end -%>
+  
+<%= render :partial => 'contents/container_sidebar',
+           :locals => { :container => group } %>

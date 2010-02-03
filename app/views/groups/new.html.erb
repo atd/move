@@ -1,6 +1,6 @@
 <% if @group.parent.present? %>
   <% content_for :title_header, title(t('group.children.new_in', :parent => @group.parent.name), :append_site_name => true) %>
-  <% content_for :sidebar, container_menu(@group.parent) %>
+  <% content_for :sidebar, sidebar(@group.parent) %>
   <h1><%= t('group.children.new_in', :parent => @group.parent.name) %></h1>
 <% else %>
   <h1><%= title %></h1>

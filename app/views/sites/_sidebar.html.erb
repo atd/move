@@ -1,0 +1,15 @@
+<%= link_logo(current_site, :size => 48, :url => root_path) %>
+<%= sanitize(current_site.description) if current_site.description %>
+
+<hr>
+
+<ul>
+  <li><%= link_logotype User.new, :text => t('user.other') %></li>
+  <li><%= link_logotype Group.new, :text => t('group.other') %></li>
+  <li><%= link_logotype Article.new, :text => t('article.other') %></li>
+  <li><%= link_logotype Photo.new, :text => t('photo.other') %></li>
+  <li><%= link_logotype Audio.new, :text => t('audio.other') %></li>
+  <li><%= link_logotype Document.new, :text => t('document.other') %></li>
+  <li><%= link_logotype Bookmark.new, :text => t('bookmark.other') %></li>
+</ul>"
+

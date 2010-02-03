@@ -2,144 +2,56 @@
 module ApplicationHelper
   PUBLISHED_DATA_TIME_LIMIT = 1.month
 
-  def sidebar_menu
-    path_container && path_container != current_site ?
-      container_menu :
-      site_menu
+  #FIXME
+  def fixme_container
+    current_container || respond_to?(:user) && user
   end
 
-  def site_menu
-    returning "" do |html|
-      html << link_logo(current_site, :size => 48, :url => root_path)
-      html << sanitize(current_site.description) if current_site.description
-      html << "<hr>"
-      html << "<ul>"
-      html << "<li>#{ link_logotype User.new, :text => t('user.other') }</li>"
-      html << "<li>#{ link_logotype Group.new, :text => t('group.other') }</li>"
-      html << "<li>#{ link_logotype Article.new, :text => t('article.other') }</li>"
-      html << "<li>#{ link_logotype Photo.new, :text => t('photo.other') }</li>"
-      html << "<li>#{ link_logotype Audio.new, :text => t('audio.other') }</li>"
-      html << "<li>#{ link_logotype Document.new, :text => t('document.other') }</li>"
-      html << "<li>#{ link_logotype Bookmark.new, :text => t('bookmark.other') }</li>"
-      html << "</ul>"
-    end
-  end
+  def current_header
+    # FIXME: DRY
+    if ( ( obj = fixme_container ) && ! fixme_container.new_record? )
+      container, location = obj, Array(obj)
+      # Adds to location all the containers of obj
+      location.unshift(container = container.parent) while container.respond_to?(:parent) && container.parent
 
-  def container_menu(container = self.path_container)
-    return "" unless container
+      location = location.map{ |e| link_logotype(e) }
+      location.unshift(link_logotype(current_site, :url => root_path))
 
-    returning "" do |html|
-      html << agent_header(container)
-      html << "<hr>"
-
-      html << group_sidebar(container)
-
-      html << contents(container)
-
-      if authorized?([ :read, :content ], container) && container.tags.any?
-        html << render(:partial => 'tags/sidebar_list', :locals => { :container => container })
-      end
-    end
-  end
-
-  def agent_header(agent)
-    render :partial => "#{ agent.class.to_s.tableize }/sidebar_header",
-           :locals => { agent.class.to_s.underscore.to_sym => agent }
-  end
-
-  def group_sidebar(group)
-    return "" unless group.is_a?(Group)
-
-    returning "" do |html|
-      html << performances(group)
-
-      html << group_children(group)
-    end
-  end
-
-  def group_children(group)
-    return "" unless group.authorize?([ :read, :performance ], :to => current_agent) &&
-                     group.children.any? ||
-                     group.authorize?([ :create, :performance ], :to => current_agent)
-
-    returning "" do |html|
-      html << render(:partial => 'groups/children',
-                     :object => group.children,
-                     :locals => { :group => group })
-    end
-  end
-
-  def performances(group)
-    group.authorize?([ :read, :performance ], :to => current_agent) ?
-      render(:partial => 'groups/performances', :locals => { :group => group }) :
-      ""
-  end
-
-  def new_contents(container)
-    return "" unless container.authorize?([ :create, :content ], :to => current_agent)
-
-    contents = [ :document, :event, :article, :bookmark, :task ]
-
-    returning "" do |html|
-      html << '<div id="new_contents-wrapper" class="span-6 last">'
-      html << '<div id="new_contents" class="actions span-6">'
-      html << "<ul>"
-      contents.each do |content_sym|
-      next if container.is_a?(User) && content_sym == :tasks
-
-        html << "<li>"
-        content = content_sym.to_class.new
-        content.container = container
-        content_path = polymorphic_path(content, :action => :new)
-
-        html << link_to(image_tag("models/16/#{ content_sym.to_s.singularize }-new.png", :class => 'logo'), content_path)
-        html << link_to_unless_current(
-                  t(:new, :scope => content_sym.to_s.singularize), 
-                  content_path)
-        html << "</li>"
-      end
-      html << "</ul>"
-      html << "</div>"
-      html << "</div>"
-    end
-  end
-
-  def contents(container)
-    returning "" do |html|
-      html << '<div id="contents" class= "span-6 last">'
-
-      html << "<h1>#{ image_tag('models/16/content.png', :class => 'logo') } #{ t('content.other') }</h1>"
-
-      html << new_contents(container)
-
-      html << '<div id="current_contents" class= "span-6 last">'
-
-      # Contents
-      html << "<ul>"
-      container.class.contents.sort do |x, y| 
-        t(:other, :scope => x.to_s.singularize) <=> 
-        t(:other, :scope => y.to_s.singularize) 
-      end.each do |content|
-        if container.send(content.to_s.pluralize).count > 0
-          html << "<li>"
-          html << link_logo(content.to_class.new, :url => [ container, content.to_class.new ])
-          html << link_to_unless_current(t(:other, :scope => content.to_s.singularize), 
-                          [ container, content.to_class.new ])
-          html << "</li>"
-        end
-      end
-      html << "</ul>"
-
-      html << "</div>"
-      html << "</div>"
-    end
-  end
-
-  def header_session
-    if authenticated?
-      render :partial => 'layouts/session'
+      { :logo  => link_logo(obj, :size => 96),
+        :title => link_to(obj.name, obj),
+        :subtitle => obj.subtitle,
+        :location => content_tag(:ul, location.map{ |e|
+          opts = { :class => ( e == location.last ? 'current' : 'preceding' ) }
+          content_tag(:li, e, opts )
+        }.join)
+      }
+    elsif controller.controller_name == 'home'
+      location = [ link_logotype(current_site, :url => root_path),
+                   link_logotype(current_user),
+                   link_to(image_tag('icons/apps/nepomuk.png'), home_path) +
+                   link_to(t('user.home')) ]
+      { :logo  => link_to(image_tag('icons/home-96.png'), home_path),
+        :title => link_to(t('user.home'), home_path),
+        :location => content_tag(:ul, location.map{ |e|
+          opts = { :class => ( e == location.last ? 'current' : 'preceding' ) }
+          content_tag(:li, e, opts)
+        })
+      }
     else
-      render :partial => 'layouts/login'
+      { :logo => link_logo(current_site, :size => 96, :url => root_path),
+        :title => link_to(current_site.name, root_path)
+      }
+    end
+  end
+
+  def sidebar(container = self.current_container)
+    case container
+    when User, Group
+      render :partial => "#{ container.class.to_s.tableize }/sidebar",
+             :locals  => 
+                { container.class.to_s.underscore.to_sym => container }
+    else
+      render :partial => 'sites/sidebar'
     end
   end
 
@@ -198,6 +110,8 @@ module ApplicationHelper
   end
 
   def move_format_text(text)
+    text ||= ""
+
     move_format_text_users(text)
   end
 

@@ -1,8 +1,11 @@
 <% content_for :title_header, title(sanitize(@user.name), :append_site_name => true) %>
 <% content_for :pagination, will_paginate(@contents) %>
-<% content_for :sidebar, container_menu(@user) %>
+<% content_for :sidebar, sidebar(@user) %>
 
-<h1><%= t 'user.last activity', :user => @user.name %></h1>
+<div id="user-description">
+  <%= sanitize move_format_text(@user.description) %>
+</div>
+
 <div id="activity_stream">
   <%= render :partial => 'public/content', :collection => @contents %>
   <% if @contents.blank? %>

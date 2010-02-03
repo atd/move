@@ -1,8 +1,11 @@
 <% content_for :pagination, will_paginate(@group_contents) %>
-<% content_for :sidebar, container_menu(@group) %>
+<% content_for :sidebar, sidebar(@group) %>
+
+<div id="group-description">
+  <%= sanitize move_format_text(@group.description) %>
+</div>
 
 <div id="activity_stream">
-  <h1><%= t 'group.last activity', :group => sanitize(@group.name) %></h1>
   <%= render :partial => 'content', :collection => @group_contents %>
   <% if @group_contents.blank? %>
   <div class="error">

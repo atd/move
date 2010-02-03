@@ -1,5 +1,5 @@
 <% content_for :headers, javascript_include_tag('fckeditor/fckeditor') -%>
-<%= content_for :sidebar, container_menu(@user) %>
+<%= content_for :sidebar, sidebar(@user) %>
 
 <h1><%= t 'user.editing' %></h1>
 
@@ -14,6 +14,11 @@
   </p>
 
   <%= f.logo %>
+
+  <p>
+  <%= f.label :email, t('agent.email') %><br />
+  <%= f.text_field :email, :class => 'text' %>
+  </p>
 
   </fieldset>
 
@@ -31,6 +36,11 @@
   </fieldset>
 
   <fieldset>
+  <p>
+  <%= f.label :subtitle, t('user.subtitle') %><br />
+  <%= f.text_field :subtitle, :class => 'text' %>
+  </p>
+
   <p>
   <%= f.label :description, t('user.description') %><br />
   <%= fckeditor_textarea :user, :description, :toolbarSet => 'Simple', :width => '100%', :height => '400px' %>

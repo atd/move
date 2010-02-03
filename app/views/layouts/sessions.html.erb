@@ -18,17 +18,16 @@
 
 <body>
   <div id="site" class="container ">
-    <div id="header" class="span-24 last">
-      <div id="header_logo" class="prepend-1 span-3">
-        <%= link_logo(current_site, :size => 96, :url => root_path) %>
-      </div>
-      <div id="header_title" class="prepend-1 span-8">
-        <%= link_to current_site.name, root_path %>
-      </div>
-      <div id="header_session" class="prepend-18">
-      </div>
+    <div id="header">
+      <div id="header-logotype">
+        <div id="header-logo">
+          <%= current_header[:logo] %>
+        </div>
+        <div id="header-title">
+          <%= current_header[:title] %>
+        </div>
+      <div>
     </div>
-    <hr class="site">
     <div id="content" class="prepend-1 span-22 append-1 last">
       <div id="notification" class="span-22 last">
         <%= notification_area %>
