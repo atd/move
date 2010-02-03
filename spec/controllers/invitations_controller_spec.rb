@@ -90,7 +90,7 @@ describe InvitationsController do
         it "should render" do
           get :show, :id => @invitation.code
           assigns[:invitation].should == @invitation
-          response.should be_success
+          assert_response 200
         end
 
         it "creates and includes her in the group" do
@@ -108,5 +108,4 @@ describe InvitationsController do
       end
     end
   end
-
 end
