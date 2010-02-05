@@ -20,7 +20,7 @@ module ApplicationHelper
       location.unshift(link_logotype(current_site, :url => root_path))
 
       { :logo  => link_logo(obj, :size => 96),
-        :title => link_to(obj.name, obj),
+        :title => link_to(obj.title, obj),
         :subtitle => obj.subtitle,
         :location => content_tag(:ul, location.map{ |e|
           opts = { :class => ( e == location.last ? 'current' : 'preceding' ) }
