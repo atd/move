@@ -41,7 +41,8 @@ module ApplicationHelper
       }
     else
       { :logo => link_logo(current_site, :size => 96, :url => root_path),
-        :title => link_to(current_site.name, root_path)
+        :title => link_to(current_site.name, root_path),
+        :subtitle => sanitize(current_site.description)
       }
     end
   end
