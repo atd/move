@@ -7,6 +7,8 @@ module ApplicationHelper
     c = current_container || respond_to?(:user) && user
     c = c.container if c.is_a?(Event) || c.is_a?(Task)
     c
+  rescue
+    nil
   end
 
   def current_header
