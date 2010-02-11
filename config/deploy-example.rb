@@ -17,6 +17,7 @@ set :git_enable_submodules, 1
 
 after 'deploy:update_code', 'deploy:link_files'
 after 'deploy:update_code', 'deploy:fix_file_permissions'
+after 'deploy:update_code', 'deploy:change_session_secret'
 
 namespace(:deploy) do
   # Running as www-data
@@ -36,6 +37,10 @@ namespace(:deploy) do
     run "ln -sf #{ shared_path }/public/logos #{ release_path }/public/"
     # AttachmentFu files
     run "ln -sf #{ shared_path }/files #{ release_path }/"
+  end
+
+  task :change_session_secret do
+    run  "/bin/cp #{ shared_path }/config/initializers/session_store.rb #{ release_path }/config/initializers/"
   end
 
   desc "Restarting mod_rails with restart.txt"
