@@ -1,4 +1,4 @@
-<% content_for :pagination, will_paginate(@group_contents) %>
+<% content_for :pagination, will_paginate(@group_contents, :params => { :anchor => 'activity_stream' }) %>
 <% content_for :sidebar, sidebar(@group) %>
 
 <div id="group-description">
