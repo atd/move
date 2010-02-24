@@ -24,7 +24,7 @@
 <% end -%>
 </div>
 
-<% if @group.parent.present? %>
+<% if @stage.try(:parent).present? %>
   <%= render :partial => 'new_performance' %>
 <% else -%>
   <%= render :partial => 'invitations' %>

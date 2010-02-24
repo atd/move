@@ -607,6 +607,24 @@ div.pagination a:hover {
 	height: 100px;
 }
 
+#accept-invitation {
+	float: left;
+	width: 310px;
+	margin-right: 10px;
+}
+
+#accept-invitation input[type=submit] {
+	background: url(/images/icons/status/dialog-ok.png) no-repeat center left;
+	height: 50px;
+	padding-left: 50px;
+	margin-left: 80px;
+}
+
+#discard-invitation input[type=submit] {
+	background: url(/images/icons/status/dialog-error.png) no-repeat center left;
+	height: 50px;
+	padding-left: 50px;
+}
 
 .new-resource {
 	margin-top: 10px;

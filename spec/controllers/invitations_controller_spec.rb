@@ -69,7 +69,25 @@ describe InvitationsController do
 
       end
 
+      describe "as introducer" do
+        before do
+          login_as @invitation.introducer
+        end
 
+        it "should redirect" do
+          get :show, :id => @invitation.code
+          response.should redirect_to(logout_url)
+        end
+
+        it "renders errors" do
+          post :update, :id => @invitation.code,
+                        :invitation => { :processed => true,
+                                         :accepted => true }
+          assigns[:invitation].should_not be_valid
+
+          assert_response 200
+        end
+      end
     end
 
     describe "with candidate" do
@@ -83,28 +101,40 @@ describe InvitationsController do
       end
 
       describe "authenticated" do
-        before do
-          login_as @invitation.candidate
+        describe "as candidate" do
+          before do
+            login_as @invitation.candidate
+          end
+
+          it "should render" do
+            get :show, :id => @invitation.code
+            assigns[:invitation].should == @invitation
+            assert_response 200
+          end
+
+          it "creates and includes her in the group" do
+            post :update, :id => @invitation.code,
+                          :invitation => { :processed => true,
+                                           :accepted => true }
+            assigns[:invitation].should be_valid
+            assigns[:invitation].state.should == :accepted
+
+            assert current_agent.email.should == @invitation.email
+
+            assert @invitation.group.users.include? current_agent
+          end
         end
 
-        it "should render" do
-          get :show, :id => @invitation.code
-          assigns[:invitation].should == @invitation
-          assert_response 200
+        describe "as introducer" do
+          before do
+            login_as @invitation.introducer
+          end
+
+          it "should redirect" do
+            get :show, :id => @invitation.code
+            response.should redirect_to(logout_url)
+          end
         end
-
-        it "creates and includes her in the group" do
-          post :update, :id => @invitation.code,
-                        :invitation => { :processed => true,
-                                         :accepted => true }
-          assigns[:invitation].should be_valid
-          assigns[:invitation].state.should == :accepted
-
-          assert current_agent.email.should == @invitation.email
-
-          assert @invitation.group.users.include? current_agent
-        end
-
       end
     end
   end

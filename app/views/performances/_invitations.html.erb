@@ -1,7 +1,7 @@
-<% if ! current_agent.is_a?(SingularAgent) && @group.invitations.pending.any? -%>
+<% if ! current_agent.is_a?(SingularAgent) && @stage.invitations.pending.any? -%>
 <div id="pending-invitations" class="span-16">
   <h2><%= t 'invitation.pending.other' %></h2>
-  <% @group.invitations.pending.each do |i| %>
+  <% @stage.invitations.pending.each do |i| %>
     <% div_for i, :class => 'span-16' do -%>
       <div class="prepend-1 span-6">
         <%= i.candidate.present? ? link_logotype(i.candidate) : i.email %>
@@ -20,6 +20,6 @@
 
 <% end -%>
 
-<% if authorized?([ :create, :performance ], @group) -%>
+<% if authorized?([ :create, :performance ], @stage) -%>
   <%= render :partial => 'new_invitation' %>
 <% end -%>
