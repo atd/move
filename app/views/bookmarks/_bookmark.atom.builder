@@ -13,6 +13,6 @@ entry.link(:rel => 'edit', :href => polymorphic_url([ bookmark.container, bookma
 atom_entry_author(entry, bookmark)
  
 entry.content(:type => 'xhtml') do |xhtml|
-  xhtml << link_to(sanitize(bookmark.title), sanitize(bookmark.uri.to_s))
+  xhtml << link_to(sanitize(h(bookmark.title)), sanitize(bookmark.uri.to_s))
 end
 
