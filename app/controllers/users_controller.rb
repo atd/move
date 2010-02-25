@@ -27,6 +27,7 @@ class UsersController < ApplicationController
       }
       format.atomsvc
       format.xrds
+      format.atom
     end
   end
 
