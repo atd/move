@@ -55,6 +55,38 @@ describe Article do
 
   end
 
+  describe "in private group with authenticated observer" do
+
+    before(:all) do
+      @group = Factory.create(:group)
+      @admin = Factory.create(:admin, :stage => @group).agent
+      @participant = Factory.create(:participant, :stage => @group).agent
+      @observer = Factory.create(:observer, :stage => @group, :agent => Authenticated.current ).agent
+      @external_user = Factory.create(:user)
+    end
+
+    describe "being private" do
+
+      before(:all) do
+        @article = Factory.create(:private_article, :container => @group)
+      end
+
+      it_should_authorize(:admin, :read, :article)
+      it_should_authorize(:admin, :update, :article)
+      it_should_authorize(:admin, :delete, :article)
+      it_should_authorize(:participant, :read, :article)
+      it_should_authorize(:participant, :update, :article)
+      it_should_not_authorize(:participant, :delete, :article)
+      it_should_authorize(:external_user, :read, :article)
+      it_should_not_authorize(:external_user, :update, :article)
+      it_should_not_authorize(:external_user, :delete, :article)
+      it_should_not_authorize(Anonymous.current, :read, :article)
+      it_should_not_authorize(Anonymous.current, :update, :article)
+      it_should_not_authorize(Anonymous.current, :delete, :article)
+    end
+
+  end
+
   describe "in public group" do
 
     before(:all) do
