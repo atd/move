@@ -153,6 +153,9 @@ es:
       other: "Próximas convocatorias"
     past:
       other: "Convocatorias pasadas"
+    errors:
+      end_at:
+        after_start_at: "debe ser posterior a la fecha de inicio"
   attendance:
     new: "Voy a ir"
     destroy: "No voy a ir"
@@ -329,11 +332,13 @@ es:
           photo:
             attributes:
     models:
-      article: "este artículo"
-      photo: "esta imagen"
-      audio: "este audio"
-      bookmark: "este enlace"
-      document: "este fichero"
+      article: "el artículo"
+      photo: "la imagen"
+      audio: "el audio"
+      bookmark: "el enlace"
+      document: "el fichero"
+      task: "la tarea"
+      event: "la convocatoria"
     attributes:
       audio:
         size: "El tamaño"
@@ -348,4 +353,7 @@ es:
         size: "El tamaño"
         content_type: "El tipo de contenido"
         filename: "El nombre del fichero"
+      event:
+        start_at: "La fecha de inicio"
+        end_at: "La fecha de finalización"
 

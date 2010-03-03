@@ -1,13 +1,50 @@
 <% jquery_tags('event') %>
 
+<% content_for :headers, javascript_include_tag('jquery.ui', 'ui.datepicker-es', 'jquery.timepickr') %>
+<% content_for :headers, stylesheet_link_tag('jquery.ui', 'ui.timepickr', :media => 'screen, projection') %>
+
+<% content_for :javascript do -%>
+$("#event-start_at").replaceWith(
+  "<%= escape_javascript(text_field_tag("event[start_at_date]",
+  form.object.start_at.try(:to_date).try(:strftime, '%d/%m/%Y')) +
+  text_field_tag("event[start_at_hour]",
+  form.object.start_at.try(:strftime, '%H:%M'))) %>");
+  $("#event_start_at_date").datepicker({firstDay: 1,
+                                        onSelect: function(startDate, inst) {
+    var start = $("#event_start_at_date");
+    var end = $("#event_end_at_date");
+    if (end.datepicker('getDate') < start.datepicker('getDate')) {
+      end.datepicker('setDate', start.datepicker('getDate'));
+    }
+  }
+  })
+$("#event_start_at_hour").timepickr({handle: '#event_start_at_date'});
+
+$("#event-end_at").replaceWith(
+  "<%= escape_javascript(text_field_tag("event[end_at_date]",
+  form.object.end_at.try(:to_date).try(:strftime, '%d/%m/%Y')) +
+  text_field_tag("event[end_at_hour]",
+  form.object.end_at.try(:strftime, '%H:%M'))) %>");
+$("#event_end_at_date").datepicker({firstDay: 1})
+$("#event_end_at_hour").timepickr();
+
+// Hide timepickr selectors
+$("div.ui-timepickr").hide();
+
+<% end -%>
+
 <p>
   <label><%= form.label :start_at, t('event.start_at')%></label><br />
+  <span id="event-start_at">
   <%= form.datetime_select :start_at %>
+  </span>
 </p>
 
 <p>
   <label><%= form.label :end_at, t('event.end_at')%></label><br />
+  <span id="event-end_at">
   <%= form.datetime_select :end_at %>
+  </span>
 </p>
 
 <p>
