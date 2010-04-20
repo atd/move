@@ -22,7 +22,6 @@ class UsersController < ApplicationController
       format.html {
         if user.agent_options[:openid_server]
           headers['X-XRDS-Location'] = polymorphic_url(@agent, :format => :xrds)
-          @openid_server_agent = @agent
         end
       }
       format.atomsvc

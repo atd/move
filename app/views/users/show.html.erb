@@ -1,6 +1,7 @@
 <% atom_link_header(@user) %>
 <% content_for :title_header, title(sanitize(@user.name), :append_site_name => true) %>
 <% content_for :pagination, will_paginate(@contents, :params => { :anchor => 'activity_stream' } ) %>
+<% content_for :headers, "<link rel=\"openid2.server\" href=\"#{ openid_server_url }\" />" %>
 <% content_for :sidebar, sidebar(@user) %>
 
 <div id="user-description">
