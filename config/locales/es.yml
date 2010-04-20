@@ -325,6 +325,7 @@ es:
     public_read: "Lectura pública"
   tag:
     all: "Todas las etiquetas"
+  welcome: "Bienvenid@"
 
   activerecord:
     errors:

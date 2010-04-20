@@ -1,7 +1,7 @@
 class UserMailer < ActionMailer::Base
   def signup_notification(user)
     setup_email(user)
-    @subject    += I18n.t(:wellcome)
+    @subject    += I18n.t(:welcome)
     @body[:user] = user
   end
   
